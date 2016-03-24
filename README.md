@@ -10,8 +10,10 @@ then "npm install"
 
 might be that you also need to "npm install -g grunt-cli" and "npm install -g bower"
 
+let me know if something is not working
+
 Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
 
-Running `grunt test` will run the unit tests with karma. (no tests yet done)
+Running `grunt test` will run the unit tests with karma. (no tests yet done) 
