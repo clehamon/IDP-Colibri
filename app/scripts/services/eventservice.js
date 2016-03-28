@@ -17,4 +17,5 @@ angular.module('eventifyApp')
 
     this.User = $resource('http://clementhamon.com/IDP/public/user/:id');
 
+
   });

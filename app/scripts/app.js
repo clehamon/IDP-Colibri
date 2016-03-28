@@ -55,6 +55,11 @@ angular
         controller: 'LoginCtrl',
         controllerAs: 'logIn'
       })
+      .when('/overview', {
+        templateUrl: 'views/overview.html',
+        controller: 'OverviewCtrl',
+        controllerAs: 'overview'
+      })
       .otherwise({
         redirectTo: '/'
       });
