@@ -9,11 +9,18 @@
     <a class="btn" ng-href="#">Edit</a>
     <a class="btn" ng-href="#">Share</a>
   </div>
-  <!--<div class="col-md-4" ng-controller="MapCtrl">
-  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-</div>-->
+  <div class="col-md-4" ng-controller="MapCtrl">
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+  </div>
 </div>
-<div class="row" ng-controller="MapCtrl">
-  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-
+<div class="row">
+  <div class="col-md-4">
+    <h4>Items to bring</h4>
+  </div>
+  <div class="col-md-4">
+    <h4>Tasks to do</h4>
+  </div>
+  <div class="col-md-4" ng-init="userEvents()">
+    <h4>Attendees</h4>
+  </div>
 </div>

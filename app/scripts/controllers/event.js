@@ -8,10 +8,22 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function () {
+  .controller('EventCtrl', function ($scope, eventService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    $scope.userEvents = function () {
+      console.log('here');
+      eventService.UserEvents.get({
+        id: 1
+      }, function (data) {
+        console.log(data);
+      }, function (data) {
+        console.log(data);
+      });
+    };
+
   });
