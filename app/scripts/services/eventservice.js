@@ -15,4 +15,6 @@ angular.module('eventifyApp')
 
     this.EventAttendees = $resource('http://clementhamon.com/IDP/public/event/:id/attendees');
 
+    this.User = $resource('http://clementhamon.com/IDP/public/user/:id');
+
   });

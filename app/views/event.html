@@ -19,11 +19,23 @@
 <div class="row">
   <div class="col-md-4">
     <h4>Items to bring</h4>
+    <ul>
+      <li ng-repeat="stuff in event.stuffs">
+        {{stuff.name}}
+        <div></div>
+        <!--{{users[$index]}}-->
+      </li>
+    </ul>
   </div>
   <div class="col-md-4">
     <h4>Tasks to do</h4>
+    <ul>
+      <li ng-repeat="task in evet.tasks">
+
+      </li>
+    </ul>
   </div>
-  <div class="col-md-4" ng-init="getAttendees(1)">
+  <div class="col-md-4">
     <h4>Attendees</h4>
     <div>{{event.attendee.length}}</div>
     <ul>

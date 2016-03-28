@@ -45,6 +45,18 @@ angular.module('eventifyApp')
       });
     };
 
+    $scope.getUser = function (ID) {
+      EventService.User.get({
+        id: ID
+      }, function (data) {
+        console.log(data);
+        return data;
+      }, function (data) {
+        console.log(data);
+        return null;
+      });
+    };
+
     /*Refactored everything to use getEventByID,
     so this is currently not used.
     Left it here just in case.*/
