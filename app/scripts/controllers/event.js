@@ -15,6 +15,7 @@ angular.module('eventifyApp')
       'Karma'
     ];
 
+    //this name should be changed
     $scope.getEventByID = function (ID) {
       $scope.eventStatus = true;
       EventService.Event.get({
@@ -22,6 +23,22 @@ angular.module('eventifyApp')
       }, function (data) {
         $scope.event = data;
         console.log(data);
+
+        //not sure if this should be in MapCtrl
+        $scope.mapCenter = {
+          latitude: data.locationLat,
+          longitude: data.locationLong
+        };
+
+        //This is required by the directive
+        $scope.markerCenter = {
+          latitude: data.locationLat,
+          longitude: data.locationLong
+        };
+
+        //couldn't make "{{event.id}}" work directly in the HTML
+        $scope.id = data.id;
+
         $scope.eventStatus = false;
       }, function (data) {
         console.log(data);
