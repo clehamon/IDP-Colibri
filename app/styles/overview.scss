@@ -1,0 +1,30 @@
+.eventCard{
+	background-color: rgb(0,0,0);
+
+}
+
+.eventCard-top{
+	background-size: cover;
+	background-size: 100%;
+	padding: 10px;
+}
+
+.eventCard-top-info{
+	opacity: 1;
+	color: rgba(255,255,255, 1);
+}
+
+.eventCard-attendees{
+	float: right;
+	z-index: 2;
+	height: 50px;
+	width: 50px;
+	background-color: rgb(255,255,255);
+	color: rgb(0,0,0);
+	margin-top: -50px;
+	line-height: 40px;
+	text-align: center;
+	padding: 5px;
+	border-radius: 50%;
+
+}
