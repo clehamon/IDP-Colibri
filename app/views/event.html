@@ -9,11 +9,11 @@
     <a class="btn" ng-href="#">Edit</a>
     <a class="btn" ng-href="#">Share</a>
   </div>
-  <div class="col-md-4">
-
-  </div>
+  <!--<div class="col-md-4" ng-controller="MapCtrl">
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+</div>-->
 </div>
-<div class="row">
-
+<div class="row" ng-controller="MapCtrl">
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
 
 </div>
