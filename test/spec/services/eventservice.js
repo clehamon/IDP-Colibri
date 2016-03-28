@@ -1,18 +1,18 @@
 'use strict';
 
-describe('Service: eventService', function () {
+describe('Service: EventService', function () {
 
   // load the service's module
   beforeEach(module('eventifyApp'));
 
   // instantiate service
-  var eventService;
-  beforeEach(inject(function (_eventService_) {
-    eventService = _eventService_;
+  var EventService;
+  beforeEach(inject(function (_EventService_) {
+    EventService = _EventService_;
   }));
 
   it('should do something', function () {
-    expect(!!eventService).toBe(true);
+    expect(!!EventService).toBe(true);
   });
 
 });
