@@ -15,9 +15,8 @@ angular.module('eventifyApp')
       'Karma'
     ];
 
-    $scope.userEvents = function () {
-      console.log('here');
-      eventService.UserEvents.get({
+    $scope.getAttendees = function () {
+      eventService.EventAttendees.get({
         id: 1
       }, function (data) {
         console.log(data);
