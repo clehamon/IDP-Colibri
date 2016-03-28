@@ -22,5 +22,11 @@
   </div>
   <div class="col-md-4" ng-init="getAttendees()">
     <h4>Attendees</h4>
+    <ul>
+      <li ng-repeat="attendee in attendees">
+        <!--<img src="{{attendee.avatar}}" />-->
+        <div>{{attendee.firstName}} {{attendee.lastName}}</div>
+      </li>
+    </ul>
   </div>
 </div>

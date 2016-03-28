@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function ($scope, eventService) {
+  .controller('EventCtrl', function ($scope, EventService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,9 +16,10 @@ angular.module('eventifyApp')
     ];
 
     $scope.getAttendees = function () {
-      eventService.EventAttendees.get({
+      EventService.EventAttendees.query({
         id: 1
       }, function (data) {
+        $scope.attendees = data;
         console.log(data);
       }, function (data) {
         console.log(data);
