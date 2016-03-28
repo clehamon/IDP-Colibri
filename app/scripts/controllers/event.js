@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function ($scope, EventService) {
+  .controller('EventCtrl', function ($scope, EventService, UserService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -46,7 +46,7 @@ angular.module('eventifyApp')
     };
 
     $scope.getUser = function (ID) {
-      EventService.User.get({
+      UserService.User.get({
         id: ID
       }, function (data) {
         console.log(data);
