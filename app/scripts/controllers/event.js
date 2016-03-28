@@ -15,12 +15,29 @@ angular.module('eventifyApp')
       'Karma'
     ];
 
-    $scope.getAttendees = function () {
+    $scope.getEventByID = function (ID) {
+      $scope.eventStatus = true;
+      EventService.Event.get({
+        id: ID
+      }, function (data) {
+        $scope.event = data;
+        console.log(data);
+        $scope.eventStatus = false;
+      }, function (data) {
+        console.log(data);
+      });
+    };
+
+    /*Refactored everything to use getEventByID,
+    so this is currently not used.
+    Left it here just in case.*/
+    $scope.getAttendees = function (ID) {
+      $scope.attendeeStatus = true;
       EventService.EventAttendees.query({
-        id: 1
+        id: ID
       }, function (data) {
         $scope.attendees = data;
-        console.log(data);
+        $scope.attendeeStatus = false;
       }, function (data) {
         console.log(data);
       });

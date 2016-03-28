@@ -1,10 +1,11 @@
-<div class="row">
+<div ng-show="eventStatus">Loading...</div>
+<div class="row" ng-init="getEventByID(1)">
   <div class="col-md-8">
-    <h1>Event name</h1>
+    <h1>{{event.name}}</h1>
 
-    <h3>23.3. 16:00 - 20:00</h3>
+    <h3>{{event.date}} {{evetn.time}} {{event.duration}}</h3>
 
-    <p>Sweet chocolate sugar plum macaroon tiramisu gingerbread chocolate bar chupa chups. Biscuit chocolate bar gingerbread. Pudding jelly beans gummies lollipop powder. Chocolate cake pudding macaroon brownie lemon drops powder. Wafer sesame snaps ice cream. Powder cotton candy sweet roll. Jelly-o cupcake sesame snaps topping chocolate bar danish tootsie roll biscuit chocolate cake. Croissant gummies bonbon croissant. Carrot cake dragée apple pie. Sesame snaps gummies lemon drops cookie bonbon fruitcake pie toffee.</p>
+    <p>{{event.description}}</p>
 
     <a class="btn" ng-href="#">Edit</a>
     <a class="btn" ng-href="#">Share</a>
@@ -20,10 +21,11 @@
   <div class="col-md-4">
     <h4>Tasks to do</h4>
   </div>
-  <div class="col-md-4" ng-init="getAttendees()">
+  <div class="col-md-4" ng-init="getAttendees(1)">
     <h4>Attendees</h4>
+    <div>{{event.attendee.length}}</div>
     <ul>
-      <li ng-repeat="attendee in attendees">
+      <li ng-repeat="attendee in event.attendee">
         <!--<img src="{{attendee.avatar}}" />-->
         <div>{{attendee.firstName}} {{attendee.lastName}}</div>
       </li>
