@@ -8,7 +8,7 @@
 		<div class="row">
 			<div ng-repeat="event in events" class="col-md-4">
 				<div class="eventCard">
-					<div class="eventCard-top" style=" background: linear-gradient( rgba(0, 0, 0,0.3), rgba(0, 0, 0,0.3) ), url('{{event.coverPicture}}') no-repeat center center fixed;">
+					<div class="eventCard-top" style=" background: linear-gradient( rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5) ), url('{{event.coverPicture}}') no-repeat center center;">
 						<div class="eventCard-top-info">
 							<h3>{{event.name}}</h3>
 							<p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date:'shortTime'}}</p>
@@ -17,6 +17,25 @@
 								<span class="glyphicon glyphicon glyphicon-user"></span>
 								{{event.attendee.length}}
 							</div>
+						</div>
+					</div>
+					<div class="eventCard-middle">
+						<div class="col-xs-6 eventCard-list">
+							<p class="eventCard-item-title">My items</p>
+							<p class="eventCard-item" ng-repeat="stuff in event.stuffs">
+								{{stuff.name}}
+							</p>
+						</div>
+						<div class="col-xs-6 eventCard-list">
+							<p class="eventCard-item-title">My tasks</p>
+							<p class="eventCard-item" ng-repeat="task in event.tasks">
+								{{task.name}}
+							</p>
+						</div>
+					</div>
+					<div class="eventCard-bottom">
+						<div class="col-xs-10 col-xs-offset-1">
+							<button type="button" class="eventCard-btn-event btn btn-primary">Go to Event</button>
 						</div>
 					</div>
 				</div>

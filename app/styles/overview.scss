@@ -1,5 +1,10 @@
 .eventCard{
-	background-color: rgb(0,0,0);
+	background-color: #EEE;
+	/*box-shadow: 0px 0px 1px 1px #DDD;*/
+	border-radius: 3px;
+	display:block;
+	overflow:auto;
+	max-height: 320px;
 
 }
 
@@ -7,6 +12,8 @@
 	background-size: cover;
 	background-size: 100%;
 	padding: 10px;
+	border-radius: 3px 3px 0 0 ;
+
 }
 
 .eventCard-top-info{
@@ -27,4 +34,35 @@
 	padding: 5px;
 	border-radius: 50%;
 
+}
+
+.eventCard-middle{
+	text-align: center;
+	height: 100%;
+}
+
+.eventCard-list{
+	padding: 0;
+	min-height: 66px;
+}
+
+.eventCard-item-title{
+	background-color: #116CE6;
+	color: white;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.eventCard-item{
+
+}
+
+.eventCard-bottom{
+	border-radius: 0 0 3px 3px ;
+	height:40px;
+}
+
+.eventCard-btn-event{
+	margin:5px auto 5px auto;
+    display:block;
 }
