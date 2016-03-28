@@ -18,7 +18,7 @@ angular
     'ngTouch',
     'uiGmapgoogle-maps'
   ])
-  .config(function ($routeProvider, uiGmapGoogleMapApiProvider) {
+  .config(function ($routeProvider, uiGmapGoogleMapApiProvider, $httpProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -64,5 +64,11 @@ angular
       v: '3.20', //defaults to latest 3.X anyhow
       libraries: 'weather,geometry,visualization'
     });
+
+    $httpProvider.defaults.useXDomain = true;
+    $httpProvider.defaults.withCredentials = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    $httpProvider.defaults.headers.common.Accept = 'application/json';
+    $httpProvider.defaults.headers.common['Content-Type'] = 'application/json';
 
   });
