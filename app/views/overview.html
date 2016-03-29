@@ -1,17 +1,19 @@
-<div class="row" ng-init="getEvents()">
+<ng-include src="'views/header.html'"></ng-include>
+
+<div class="row  overview" ng-init="getEvents()">
 	<div class="col-md-10 col-md-offset-1">
 		<ul class="nav nav-pills nav-justified">
 		  <li><a href="#/overview">Upcoming events</a></li>
 		  <li><a href="#/overview">Past events</a></li>
 		</ul>
 
-		<div class="row">
+		<div class="row overviewMain">
 			<div ng-repeat="event in events" class="col-md-4">
 				<div class="eventCard">
-					<div class="eventCard-top" style=" background: linear-gradient( rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5) ), url('{{event.coverPicture}}') no-repeat center center;">
+					<div class="eventCard-top" style="{{event.bgStyle}}" ng-class="{'is-no-bg':{{event.coverPicture==null}}}">
 						<div class="eventCard-top-info">
 							<h3>{{event.name}}</h3>
-							<p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date:'shortTime'}}</p>
+							<p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date: "HH:mm"}}</p>
 							<p>{{event.location}}</p>
 							<div class="eventCard-attendees">
 								<span class="glyphicon glyphicon glyphicon-user"></span>
@@ -44,4 +46,15 @@
 
 	</div>
 
+	<div class="col-md-1">
+		<a href="#/newEvent" class="overview-new-event"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+	</div>
+
 </div>
+
+<div class="footer">
+  <div class="container">
+    <p>This is the footer</p>
+  </div>
+</div>
+

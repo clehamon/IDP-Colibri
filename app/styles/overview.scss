@@ -1,3 +1,21 @@
+.overview{
+	min-height: 100%;
+}
+
+.overviewMain{
+	margin-top:20px;
+}
+
+.overview-new-event{
+	min-height: 60px;
+	min-width: 60px;
+	font-size: 2em;
+	padding: 12px 14px;
+	border-radius: 50%;
+	color: rgb(255, 255, 255);
+	background-color: #F06361;
+}
+
 .eventCard{
 	background-color: #EEE;
 	/*box-shadow: 0px 0px 1px 1px #DDD;*/
@@ -13,7 +31,10 @@
 	background-size: 100%;
 	padding: 10px;
 	border-radius: 3px 3px 0 0 ;
+}
 
+.eventCard .is-no-bg{
+	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
 
 .eventCard-top-info{
@@ -37,7 +58,6 @@
 }
 
 .eventCard-middle{
-	text-align: center;
 	height: 100%;
 }
 
@@ -51,10 +71,11 @@
 	color: white;
 	padding-top: 3px;
 	padding-bottom: 3px;
+	text-align: center;
 }
 
 .eventCard-item{
-
+	padding-left: 10px;
 }
 
 .eventCard-bottom{
