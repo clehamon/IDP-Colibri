@@ -8,7 +8,7 @@
 </div>
 <div class="row col-md-offset-1" id="eventDetails">
 
-    <form>
+    <form action="http://clementhamon.com/IDP/public/event/new" method="post">
 
         <h4>1. Event Name * :</h4>
         <input type="text" name="name" placeholder="Enter Event Name" id="eventName" />
@@ -45,8 +45,11 @@
                 <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
             </ui-gmap-google-map>
         </div>
-        {{lat}}
-        <br> {{lngt}}
+        Latitude =
+        <input type="decimal" name="locationLat" value="{{lat}}" id="locationLat" />
+        <br> Longitude =
+        <input type="decimal" name="locationLong" value="{{lngt}}" id="locationLong" />
+        <br>
 
 
 
