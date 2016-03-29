@@ -1,0 +1,6 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Users/Nanna/Documents/github/IPD-Colibri/bower_components/lodash/dist/lodash.fp.js",
+        "C:/Users/Nanna/Documents/github/IPD-Colibri/app/scripts/controllers/newevent.js"
+    ]
+}

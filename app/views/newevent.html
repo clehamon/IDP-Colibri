@@ -1,3 +1,50 @@
-<p>This is the view for creating a new event.</p>
+<ng-include src="'views/header.html'"></ng-include>
+<div class="row" id="uploadCoverImg">
+    <div class="jumbotron" align="center">
+        <h4>Upload Event Cover Picture</h4>
+        <p>Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile-first projects on the web.</p>
+        <button>Upload Image</button>
+    </div>
+</div>
+<div class="row" id="eventDetails">
+    <ul class="in-row">
+        <li>
 
-<a class="btn btn-lg" ng-href="#/event">Finish creating event</a>
+            <h4>1. Event Name * :</h4>
+            <input type="text" placeholder="Enter Event Name" id="eventName" />
+
+        </li>
+        <li>
+            <h4>2. Event Date :</h4>
+            <input type="date" id="eventDate" />
+
+        </li>
+        <li>
+            <h4>3. Event Time  :</h4>
+            <input type="number" placeholder="in mins" id="eventTime" />
+        </li>
+        <li>
+            <h4>4. Event Description :</h4>
+            <input type="text" placeholder="Type your text in here...." id="eventDescription" />
+        </li>
+        <li>
+            <h4>5. Spotify Playlist :</h4>
+            <input type="url" placeholder="Paste the link to the spotify playlist" id="spotifyPlaylist" />
+        </li>
+        <li>
+            <h4>6. Event Location :</h4>
+
+            <ui-gmap-google-map center='mapCenter' zoom='14'>
+                <ui-gmap-marker idKey="markerID" coords='markerCenter'></ui-gmap-marker>
+            </ui-gmap-google-map>
+
+
+        </li>
+
+    </ul>
+</div>
+<div class="row" id="create">
+    <div class="row" align="center">
+        <button>Create Event</button>
+    </div>
+</div>
