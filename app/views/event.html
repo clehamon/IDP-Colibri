@@ -21,17 +21,25 @@
     <h4>Items to bring</h4>
     <ul>
       <li ng-repeat="stuff in event.stuffs">
-        {{stuff.name}}
-        <div></div>
-        <!--{{users[$index]}}-->
+        {{stuff.name}} {{getUserByID(stuff.owner).firstName}} {{getUserByID(stuff.owner).lastName}}
       </li>
     </ul>
   </div>
   <div class="col-md-4">
     <h4>Tasks to do</h4>
     <ul>
-      <li ng-repeat="task in evet.tasks">
-
+      <li ng-repeat="task in event.tasks">
+        {{task.name}}
+        <div ng-repeat="owner in task.owners">
+          {{owner.firstName}} {{owner.lastName}}
+        </div>
+      </li>
+      <li>
+        <form action="http://clementhamon.com/IDP/public/task/new" method="post">
+          <input type="hidden" name="event" value="1">
+          <input type="text" name="name" ng-model="newTask">
+          <input type="submit" value="add">
+        </form>
       </li>
     </ul>
   </div>

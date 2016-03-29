@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function ($scope, EventService, UserService) {
+  .controller('EventCtrl', function ($scope, EventService, TaskService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -39,21 +39,34 @@ angular.module('eventifyApp')
         //couldn't make "{{event.id}}" work directly in the HTML
         $scope.id = data.id;
 
+        $scope.attendees = data.attendee;
+
         $scope.eventStatus = false;
       }, function (data) {
         console.log(data);
       });
     };
 
-    $scope.getUser = function (ID) {
-      UserService.User.get({
-        id: ID
+    $scope.getUserByID = function (ID) {
+      var user;
+      $scope.attendees.forEach(function (attendee) {
+        if (attendee.id === ID) {
+          user = attendee;
+        }
+      });
+      return user;
+    };
+
+    $scope.newTask = "nakki";
+
+    $scope.createTask = function (id) {
+      TaskService.NewEventTask.save({}, {
+        event: id,
+        name: $scope.newTask
       }, function (data) {
         console.log(data);
-        return data;
       }, function (data) {
         console.log(data);
-        return null;
       });
     };
 
