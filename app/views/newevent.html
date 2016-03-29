@@ -6,45 +6,57 @@
         <button>Upload Image</button>
     </div>
 </div>
-<div class="row" id="eventDetails">
-    <ul class="in-row">
-        <li>
+<div class="row col-md-offset-1" id="eventDetails">
 
-            <h4>1. Event Name * :</h4>
-            <input type="text" placeholder="Enter Event Name" id="eventName" />
+    <form>
 
-        </li>
-        <li>
-            <h4>2. Event Date :</h4>
-            <input type="date" id="eventDate" />
+        <h4>1. Event Name * :</h4>
+        <input type="text" name="name" placeholder="Enter Event Name" id="eventName" />
+        <br>
 
-        </li>
-        <li>
-            <h4>3. Event Time  :</h4>
-            <input type="number" placeholder="in mins" id="eventTime" />
-        </li>
-        <li>
-            <h4>4. Event Description :</h4>
-            <input type="text" placeholder="Type your text in here...." id="eventDescription" />
-        </li>
-        <li>
-            <h4>5. Spotify Playlist :</h4>
-            <input type="url" placeholder="Paste the link to the spotify playlist" id="spotifyPlaylist" />
-        </li>
-        <li>
-            <h4>6. Event Location :</h4>
+        <h4>2. Event Date :</h4>
+        <input type="date" name="date" id="eventDate" />
+        <br>
 
-            <ui-gmap-google-map center='mapCenter' zoom='14'>
-                <ui-gmap-marker idKey="markerID" coords='markerCenter'></ui-gmap-marker>
+        <h4>3. Event Time  :</h4>
+        <input type="time" name="time" placeholder="in mins" id="eventTime" />
+        <br>
+
+        <h4>4. Event Description :</h4>
+        <textarea name="description" rows="4" cols="100" placeholder="Type your text in here...." id="eventDescription">
+
+        </textarea>
+
+        <br>
+
+        <h4>5. Spotify Playlist :</h4>
+        <input type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" id="spotifyPlaylist" />
+        <br>
+
+        <h4>6. Event Location :</h4>
+        <div id="map_canvas">
+
+            <script type="text/ng-template" id="searchbox.tpl.html">
+                <input type="text" placeholder="Search Box">
+            </script>
+
+            <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="'left-top'"></ui-gmap-search-box>
+                <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
             </ui-gmap-google-map>
+        </div>
+        {{lat}}
+        <br> {{lngt}}
 
 
-        </li>
 
-    </ul>
-</div>
-<div class="row" id="create">
-    <div class="row" align="center">
-        <button>Create Event</button>
-    </div>
+        <div class="jumbotron" align="center">
+            <input type="submit" value="Create Event">
+        </div>
+
+
+    </form>
+
+
+
 </div>
