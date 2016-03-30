@@ -18,11 +18,12 @@
 
 .eventCard{
 	background-color: #EEE;
-	/*box-shadow: 0px 0px 1px 1px #DDD;*/
+	box-shadow: 0px 1px 2px 1px #DDD;
 	border-radius: 3px;
-	display:block;
-	overflow:auto;
+	display:table;
+	// overflow:auto;
 	max-height: 320px;
+	width:100%;
 
 }
 
@@ -43,6 +44,7 @@
 }
 
 .eventCard-attendees{
+	position: relative;
 	float: right;
 	z-index: 2;
 	height: 50px;
@@ -54,7 +56,32 @@
 	text-align: center;
 	padding: 5px;
 	border-radius: 50%;
+	cursor:pointer;
+}
 
+.eventCard-attendees-list{
+	background-color:white;
+	box-shadow: 1px 1px 1px 1px #DDD;
+	width:180px;
+	color:#000;
+	padding:5px;
+	z-index:2;
+	list-style-type: none;
+	display:block;
+	overflow: auto;
+	top:25px;
+	left:25px;
+	position:absolute;
+
+}
+
+.eventCard-attendee{
+	padding: 0;
+}
+
+.eventCard-attendee img{
+	height:40px;
+	widows: 40px;
 }
 
 .eventCard-middle{
@@ -65,6 +92,7 @@
 	padding: 0;
 	min-height: 66px;
 }
+
 
 .eventCard-item-title{
 	background-color: #116CE6;

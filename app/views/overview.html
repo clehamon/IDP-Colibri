@@ -15,9 +15,15 @@
 							<h3>{{event.name}}</h3>
 							<p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date: "HH:mm"}}</p>
 							<p>{{event.location}}</p>
-							<div class="eventCard-attendees">
+							<div class="eventCard-attendees" ng-click="showAttendees = !showAttendees" ng-init="showAttendees = false">
 								<span class="glyphicon glyphicon glyphicon-user"></span>
 								{{event.attendee.length}}
+								<li class="eventCard-attendees-list"  ng-show="showAttendees">
+									<ul class="eventCard-attendee" ng-repeat="attendee in event.attendee">
+										<img src="{{attendee.avatar}}" alt="" class="img-circle">
+										{{attendee.firstName +" "+ attendee.lastName}}
+ 									</ul>
+								</li>
 							</div>
 						</div>
 					</div>
@@ -52,9 +58,9 @@
 
 </div>
 
-<div class="footer">
+<!-- <div class="footer">
   <div class="container">
     <p>This is the footer</p>
   </div>
-</div>
+</div> -->
 
