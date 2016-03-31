@@ -24,7 +24,17 @@
 	// overflow:auto;
 	max-height: 320px;
 	width:100%;
+	position:relative;
 
+}
+
+.eventCard-admin{
+	z-index: 2;
+	position: absolute;
+	top:5px;
+	right:10px;
+	font-size: 1.5em;
+	color:#FAAE1C;
 }
 
 .eventCard-top{

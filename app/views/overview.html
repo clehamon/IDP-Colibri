@@ -10,6 +10,9 @@
 		<div class="row overviewMain">
 			<div ng-repeat="event in events" class="col-md-4">
 				<div class="eventCard">
+					<div class="eventCard-admin" ng-show="{{event.isAdmin}}">
+						<span class="glyphicon glyphicon glyphicon-king" title="Administrator"></span>
+					</div>
 					<div class="eventCard-top" style="{{event.bgStyle}}" ng-class="{'is-no-bg':{{event.coverPicture==null}}}">
 						<div class="eventCard-top-info">
 							<h3>{{event.name}}</h3>
