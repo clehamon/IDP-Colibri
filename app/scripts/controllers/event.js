@@ -8,20 +8,19 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('EventCtrl', function ($scope, EventService, TaskService, $routeParams, $http) {
-        this.awesomeThings = [
-      'HTML5 Boilerplate'
-      , 'AngularJS'
-      , 'Karma'
-    ];
+    .controller('EventCtrl', function ($scope, EventService, TaskService, StuffService, $routeParams, $http) {
 
         $scope.linkID = $routeParams.linkID;
 
+        $scope.newTask = 'nakki';
+
+        $scope.newItem = "ebin";
+
         //this name should be changed
-        $scope.getEventByID = function (ID) {
+        $scope.getEventByID = function () {
             $scope.eventStatus = true;
             EventService.Event.get({
-                id: ID
+                id: $scope.linkID
             }, function (data) {
                 $scope.event = data;
                 console.log(data);
@@ -59,38 +58,31 @@ angular.module('eventifyApp')
             return user;
         };
 
-        $scope.newTask = 'nakki';
-
-        $scope.createTask = function (id) {
+        $scope.createTask = function () {
             TaskService.NewEventTask.save({}, {
-                    event: "1"
-                    , name: "nakki"
-                }
-                , function (data) {
+                    event: $scope.linkID,
+                    name: $scope.newTask
+                },
+                function (data) {
                     console.log(data);
-                }
-                , function (data) {
+                },
+                function (data) {
                     console.log(data);
                 });
         };
 
-        $scope.createItem = function (linkID) {
-            $http.post('http://clementhamon.com/IDP/public/task/new', {
-                    event: "1"
-                    , name: "nakki"
-                }, {
-                    'headers': {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    }
-                })
-                .then(
-                    function (response) {
-                        // success callback
-                    }
-                    , function (response) {
-                        // failure callback
-                    }
-                );
+        $scope.createItem = function () {
+            console.log($scope.linkID, $scope.newItem);
+            StuffService.newStuff.save({}, {
+                    name: $scope.newItem,
+                    event: $scope.linkID
+                },
+                function (data) {
+                    console.log(data);
+                },
+                function (data) {
+                    console.log(data);
+                });
         };
 
         /*$scope.createTask = function (id) {
