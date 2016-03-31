@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function ($scope, EventService, TaskService, $routeParams) {
+  .controller('EventCtrl', function ($scope, EventService, TaskService, $routeParams, $http) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -72,6 +72,25 @@ angular.module('eventifyApp')
         function (data) {
           console.log(data);
         });
+    };
+
+    $scope.createItem = function (linkID) {
+      $http.post('http://clementhamon.com/IDP/public/task/new', {
+          event: "1",
+          name: "nakki"
+        }, {
+          'headers': {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          }
+        })
+        .then(
+          function (response) {
+            // success callback
+          },
+          function (response) {
+            // failure callback
+          }
+        );
     };
 
     /*$scope.createTask = function (id) {
