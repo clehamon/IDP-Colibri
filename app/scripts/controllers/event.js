@@ -57,7 +57,7 @@ angular.module('eventifyApp')
       return user;
     };
 
-    $scope.newTask = "nakki";
+    $scope.newTask = 'nakki';
 
     $scope.createTask = function (id) {
       TaskService.NewEventTask.save({}, {
