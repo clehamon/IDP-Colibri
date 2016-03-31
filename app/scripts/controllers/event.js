@@ -33,8 +33,8 @@ angular.module('eventifyApp')
 
                 //This is required by the directive
                 $scope.markerCenter = {
-                    latitude: data.locationLat
-                    , longitude: data.locationLong
+                    latitude: data.locationLat,
+                    longitude: data.locationLong
                 };
 
                 //couldn't make "{{event.id}}" work directly in the HTML
