@@ -35,10 +35,10 @@
         </div>
       </li>
       <li>
-        <form action="http://clementhamon.com/IDP/public/task/new" method="post">
+        <form>
           <input type="hidden" name="event" value="1">
           <input type="text" name="name" ng-model="newTask">
-          <input type="submit" value="add">
+          <button ng-click="createTask(1)">Create</button>
         </form>
       </li>
     </ul>

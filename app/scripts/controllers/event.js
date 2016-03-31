@@ -8,12 +8,14 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function ($scope, EventService, TaskService) {
+  .controller('EventCtrl', function ($scope, EventService, TaskService, $routeParams) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    $scope.linkID = $routeParams.linkID;
 
     //this name should be changed
     $scope.getEventByID = function (ID) {
@@ -60,15 +62,28 @@ angular.module('eventifyApp')
     $scope.newTask = 'nakki';
 
     $scope.createTask = function (id) {
-      TaskService.NewEventTask.save({}, {
-        event: id,
-        name: $scope.newTask
-      }, function (data) {
-        console.log(data);
-      }, function (data) {
-        console.log(data);
-      });
+      TaskService.NewEventTask.save({}, JSON.stringify({
+          "event": "1",
+          "name": "nakki"
+        }),
+        function (data) {
+          console.log(data);
+        },
+        function (data) {
+          console.log(data);
+        });
     };
+
+    /*$scope.createTask = function (id) {
+        TaskService.NewEventTask.save({}, {
+          event: id,
+          name: $scope.newTask
+        }, function (data) {
+          console.log(data);
+        }, function (data) {
+          console.log(data);
+        });
+      };*/
 
     /*Refactored everything to use getEventByID,
     so this is currently not used.

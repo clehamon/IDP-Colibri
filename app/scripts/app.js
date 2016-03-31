@@ -45,7 +45,7 @@ angular
         controller: 'UserprofileCtrl',
         controllerAs: 'userProfile'
       })
-      .when('/event', {
+      .when('/event/:linkID', {
         templateUrl: 'views/event.html',
         controller: 'EventCtrl',
         controllerAs: 'event'
