@@ -1,56 +1,56 @@
 <div ng-show="eventStatus">Loading...</div>
 <div class="row" ng-init="getEventByID(1)">
-  <div class="col-md-8">
-    <h1>{{event.name}}</h1>
+    <div class="col-md-8">
+        <h1>{{event.name}}</h1>
 
-    <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
+        <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
 
-    <p>{{event.description}}</p>
+        <p>{{event.description}}</p>
 
-    <a class="btn" ng-href="#">Edit</a>
-    <a class="btn" ng-href="#">Share</a>
-  </div>
-  <div class="col-md-4">
-    <ui-gmap-google-map center='mapCenter' zoom='14'>
-      <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
-    </ui-gmap-google-map>
-  </div>
+        <a class="btn" ng-href="#">Edit</a>
+        <a class="btn" ng-href="#">Share</a>
+    </div>
+    <div class="col-md-4">
+        <ui-gmap-google-map center='mapCenter' zoom='14'>
+            <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
 </div>
 <div class="row">
-  <div class="col-md-4">
-    <h4>Items to bring</h4>
-    <ul>
-      <li ng-repeat="stuff in event.stuffs">
-        {{stuff.name}} {{getUserByID(stuff.owner).firstName}} {{getUserByID(stuff.owner).lastName}}
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-4">
-    <h4>Tasks to do</h4>
-    <ul>
-      <li ng-repeat="task in event.tasks">
-        {{task.name}}
-        <div ng-repeat="owner in task.owners">
-          {{owner.firstName}} {{owner.lastName}}
-        </div>
-      </li>
-      <li>
-        <form>
-          <input type="hidden" name="event" value="1">
-          <input type="text" name="name" ng-model="newTask">
-          <button ng-click="createItem(1)">Create</button>
-        </form>
-      </li>
-    </ul>
-  </div>
-  <div class="col-md-4">
-    <h4>Attendees</h4>
-    <div>{{event.attendee.length}}</div>
-    <ul>
-      <li ng-repeat="attendee in event.attendee">
-        <!--<img src="{{attendee.avatar}}" />-->
-        <div>{{attendee.firstName}} {{attendee.lastName}}</div>
-      </li>
-    </ul>
-  </div>
+    <div class="col-md-4">
+        <h4>Items to bring</h4>
+        <ul>
+            <li ng-repeat="stuff in event.stuffs">
+                {{stuff.name}} {{getUserByID(stuff.owner).firstName}} {{getUserByID(stuff.owner).lastName}}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4>Tasks to do</h4>
+        <ul>
+            <li ng-repeat="task in event.tasks">
+                {{task.name}}
+                <div ng-repeat="owner in task.owners">
+                    {{owner.firstName}} {{owner.lastName}}
+                </div>
+            </li>
+            <li>
+                <form>
+                    <input type="hidden" name="event" value="1">
+                    <input type="text" name="name" ng-model="newTask">
+                    <button ng-click="createTask(1)">Create</button>
+                </form>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h4>Attendees</h4>
+        <div>{{event.attendee.length}}</div>
+        <ul>
+            <li ng-repeat="attendee in event.attendee">
+                <!--<img src="{{attendee.avatar}}" />-->
+                <div>{{attendee.firstName}} {{attendee.lastName}}</div>
+            </li>
+        </ul>
+    </div>
 </div>
