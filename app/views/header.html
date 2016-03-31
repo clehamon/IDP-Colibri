@@ -1,3 +1,5 @@
+<ng-include  ng-show="showModal" src="login.html"></ng-include>
+
 <div class="header">
   <div class="navbar navbar-default" role="navigation">
     <div class="container">
@@ -21,7 +23,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a ng-href="#/createAccount">Sign Up</a></li>
-          <li><a ng-href="#/logIn">Log in</a></li>
+          <li ng-click="console.log('clicked')" ng-init="showModal = false">Log in</li>
         </ul>
       </div>
     </div>
