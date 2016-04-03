@@ -83,15 +83,25 @@ angular.module('eventifyApp')
             template: 'searchbox.tpl.html',
             events: events
         };
+        $scope.event.latitudeMap = $scope.lat;
+        $scope.event.longitudeMap = $scope.lngt;
 
         $scope.processForm = function () {
             console.log("Entered http", $scope.event);
             $http({
                     method: 'POST',
                     url: 'http://clementhamon.com/IDP/public/event/new',
-                    data: $.param($scope.event), // pass in data as strings
+                    data: {
 
+                        name: $scope.event.name,
+                        date: $scope.event.date,
+                        time: $scope.event.time,
+                        locationLat: $scope.event.latitudeMap,
+                        locationLong: $scope.event.longitudeMap,
+                        description: $scope.event.description,
+                        spotifyPlaylist: $scope.event.spotifyPlaylist
 
+                    }, // pass in data as strings
                 })
                 .success(function (data) {
                     console.log(data);
@@ -99,6 +109,7 @@ angular.module('eventifyApp')
                     if (!data.success) {
                         // if not successful, bind errors to error variables
                         $scope.errorName = data.errors.name;
+                        console.log($scope.errorName);
 
                     } else {
                         // if successful, bind success message to message
@@ -106,5 +117,6 @@ angular.module('eventifyApp')
                     }
                 });
         };
+        console.log($scope.message);
 
     });
