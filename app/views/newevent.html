@@ -1,7 +1,8 @@
 <ng-include src="'views/header.html'"></ng-include>
 
+<div id="messages" ng-show="message">{{ message }}</div>
 
-<form action="http://clementhamon.com/IDP/public/event/new" method="post" id="eventDetails">
+<form ng-submit="processForm()" id="eventDetails">
 
     <div class="row" id="uploadCoverImg">
         <div class="jumbotron" align="center">
@@ -17,29 +18,29 @@
     <div class="row col-md-12">
 
         <h4>1. Event Name :</h4>
-        <input type="text" name="name" placeholder="Enter Event Name" id="eventName" />
+        <input type="text" name="name" placeholder="Enter Event Name" ng-model="event.name" id="eventName" />
         <br>
 
         <h4>2. Event Date :</h4>
-        <input type="date" name="date" id="eventDate" />
+        <input type="date" name="date" ng-model="event.date" id="eventDate" />
         <br>
         <h4>3. Event Duration :</h4>
 
-        <input type="time" name="time" placeholder="in mins" id="eventTime" />
+        <input type="time" name="time" placeholder="in mins" ng-model="event.time" id="eventTime" />
         <br>
 
 
 
 
         <h4>4. Event Description :</h4>
-        <textarea name="description" rows="4" cols="100" placeholder="Type your text in here...." id="eventDescription">
+        <textarea name="description" rows="4" cols="100" placeholder="Type your text in here...." ng-model="event.description" id="eventDescription">
 
         </textarea>
 
         <br>
 
         <h4>5. Spotify Playlist :</h4>
-        <input type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" id="spotifyPlaylist" />
+        <input type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" ng-model="event.spotifyPlaylist" id="spotifyPlaylist" />
         <br>
 
         <h4>6. Event Location :</h4>
@@ -61,6 +62,8 @@
         <br>
 
     </div>
+
+    {{event}}
 
 
 
