@@ -74,8 +74,8 @@ angular.module('eventifyApp')
     
         $scope.removeTask = function(ID){
             console.log(ID);
-            TaskService.RemoveEventTask.delete({},
-                {id:ID},
+            TaskService.RemoveEventTask.delete({id: ID},
+                {},
                 function(data){
                     console.log(data);
                 }, function(data){
@@ -100,8 +100,8 @@ angular.module('eventifyApp')
     
         $scope.removeItem = function(ID){
             console.log(ID);
-            StuffService.removeStuff.delete({},
-                {id: ID},
+            StuffService.removeStuff.delete({id: ID},
+                {},
                 function(data){
                     console.log(data);
                 },
