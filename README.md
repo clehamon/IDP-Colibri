@@ -9,6 +9,7 @@ you probably need to install some stuff, like ruby and compass: https://github.c
 then "npm install"
 
 might be that you also need to "npm install -g grunt-cli" and "npm install -g bower"
+
 Run `bower install`
 
 let me know if something is not working
