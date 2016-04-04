@@ -16,6 +16,11 @@
 					<div class="eventCard-top" style="{{event.bgStyle}}" ng-class="{'is-no-bg':{{event.coverPicture==null}}}">
 						<div class="eventCard-top-info">
 							<h3>{{event.name}}</h3>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" ng-change="updateAttendance(event.going, event.id)" ng-model="event.going" ng-true-value="'1'" ng-false-value="'0'"> Attending
+								</label>
+							</div>
 							<p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date: "HH:mm"}}</p>
 							<p>{{event.location}}</p>
 							<div class="eventCard-attendees" ng-click="showAttendees = !showAttendees" ng-init="showAttendees = false">

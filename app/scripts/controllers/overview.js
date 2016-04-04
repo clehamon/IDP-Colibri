@@ -8,11 +8,13 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('OverviewCtrl', function ($scope, UserService) {
+    .controller('OverviewCtrl', function ($scope, UserService, EventService) {
+
+    var userId = 2039;
 
  	$scope.getEvents = function(){
  		UserService.UserEvents.query({
- 			id: 2039
+ 			id: userId
  		}, function (data) {
 	 			console.log(data);
 	 			angular.forEach(data, function(event) {
@@ -25,6 +27,20 @@ angular.module('eventifyApp')
                 console.log(data);
             }
         );
+    };
+
+    $scope.updateAttendance = function(going, eventID){
+
+    	console.log('event:'+eventID+'/user:'+userId+'/going:'+going);
+    	EventService.updateAttendance.update({},{
+                event: eventID,
+                user: userId,
+                going: going,
+            }, function(data){
+                console.log(data);
+            }, function(data){
+                console.log(data);
+            });
     };
 
     //Upcoming : boolean, if true show the upcoming event if false the past event

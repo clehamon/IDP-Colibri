@@ -20,4 +20,9 @@ angular.module('eventifyApp')
             method:'PUT'
         }});
 
+    this.updateAttendance = $resource('http://clementhamon.com/IDP/public/event/attendance/update', null,
+        {'update':{
+            method:'PUT'
+        }});
+
   });
