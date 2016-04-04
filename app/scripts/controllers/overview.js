@@ -27,4 +27,27 @@ angular.module('eventifyApp')
         );
     };
 
+    //Upcoming : boolean, if true show the upcoming event if false the past event
+    $scope.dateRangeFilter = function (property, upcoming) {
+	    return function (item) {
+	        if (item[property] === null){
+	        	return true;
+	        }
+	        	
+	 	
+	 		//Convert the date from a DD/MM/YYYY format to a js Date object
+	        var dateArray = item[property].split('-');
+	        var itemDate = new Date(dateArray[2],dateArray[1],dateArray[0]);
+	        var itemTimestamp = itemDate.getTime();
+	        var currentDate = Date.now();
+
+	        if (upcoming && itemTimestamp>=currentDate){
+	        	return true;
+	        } else if(!upcoming && itemTimestamp<currentDate){
+	        	return false;
+	        }
+	        return true;
+	    };
+	};
+
 });
