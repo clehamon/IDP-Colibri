@@ -1,14 +1,30 @@
 <div ng-show="eventStatus">Loading...</div>
 <div class="row" ng-init="getEventByID()">
     <div class="col-md-8">
-        <h1>{{event.name}}</h1>
+        
+        <div ng-hide="editing">
+            <h1>{{event.name}}</h1>
+            <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
+            <p>{{event.description}}</p>
+        </div>
+        <div ng-show="editing">
+            <h1>
+                <input type="text" name="name" ng-model="event.name">
+            </h1>
+            <h3>Date: <input type="text" name="date" ng-model="event.date">
+                Time: <input type="text" name="time" ng-model="event.time">
+                Duration: <input type="text" name="duration" ng-model="event.duration">
+            </h3>
+            <p>
+                <input type="text" name="description" ng-model="event.description">
+            </p>
+            <button ng-click="stopEditing()">Save</button>
+        </div>
+        
 
-        <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
-
-        <p>{{event.description}}</p>
-
-        <a class="btn" ng-href="#">Edit</a>
+        <a class="btn" ng-click="startEditing()">Edit</a>
         <a class="btn" ng-href="#">Share</a>
+        <img class="img-responsive" src="{{event.coverPicture}}"/>
     </div>
     <div class="col-md-4">
         <ui-gmap-google-map center='mapCenter' zoom='14'>

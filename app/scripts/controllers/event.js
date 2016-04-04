@@ -12,9 +12,9 @@ angular.module('eventifyApp')
 
         $scope.linkID = $routeParams.linkID;
 
-        $scope.newTask = 'nakki';
-
-        $scope.newItem = "ebin";
+        $scope.newTask = '';
+        $scope.newItem = '';
+        $scope.editing = false;
 
         //this name should be changed
         $scope.getEventByID = function () {
@@ -77,6 +77,11 @@ angular.module('eventifyApp')
             TaskService.RemoveEventTask.delete({id: ID},
                 {},
                 function(data){
+                    for (var i = 0; i < $scope.event.tasks.length; i++) {
+                        if ($scope.event.tasks[i].id === ID) {
+                            $scope.event.tasks.splice(i--, 1);
+                        }
+                    }
                     console.log(data);
                 }, function(data){
                     console.log(data);
@@ -103,11 +108,36 @@ angular.module('eventifyApp')
             StuffService.removeStuff.delete({id: ID},
                 {},
                 function(data){
+                    for (var i = 0; i < $scope.event.stuffs.length; i++) {
+                        if ($scope.event.stuffs[i].id === ID) {
+                            $scope.event.stuffs.splice(i--, 1);
+                        }
+                    }
                     console.log(data);
                 },
                 function(data){
                     console.log(data);
             });
+        };
+    
+        $scope.startEditing = function(){
+            $scope.editing = true;
+            EventService.updateEvent.update({},{
+                id: $scope.event.id,
+                name: 'nakki',
+                date: $scope.event.date,
+                time: $scope.event.time,
+                duration: $scope.event.duration,
+                description: $scope.event.description
+            }, function(data){
+                console.log(data);
+            }, function(data){
+                console.log(data);
+            });
+        };
+    
+        $scope.stopEditing = function(){
+          $scope.editing = false;  
         };
 
         /*$scope.createTask = function (id) {

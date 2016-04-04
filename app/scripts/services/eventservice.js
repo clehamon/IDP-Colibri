@@ -14,5 +14,10 @@ angular.module('eventifyApp')
     this.Event = $resource('http://clementhamon.com/IDP/public/event/:id');
 
     this.EventAttendees = $resource('http://clementhamon.com/IDP/public/event/:id/attendees');
+    
+    this.updateEvent = $resource('http://clementhamon.com/IDP/public/event/update', null,
+        {'update':{
+            method:'PUT'
+        }});
 
   });
