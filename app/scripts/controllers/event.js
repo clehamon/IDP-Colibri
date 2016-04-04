@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('EventCtrl', function ($scope, EventService, TaskService, StuffService, $routeParams, $http) {
+    .controller('EventCtrl', function ($scope, EventService, TaskService, StuffService, $routeParams) {
 
         $scope.linkID = $routeParams.linkID;
 
@@ -27,8 +27,8 @@ angular.module('eventifyApp')
 
                 //not sure if this should be in MapCtrl
                 $scope.mapCenter = {
-                    latitude: data.locationLat
-                    , longitude: data.locationLong
+                    latitude: data.locationLat,
+                    longitude: data.locationLong
                 };
 
                 //This is required by the directive
@@ -65,11 +65,23 @@ angular.module('eventifyApp')
                 },
                 function (data) {
                     console.log(data);
+                    $scope.event.tasks.push({event:$scope.linkID, name:$scope.newTask});
                 },
                 function (data) {
                     console.log(data);
                 });
         };
+    
+        $scope.removeTask = function(ID){
+            console.log(ID);
+            TaskService.RemoveEventTask.delete({},
+                {id:ID},
+                function(data){
+                    console.log(data);
+                }, function(data){
+                    console.log(data);
+                });
+        }
 
         $scope.createItem = function () {
             console.log($scope.linkID, $scope.newItem);
@@ -79,10 +91,23 @@ angular.module('eventifyApp')
                 },
                 function (data) {
                     console.log(data);
+                    $scope.event.stuffs.push({event:$scope.linkID, name:$scope.newItem});
                 },
                 function (data) {
                     console.log(data);
                 });
+        };
+    
+        $scope.removeItem = function(ID){
+            console.log(ID);
+            StuffService.removeStuff.delete({},
+                {id: ID},
+                function(data){
+                    console.log(data);
+                },
+                function(data){
+                    console.log(data);
+            });
         };
 
         /*$scope.createTask = function (id) {

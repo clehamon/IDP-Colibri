@@ -12,5 +12,6 @@ angular.module('eventifyApp')
         // AngularJS will instantiate a singleton by calling "new" on this function
 
         this.newStuff = $resource('http://clementhamon.com/IDP/public/stuff/new');
+        this.removeStuff = $resource('http://clementhamon.com/IDP/public/stuff/delete');
 
     });

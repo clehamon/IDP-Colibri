@@ -22,6 +22,7 @@
         <ul>
             <li ng-repeat="stuff in event.stuffs">
                 {{stuff.name}} {{getUserByID(stuff.owner).firstName}} {{getUserByID(stuff.owner).lastName}}
+                <button ng-click="removeItem(stuff.id)">Remove</button>
             </li>
             <form>
                 <input type="hidden" name="event" value="1">
@@ -38,6 +39,7 @@
                 <div ng-repeat="owner in task.owners">
                     {{owner.firstName}} {{owner.lastName}}
                 </div>
+                <button ng-click="removeTask(task.id)">Remove</button>
             </li>
             <li>
                 <form>
