@@ -31,7 +31,6 @@ angular.module('eventifyApp')
 
     $scope.updateAttendance = function(going, eventID){
 
-    	console.log('event:'+eventID+'/user:'+userId+'/going:'+going);
     	EventService.updateAttendance.update({},{
                 event: eventID,
                 user: userId,
