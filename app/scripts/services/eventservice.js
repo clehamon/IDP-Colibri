@@ -11,7 +11,7 @@ angular.module('eventifyApp')
   .service('EventService', function ($resource) {
     // AngularJS will instantiate a singleton by calling "new" on this function
 
-    this.Event = $resource('http://clementhamon.com/IDP/public/event/:id');
+    this.Event = $resource('http://clementhamon.com/IDP/public/event/link/:eventId');
 
     this.EventAttendees = $resource('http://clementhamon.com/IDP/public/event/:id/attendees');
     

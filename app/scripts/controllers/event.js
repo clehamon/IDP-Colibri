@@ -21,7 +21,7 @@ angular.module('eventifyApp')
     $scope.getEventByID = function () {
       $scope.eventStatus = true;
       EventService.Event.get({
-        id: $scope.linkID
+        eventId: $scope.linkID
       }, function (data) {
         $scope.event = data;
         console.log(data);
