@@ -43,8 +43,8 @@
       </li>
       <form>
         <input type="hidden" name="event" value="1">
-        <input type="text" name="name" ng-model="newItem">
-        <button ng-click="createItem()">Create</button>
+        <input type="text" name="name" ng-model="newItem" placeholder="Enter item name">
+        <span ng-click="createItem()" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
       </form>
     </ul>
   </div>
@@ -64,8 +64,8 @@
       <li>
         <form>
           <input type="hidden" name="event" value="1">
-          <input type="text" name="name" ng-model="newTask">
-          <button ng-click="createTask()">Create</button>
+          <input type="text" name="name" ng-model="newTask" placeholder="Enter task name">
+          <span ng-click="createTask()" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
         </form>
       </li>
     </ul>
