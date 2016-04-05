@@ -10,70 +10,81 @@
             <p>Share the link using image hosting sites like <a href="http://imgur.com/" target="_blank">Imgur.com</a> or <a href="http://postimage.org/" target="_blank">postimage.org. </a>
 
             </p>
-            <input type="url" name="coverPicture" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture" />
+            <input type="url" name="coverPicture" class="url" align="center" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture" />
             <!-- <button>Upload Image</button> -->
         </div>
     </div>
 
     <div class="row col-md-12">
 
-        <h4>1. Event Name :</h4>
-        <input type="text" name="name" placeholder="Enter Event Name" ng-model="event.name" id="eventName" required/>
-        <br>
-
-        <h4>2. Event Date :</h4>
-        <input type="date" name="date" ng-model="event.date" id="eventDate" />
-        <br>
-        <h4>3. Event Time :</h4>
-
-        <input type="time" name="time" placeholder="in mins" ng-model="event.time" id="eventTime" />
-        <br>
-
-        <h4>4. Event Duration :</h4>
-
-        <input type="number" name="duration" placeholder="in mins" ng-model="event.duration" id="eventDuration" />
-        <br>
-
-
-
-        <h4>5. Event Description :</h4>
-        <textarea name="description" rows="4" cols="100" placeholder="Type your text in here...." ng-model="event.description" id="eventDescription">
-
-        </textarea>
-
-        <br>
-
-        <h4>6. Spotify Playlist :</h4>
-        <input type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" ng-model="event.spotifyPlaylist" id="spotifyPlaylist" />
-        <br>
-
-        <h4>7. Event Location :</h4>
-        <div id="map_canvas">
-
-            <script type="text/ng-template" id="searchbox.tpl.html">
-                <input type="text" placeholder="Search Box">
-            </script>
-
-            <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-                <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="'left-top'"></ui-gmap-search-box>
-                <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
-            </ui-gmap-google-map>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <h5>Event Name</h5>
+                <input type="text" name="name" placeholder="Enter Event Name" ng-model="event.name" id="eventName" class="form-control" required />
+            </div>
         </div>
-        Latitude =
-        <input type="decimal" name="locationLat" value="{{lat}}" id="locationLat" />
-        <br> Longitude =
-        <input type="decimal" name="locationLong" value="{{lngt}}" id="locationLong" />
-        <br>
 
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <h5>Event Date</h5>
+                <input type="date" name="date" ng-model="event.date" id="eventDate" class="form-control" />
+            </div>
+            <div class="col-md-4 form-group">
+                <h5>Event Time</h5>
+
+                <input type="time" name="time" placeholder="in mins" ng-model="event.time" id="eventTime" class="form-control" />
+
+            </div>
+            <div class="col-md-4 form-group">
+                <h5>Event Duration</h5>
+
+                <input type="number" name="duration" placeholder="in mins" ng-model="event.duration" id="eventDuration" class="form-control" />
+            </div>
+
+        </div>
+
+        <div class="row ">
+            <div class="col-md-12 form-group">
+                <h5>Event Description</h5>
+                <textarea name="description" rows="4" cols="100" placeholder="Type your text in here...." ng-model="event.description" id="eventDescription" class="form-control">
+                </textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 form-group">
+                <h5>Spotify Playlist</h5>
+                <input type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" ng-model="event.spotifyPlaylist" id="spotifyPlaylist" class="form-control" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <h5>Event Location</h5>
+                <div class="col-md-10">
+
+                    <div id="map_canvas">
+
+                        <script type="text/ng-template" id="searchbox.tpl.html">
+                            <input type="text" class="searchStyle" ng-model="event.locationName" placeholder="Search Box">
+                        </script>
+
+                        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                            <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="'left-top'"></ui-gmap-search-box>
+                            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
+                        </ui-gmap-google-map>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
     </div>
 
     {{event}}
-
-
-
     <div class="jumbotron" align="center">
-        <input type="submit" value="Create Event">
+        <input type="submit" class="btn-primary" value="Create Event">
     </div>
+
 
 
 </form>
