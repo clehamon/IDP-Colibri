@@ -6,15 +6,32 @@
 	margin-top:20px;
 }
 
+.overview-create{
+	height:100%;
+	width:100%;
+	position: relative;
+}
+
 .overview-new-event{
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	z-index:2;
 	min-height: 60px;
 	min-width: 60px;
 	font-size: 2em;
-	padding: 12px 14px;
-	border-radius: 50%;
+	padding: 12px 22px;
+	text-align: center;
+	border-radius:40px;
 	color: rgb(255, 255, 255);
 	background-color: #F06361;
 }
+
+.overview-new-event:hover{
+	text-decoration: none;
+	color: white;
+}
+
 
 .eventCard{
 	background-color: #EEE;
@@ -25,7 +42,7 @@
 	max-height: 320px;
 	width:100%;
 	position:relative;
-
+	margin-bottom:30px;
 }
 
 .eventCard-admin{

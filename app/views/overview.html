@@ -16,7 +16,7 @@
 					<div class="eventCard-top" style="{{event.bgStyle}}" ng-class="{'is-no-bg':{{event.coverPicture==null}}}">
 						<div class="eventCard-top-info">
 							<h3>{{event.name}}</h3>
-							<div class="checkbox">
+							<div class="checkbox" ng-hide="{{event.isAdmin}}">
 								<label>
 									<input type="checkbox" ng-change="updateAttendance(event.going, event.id)" ng-model="event.going" ng-true-value="'1'" ng-false-value="'0'"> Attending
 								</label>
@@ -60,8 +60,10 @@
 
 	</div>
 
-	<div class="col-md-1">
-		<a href="#/newEvent" class="overview-new-event"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+	<div class="overview-create">
+		<a href="#/newEvent" class="overview-new-event" ng-mouseenter="newEventExtend = true" ng-mouseleave="newEventExtend = false"> 
+			<span ng-show="newEventExtend">New event </span><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		</a>
 	</div>
 
 </div>
