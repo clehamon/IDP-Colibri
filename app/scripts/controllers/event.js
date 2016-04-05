@@ -90,7 +90,7 @@ angular.module('eventifyApp')
                 }, function(data){
                     console.log(data);
                 });
-        }
+        };
 
         $scope.createItem = function () {
             console.log($scope.linkID, $scope.newItem);
