@@ -15,6 +15,7 @@ angular.module('eventifyApp')
         $scope.newTask = '';
         $scope.newItem = '';
         $scope.editing = false;
+        
 
         //this name should be changed
         $scope.getEventByID = function () {
@@ -24,6 +25,8 @@ angular.module('eventifyApp')
             }, function (data) {
                 $scope.event = data;
                 console.log(data);
+                
+                $('.parallax').css('background-image','url(' + $scope.event.coverPicture + ')');
 
                 //not sure if this should be in MapCtrl
                 $scope.mapCenter = {
@@ -38,6 +41,7 @@ angular.module('eventifyApp')
                 };
 
                 //couldn't make "{{event.id}}" work directly in the HTML
+                
                 $scope.id = data.id;
 
                 $scope.attendees = data.attendee;
@@ -122,22 +126,22 @@ angular.module('eventifyApp')
     
         $scope.startEditing = function(){
             $scope.editing = true;
-            EventService.updateEvent.update({},{
-                id: $scope.event.id,
-                name: 'nakki',
-                date: $scope.event.date,
-                time: $scope.event.time,
-                duration: $scope.event.duration,
-                description: $scope.event.description
-            }, function(data){
-                console.log(data);
-            }, function(data){
-                console.log(data);
-            });
         };
     
         $scope.stopEditing = function(){
-          $scope.editing = false;  
+          $scope.editing = false;
+          EventService.updateEvent.update({},{
+            id: $scope.event.id,
+            name: $scope.event.name,
+            date: $scope.event.date,
+            time: $scope.event.time,
+            duration: $scope.event.duration,
+            description: $scope.event.description
+          }, function(data){
+            console.log(data);
+          }, function(data){
+            console.log(data);
+          });
         };
 
         /*$scope.createTask = function (id) {

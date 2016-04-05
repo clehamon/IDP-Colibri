@@ -1,12 +1,19 @@
-<div ng-show="eventStatus">Loading...</div>
-<div class="row" ng-init="getEventByID()">
-    <div class="col-md-8">
-        
-        <div ng-hide="editing">
+<div ng-init="getEventByID()" ng-show="eventStatus">Loading...</div>
+
+<section class="module parallax">
+    <div ng-hide="editing">
+        <!--<h1>{{event.name}}</h1>-->
+    </div>
+
+    <div class="descr">
+        <div class="col-lg-4 info" ng-hide="editing">
             <h1>{{event.name}}</h1>
             <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
             <p>{{event.description}}</p>
+            <a class="btn" ng-click="startEditing()">Edit</a>
+            <a class="btn" ng-href="#">Share</a>
         </div>
+        
         <div ng-show="editing">
             <h1>
                 <input type="text" name="name" ng-model="event.name">
@@ -20,24 +27,17 @@
             </p>
             <button ng-click="stopEditing()">Save</button>
         </div>
-        
+    </div>
+</section>
 
-        <a class="btn" ng-click="startEditing()">Edit</a>
-        <a class="btn" ng-href="#">Share</a>
-        <img class="img-responsive" src="{{event.coverPicture}}"/>
-    </div>
-    <div class="col-md-4">
-        <ui-gmap-google-map center='mapCenter' zoom='14'>
-            <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
-        </ui-gmap-google-map>
-    </div>
-</div>
-<div class="row">
+<div class="row part">
     <div class="col-md-4">
         <h4>Items to bring</h4>
         <ul>
             <li ng-repeat="stuff in event.stuffs">
-                {{stuff.name}} {{getUserByID(stuff.owner).firstName}} {{getUserByID(stuff.owner).lastName}}
+                {{stuff.name}}
+                {{getUserByID(2039)}}
+                <img ng-src="{{getUserByID(2039)}}"/>
                 <button ng-click="removeItem(stuff.id)">Remove</button>
             </li>
             <form>
@@ -53,7 +53,7 @@
             <li ng-repeat="task in event.tasks">
                 {{task.name}}
                 <div ng-repeat="owner in task.owners">
-                    {{owner.firstName}} {{owner.lastName}}
+                     <img src="{{owner.avatar}}"/>
                 </div>
                 <button ng-click="removeTask(task.id)">Remove</button>
             </li>
@@ -73,8 +73,14 @@
             <li ng-repeat="attendee in event.attendee">
                 <!--<img src="{{attendee.avatar}}" />-->
                 <div>{{attendee.firstName}} {{attendee.lastName}}</div>
-
             </li>
         </ul>
+    </div>
+</div>
+<div class="row part">
+    <div class="col-md-12">
+            <ui-gmap-google-map center='mapCenter' zoom='14'>
+                <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
+            </ui-gmap-google-map>
     </div>
 </div>
