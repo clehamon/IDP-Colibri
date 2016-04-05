@@ -38,7 +38,7 @@ li {
 .part {
   margin-top: 80px;
 }
-.col-md-4 > h4 {
+.col-md-4 > h2 {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -72,8 +72,33 @@ li {
 .glyphicon:hover {
   cursor: pointer;
 }
+
+.glyphicon-remove{
+    top: 3px;
+}
 .edit {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
+}
+
+.new-item{
+  margin-left: auto;
+  margin-right: auto;
+  width: 195px;
+  display: flex;
+}
+
+tr{
+    height: 55px;
+}
+td{
+    padding-top: 16px !important;
+}
+td.thumb-img{
+    padding-top: 12px !important;
+}
+
+.add{
+    margin: 7px;
 }
