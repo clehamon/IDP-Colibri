@@ -33,11 +33,12 @@
 <div class="row part">
   <div class="col-md-4">
     <h4>Items to bring</h4>
-    <ul>
+    <ul class="info">
       <li ng-repeat="stuff in event.stuffs">
-        {{stuff.name}}
-        <img class="img-circle thumb" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" />
-        <button ng-click="removeItem(stuff.id)">Remove</button>
+        <div class="name">
+          <img class="img-circle thumb" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" /> {{stuff.name}}
+        </div>
+        <div class="remove" ng-click="removeItem(stuff.id)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
       </li>
       <form>
         <input type="hidden" name="event" value="1">
@@ -48,13 +49,16 @@
   </div>
   <div class="col-md-4">
     <h4>Tasks to do</h4>
-    <ul>
+    <ul class="info">
       <li ng-repeat="task in event.tasks">
-        {{task.name}}
+
         <div ng-repeat="owner in task.owners">
-          <img class="img-circle thumb" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
+          <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
         </div>
-        <button ng-click="removeTask(task.id)">Remove</button>
+        <div class="name">
+          {{task.name}}
+        </div>
+        <div class="remove" ng-click="removeTask(task.id)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
       </li>
       <li>
         <form>
@@ -66,12 +70,13 @@
     </ul>
   </div>
   <div class="col-md-4">
-    <h4>Attendees</h4>
-    <div>{{event.attendee.length}}</div>
-    <ul>
+    <h4>Attendees <span>{{event.attendee.length}}</span></h4>
+    <ul class="info">
       <li ng-repeat="attendee in event.attendee">
-        <img class="img-circle thumb" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
-        <div>{{attendee.firstName}} {{attendee.lastName}}</div>
+        <img class="img-circle thumb name" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
+        <div class="name">
+          {{attendee.firstName}} {{attendee.lastName}}
+        </div>
       </li>
     </ul>
   </div>
