@@ -35,8 +35,9 @@
     <h4>Items to bring</h4>
     <ul class="info">
       <li ng-repeat="stuff in event.stuffs">
-        <div class="name">
-          <img class="img-circle thumb" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" /> {{stuff.name}}
+        <img class="img-circle thumb name" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" />
+        <div class="name name-text">
+          {{stuff.name}}
         </div>
         <div class="remove" ng-click="removeItem(stuff.id)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
       </li>
@@ -55,7 +56,7 @@
         <div ng-repeat="owner in task.owners">
           <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
         </div>
-        <div class="name">
+        <div class="name name-text">
           {{task.name}}
         </div>
         <div class="remove" ng-click="removeTask(task.id)"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
@@ -74,7 +75,7 @@
     <ul class="info">
       <li ng-repeat="attendee in event.attendee">
         <img class="img-circle thumb name" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
-        <div class="name">
+        <div class="name name-text">
           {{attendee.firstName}} {{attendee.lastName}}
         </div>
       </li>

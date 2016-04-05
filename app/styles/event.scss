@@ -51,10 +51,15 @@ li {
     width: 80%;
     margin-left: auto;
     margin-right: auto;
-    height: 30px;
-    margin-bottom: 10px;
+    height: 35px;
+    margin-bottom: 12px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid grey;
     .name {
       float: left;
+    }
+    .name-text {
+      margin-left: 12%;
     }
     .remove {
       float: right;
