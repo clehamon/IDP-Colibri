@@ -1,35 +1,31 @@
 .angular-google-map-container {
-    height: 300px;
-    margin: 30px;
+  height: 300px;
+  margin: 30px;
 }
-
 li {
-    list-style: none;
+  list-style: none;
 }
-
 .descr {
-    .info {
-        background-color: rgba(240, 248, 255, 0.76);
-        color: black;
-        margin: 20px;
-        margin-top: 300px;
-    }
+  .info {
+    background-color: rgba(240, 248, 255, 0.76);
+    color: black;
+    margin: 20px;
+    margin-top: 300px;
+  }
 }
-
 .parallax {
-    height: 500px;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-image: url(../images/Loading_icon.gif);
-    /*.introduction{
+  height: 500px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url(../images/Loading_icon.gif);
+  /*.introduction{
         background-color: rgba(211, 211, 211, 0.79)
     }*/
 }
-
 .parallax {
-    /*h1{
+  /*h1{
         color: rgba(255, 255, 255, 0.95);
         font-size: 48px;
         line-height: 500px;
@@ -39,13 +35,14 @@ li {
         text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     }*/
 }
-
-.part{
-    margin-top: 80px;
+.part {
+  margin-top: 80px;
 }
-
-.col-md-4 > *{
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+.col-md-4 > * {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.thumb {
+  width: 30px;
 }

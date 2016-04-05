@@ -1,86 +1,85 @@
 <div ng-init="getEventByID()" ng-show="eventStatus">Loading...</div>
 
 <section class="module parallax">
-    <div ng-hide="editing">
-        <!--<h1>{{event.name}}</h1>-->
+  <div ng-hide="editing">
+    <!--<h1>{{event.name}}</h1>-->
+  </div>
+
+  <div class="descr">
+    <div class="col-lg-4 info" ng-hide="editing">
+      <h1>{{event.name}}</h1>
+      <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
+      <p>{{event.description}}</p>
+      <a class="btn" ng-click="startEditing()">Edit</a>
+      <a class="btn" ng-href="#">Share</a>
     </div>
 
-    <div class="descr">
-        <div class="col-lg-4 info" ng-hide="editing">
-            <h1>{{event.name}}</h1>
-            <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
-            <p>{{event.description}}</p>
-            <a class="btn" ng-click="startEditing()">Edit</a>
-            <a class="btn" ng-href="#">Share</a>
-        </div>
-        
-        <div ng-show="editing">
-            <h1>
+    <div ng-show="editing">
+      <h1>
                 <input type="text" name="name" ng-model="event.name">
             </h1>
-            <h3>Date: <input type="text" name="date" ng-model="event.date">
+      <h3>Date: <input type="text" name="date" ng-model="event.date">
                 Time: <input type="text" name="time" ng-model="event.time">
                 Duration: <input type="text" name="duration" ng-model="event.duration">
             </h3>
-            <p>
-                <input type="text" name="description" ng-model="event.description">
-            </p>
-            <button ng-click="stopEditing()">Save</button>
-        </div>
+      <p>
+        <input type="text" name="description" ng-model="event.description">
+      </p>
+      <button ng-click="stopEditing()">Save</button>
     </div>
+  </div>
 </section>
 
 <div class="row part">
-    <div class="col-md-4">
-        <h4>Items to bring</h4>
-        <ul>
-            <li ng-repeat="stuff in event.stuffs">
-                {{stuff.name}}
-                {{getUserByID(2039)}}
-                <img ng-src="{{getUserByID(2039)}}"/>
-                <button ng-click="removeItem(stuff.id)">Remove</button>
-            </li>
-            <form>
-                <input type="hidden" name="event" value="1">
-                <input type="text" name="name" ng-model="newItem">
-                <button ng-click="createItem()">Create</button>
-            </form>
-        </ul>
-    </div>
-    <div class="col-md-4">
-        <h4>Tasks to do</h4>
-        <ul>
-            <li ng-repeat="task in event.tasks">
-                {{task.name}}
-                <div ng-repeat="owner in task.owners">
-                     <img src="{{owner.avatar}}"/>
-                </div>
-                <button ng-click="removeTask(task.id)">Remove</button>
-            </li>
-            <li>
-                <form>
-                    <input type="hidden" name="event" value="1">
-                    <input type="text" name="name" ng-model="newTask">
-                    <button ng-click="createTask()">Create</button>
-                </form>
-            </li>
-        </ul>
-    </div>
-    <div class="col-md-4">
-        <h4>Attendees</h4>
-        <div>{{event.attendee.length}}</div>
-        <ul>
-            <li ng-repeat="attendee in event.attendee">
-                <!--<img src="{{attendee.avatar}}" />-->
-                <div>{{attendee.firstName}} {{attendee.lastName}}</div>
-            </li>
-        </ul>
-    </div>
+  <div class="col-md-4">
+    <h4>Items to bring</h4>
+    <ul>
+      <li ng-repeat="stuff in event.stuffs">
+        {{stuff.name}}
+        <img class="img-circle thumb" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" />
+        <button ng-click="removeItem(stuff.id)">Remove</button>
+      </li>
+      <form>
+        <input type="hidden" name="event" value="1">
+        <input type="text" name="name" ng-model="newItem">
+        <button ng-click="createItem()">Create</button>
+      </form>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h4>Tasks to do</h4>
+    <ul>
+      <li ng-repeat="task in event.tasks">
+        {{task.name}}
+        <div ng-repeat="owner in task.owners">
+          <img class="img-circle thumb" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
+        </div>
+        <button ng-click="removeTask(task.id)">Remove</button>
+      </li>
+      <li>
+        <form>
+          <input type="hidden" name="event" value="1">
+          <input type="text" name="name" ng-model="newTask">
+          <button ng-click="createTask()">Create</button>
+        </form>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h4>Attendees</h4>
+    <div>{{event.attendee.length}}</div>
+    <ul>
+      <li ng-repeat="attendee in event.attendee">
+        <img class="img-circle thumb" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
+        <div>{{attendee.firstName}} {{attendee.lastName}}</div>
+      </li>
+    </ul>
+  </div>
 </div>
 <div class="row part">
-    <div class="col-md-12">
-            <ui-gmap-google-map center='mapCenter' zoom='14'>
-                <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
-            </ui-gmap-google-map>
-    </div>
+  <div class="col-md-12">
+    <ui-gmap-google-map center='mapCenter' zoom='14'>
+      <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
+    </ui-gmap-google-map>
+  </div>
 </div>
