@@ -38,7 +38,7 @@ li {
 .part {
   margin-top: 80px;
 }
-.col-md-4 > * {
+.col-md-4 > h4 {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -71,4 +71,9 @@ li {
 }
 .glyphicon:hover {
   cursor: pointer;
+}
+.edit {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
 }

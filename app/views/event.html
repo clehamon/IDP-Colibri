@@ -32,7 +32,25 @@
 
 <div class="row part">
   <div class="col-md-4">
-    <h4>Items to bring</h4>
+    <h4>Items to bring <span>({{event.stuffs.length}})</span></h4>
+    <table class="table table-hover edit">
+      <thead>
+        <tr>
+          <th>Assigned</th>
+          <th>Item name</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="stuff in event.stuffs">
+          <td><img class="img-circle thumb name" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" /></td>
+          <td>{{stuff.name}}</td>
+          <td><span ng-click="removeItem(stuff.id)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+        </tr>
+      </tbody>
+    </table>
+
+
     <ul class="info">
       <li ng-repeat="stuff in event.stuffs">
         <img class="img-circle thumb name" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" />
@@ -49,7 +67,7 @@
     </ul>
   </div>
   <div class="col-md-4">
-    <h4>Tasks to do</h4>
+    <h4>Tasks to do <span>({{event.tasks.length}})</span></h4>
     <ul class="info">
       <li ng-repeat="task in event.tasks">
 
@@ -71,7 +89,7 @@
     </ul>
   </div>
   <div class="col-md-4">
-    <h4>Attendees <span>{{event.attendee.length}}</span></h4>
+    <h4>Attendees <span>({{event.attendee.length}})</span></h4>
     <ul class="info">
       <li ng-repeat="attendee in event.attendee">
         <img class="img-circle thumb name" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
