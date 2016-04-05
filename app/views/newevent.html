@@ -10,7 +10,7 @@
             <p>Share the link using image hosting sites like <a href="http://imgur.com/" target="_blank">Imgur.com</a> or <a href="http://postimage.org/" target="_blank">postimage.org. </a>
 
             </p>
-            <input type="url" name="coverPicture" placeholder="Paste your link here.." id="coverPicture" />
+            <input type="url" name="coverPicture" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture" />
             <!-- <button>Upload Image</button> -->
         </div>
     </div>
@@ -18,32 +18,36 @@
     <div class="row col-md-12">
 
         <h4>1. Event Name :</h4>
-        <input type="text" name="name" placeholder="Enter Event Name" ng-model="event.name" id="eventName" />
+        <input type="text" name="name" placeholder="Enter Event Name" ng-model="event.name" id="eventName" required/>
         <br>
 
         <h4>2. Event Date :</h4>
         <input type="date" name="date" ng-model="event.date" id="eventDate" />
         <br>
-        <h4>3. Event Duration :</h4>
+        <h4>3. Event Time :</h4>
 
         <input type="time" name="time" placeholder="in mins" ng-model="event.time" id="eventTime" />
         <br>
 
+        <h4>4. Event Duration :</h4>
+
+        <input type="number" name="duration" placeholder="in mins" ng-model="event.duration" id="eventDuration" />
+        <br>
 
 
 
-        <h4>4. Event Description :</h4>
+        <h4>5. Event Description :</h4>
         <textarea name="description" rows="4" cols="100" placeholder="Type your text in here...." ng-model="event.description" id="eventDescription">
 
         </textarea>
 
         <br>
 
-        <h4>5. Spotify Playlist :</h4>
+        <h4>6. Spotify Playlist :</h4>
         <input type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" ng-model="event.spotifyPlaylist" id="spotifyPlaylist" />
         <br>
 
-        <h4>6. Event Location :</h4>
+        <h4>7. Event Location :</h4>
         <div id="map_canvas">
 
             <script type="text/ng-template" id="searchbox.tpl.html">

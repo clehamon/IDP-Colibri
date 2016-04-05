@@ -96,6 +96,8 @@ angular.module('eventifyApp')
                         name: $scope.event.name,
                         date: $scope.event.date,
                         time: $scope.event.time,
+                        coverPicture: $scope.event.coverPicture,
+                        duration: $scope.event.duration,
                         locationLat: $scope.event.latitudeMap,
                         locationLong: $scope.event.longitudeMap,
                         description: $scope.event.description,
