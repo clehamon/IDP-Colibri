@@ -72,33 +72,47 @@ li {
 .glyphicon:hover {
   cursor: pointer;
 }
-
-.glyphicon-remove{
-    top: 3px;
+.glyphicon-remove {
+  top: 3px;
 }
 .edit {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
 }
-
-.new-item{
+.new-item {
   margin-left: auto;
   margin-right: auto;
   width: 195px;
   display: flex;
 }
+tr {
+  height: 55px;
+}
+td {
+  padding-top: 16px !important;
+}
+td.thumb-img {
+  padding-top: 12px !important;
+}
+.add {
+  margin: 7px;
+}
+tr {
+  -webkit-transition: 0.5s linear all;
+  transition: 0.5s linear all;
+}
+.ng-animate.ng-enter {
+  height: 0;
+}
+.tr.ng-enter-active {
+  height: 0;
+}
+.slide.ng-leave {
+  height: 0;
+}
+.slide.ng-leave-active {
+  height: 0;
+}
 
-tr{
-    height: 55px;
-}
-td{
-    padding-top: 16px !important;
-}
-td.thumb-img{
-    padding-top: 12px !important;
-}
-
-.add{
-    margin: 7px;
-}
+/*https: //css-tricks.com/animations-the-angular-way/*/

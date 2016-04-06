@@ -26,6 +26,7 @@ angular.module('eventifyApp')
         $scope.event = data;
         console.log(data);
 
+
         $('.parallax').css('background-image', 'url(' + $scope.event.coverPicture + ')');
 
         //not sure if this should be in MapCtrl

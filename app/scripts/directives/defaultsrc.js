@@ -11,7 +11,7 @@ angular.module('eventifyApp')
     return {
       link: function (scope, element, attrs) {
         element.bind('error', function () {
-          if (attrs.src != attrs.defaultSrc) {
+          if (attrs.src !== attrs.defaultSrc) {
             attrs.$set('src', attrs.defaultSrc);
           }
         });
