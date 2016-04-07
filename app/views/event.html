@@ -45,14 +45,14 @@
         <tr ng-show="!event.stuffs.length">
           <td>No items created yet...</td>
         </tr>
-        <tr ng-repeat="stuff in event.stuffs" class="slide">
+        <tr ng-repeat="stuff in event.stuffs" class="appear">
           <td class="thumb-img"><img class="img-circle thumb name" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" /></td>
           <td>{{stuff.name}}</td>
           <td><span ng-click="removeItem(stuff.id)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
         </tr>
       </tbody>
     </table>
-    <form>
+    <form ng-submit="createItem()">
       <div class="new-item form-group">
         <input type="hidden" name="event" value="1">
         <input class="form-control" type="text" name="name" ng-model="newItem" placeholder="Enter item name">
@@ -74,7 +74,7 @@
         <tr ng-show="!event.tasks.length">
           <td>No tasks created yet...</td>
         </tr>
-        <tr ng-repeat="task in event.tasks" class="slide">
+        <tr ng-repeat="task in event.tasks" class="appear">
           <td class="thumb-img">
             <div ng-repeat="owner in task.owners">
               <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
@@ -85,7 +85,7 @@
         </tr>
       </tbody>
     </table>
-    <form>
+    <form ng-submit="createTask()">
       <div class="new-item form-group">
         <input type="hidden" name="event" value="1">
         <input class="form-control" type="text" name="name" ng-model="newTask" placeholder="Enter task name">

@@ -11,6 +11,7 @@ angular.module('eventifyApp')
   .controller('EventCtrl', function ($scope, EventService, TaskService, StuffService, $routeParams) {
 
     $scope.linkID = $routeParams.linkID;
+    
 
     $scope.newTask = '';
     $scope.newItem = '';
@@ -65,15 +66,18 @@ angular.module('eventifyApp')
 
     $scope.createTask = function () {
       TaskService.NewEventTask.save({}, {
-          event: $scope.linkID,
+          event: $scope.event.id,
           name: $scope.newTask
         },
         function (data) {
           console.log(data);
           $scope.event.tasks.push({
-            event: $scope.linkID,
-            name: $scope.newTask
+            completed: 0,
+            id: data.id,
+            name: $scope.newTask,
+            owners: new Array
           });
+          $scope.newTask = '';
         },
         function (data) {
           console.log(data);
@@ -99,17 +103,21 @@ angular.module('eventifyApp')
     };
 
     $scope.createItem = function () {
-      console.log($scope.linkID, $scope.newItem);
+      console.log($scope.event.id, $scope.newItem);
       StuffService.newStuff.save({}, {
           name: $scope.newItem,
-          event: $scope.linkID
+          event: $scope.event.id
         },
         function (data) {
           console.log(data);
           $scope.event.stuffs.push({
-            event: $scope.linkID,
-            name: $scope.newItem
+            event: $scope.event.id,
+            id: data.id,
+            name: $scope.newItem,
+            owner: null
           });
+          console.log($scope.event.stuffs);
+          $scope.newItem = '';
         },
         function (data) {
           console.log(data);
