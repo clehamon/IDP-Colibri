@@ -10,10 +10,17 @@
 angular.module('eventifyApp')
   .controller('HeaderCtrl', function ($scope) {
 
-  	$scope.showModal = false;
+  	$scope.showLogin = false;
 
-  	$scope.changeModal = function(){
-    	$scope.showModal = !$scope.showModal;
+  	$scope.changeLogin = function(){
+    	$scope.showLogin = !$scope.showLogin;
+    };
+
+
+  	$scope.showSignup = false;
+
+  	$scope.changeSignup = function(){
+    	$scope.showSignup = !$scope.showSignup;
     };
 
   });
