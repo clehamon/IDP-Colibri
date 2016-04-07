@@ -12,7 +12,7 @@ var mymodal = angular.module('eventifyApp');
 	mymodal.controller('LoginCtrl', function ($scope) {
 
     $scope.changeModal = function(){
-      $scope.$parent.showModal = !$scope.$parent.showModal;
+      $scope.parent.showModal = !$scope.parent.showModal;
     };
 
   });
