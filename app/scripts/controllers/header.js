@@ -8,10 +8,12 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('HeaderCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('HeaderCtrl', function ($scope) {
+
+  	$scope.showModal = false;
+
+  	$scope.changeModal = function(){
+    	$scope.showModal = !$scope.showModal;
+    };
+
   });
