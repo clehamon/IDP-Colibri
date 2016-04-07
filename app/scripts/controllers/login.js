@@ -10,9 +10,6 @@
 var mymodal = angular.module('eventifyApp');
 
 	mymodal.controller('LoginCtrl', function ($scope) {
-    $scope.showModal = false;
-    $scope.toggleModal = function(){
-        $scope.showModal = !$scope.showModal;
-    };
+
   });
 
