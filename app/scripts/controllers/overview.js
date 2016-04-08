@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('OverviewCtrl', function ($scope, UserService, EventService) {
+    .controller('OverviewCtrl', function ($scope, UserService, EventService, $rootScope) {
 
     var userId = 2039;
 
@@ -29,14 +29,17 @@ angular.module('eventifyApp')
         );
     };
 
-    $scope.updateAttendance = function(going, eventID){
+    $scope.updateAttendance = function(event, going){
 
     	EventService.updateAttendance.update({},{
-                event: eventID,
+                event: event.id,
                 user: userId,
                 going: going,
             }, function(data){
                 console.log(data);
+                if (going) {
+
+                }
             }, function(data){
                 console.log(data);
             });

@@ -11,23 +11,28 @@
     <h3>Sign up</h3>
       <modal title="Sign up form">
       <form role="form">
+          <p class="errorMsg">{{signInError}}</p>
       	  <div class="form-group">
-            <label for="email">Choose a username</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter username" required/>
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" ng-model="firstName" placeholder="Enter first name" required/>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" ng-model="lastName" placeholder="Enter last name" required/>
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter email" required/>
+            <input type="email" class="form-control" id="email" ng-model="email" placeholder="Enter email" required/>
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password" required/>
+            <input type="password" class="form-control" id="password" ng-model="password" placeholder="Password" required/>
           </div>
           <div class="form-group">
-            <label for="password">Confirm password</label>
-            <input type="password" class="form-control" id="password" placeholder="Confirm password" required/>
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" class="form-control" id="confirmPassword" ng-model="confirmPassword" placeholder="Confirm password" required/>
           </div>
-          <button type="submit" class="btn btn-default"><a href="#/overview">Sign up</a></button>
+          <button type="submit" class="btn btn-default" ng-click="newUser()"><a>Sign up</a></button>
         </form>
       </modal>
     </div>

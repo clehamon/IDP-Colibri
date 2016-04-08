@@ -8,19 +8,19 @@
 		</ul>
 
 		<div class="row overviewMain">
-			<div ng-repeat="event in events | filter:dateRangeFilter('date', upcoming)" class="col-md-4">
+			<div ng-repeat="event in events | filter:dateRangeFilter('date', upcoming)" class="col-md-4 eventCardContainer">
 				<div class="eventCard">
-					<div class="eventCard-admin" ng-show="{{event.isAdmin}}">
-						<span class="glyphicon glyphicon glyphicon-king" title="Administrator"></span>
+					<div class="eventCard-admin">
+						<span class="glyphicon glyphicon glyphicon-king" title="Administrator" ng-show="{{event.isAdmin}}"></span>
+
+						<div class="checkbox" ng-hide="{{event.isAdmin}}">
+							<input id="{{'toggle'+event.id}}" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" ng-change="updateAttendance(event, event.going)" ng-model="event.going" ng-true-value="'1'" ng-false-value="'0'">
+							<label for="{{'toggle'+event.id}}"></label>
+						</div>
 					</div>
 					<div class="eventCard-top" style="{{event.bgStyle}}" ng-class="{'is-no-bg':{{event.coverPicture==null}}}">
 						<div class="eventCard-top-info">
 							<h3>{{event.name}}</h3>
-							<div class="checkbox" ng-hide="{{event.isAdmin}}">
-								<label>
-									<input type="checkbox" ng-change="updateAttendance(event.going, event.id)" ng-model="event.going" ng-true-value="'1'" ng-false-value="'0'"> Attending
-								</label>
-							</div>
 							<p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date: "HH:mm"}}</p>
 							<p>{{event.location}}</p>
 							<div class="eventCard-attendees" ng-click="showAttendees = !showAttendees" ng-init="showAttendees = false">

@@ -66,7 +66,7 @@ angular
       });
 
       $authProvider.facebook({
-        clientId: 'Facebook App ID'
+        clientId: '1734910026796308'
       });
 
       $authProvider.google({
