@@ -8,13 +8,9 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function ($scope, EventService, TaskService, StuffService, $routeParams) {
+  .controller('EventCtrl', function ($scope, EventService, $routeParams) {
 
     $scope.linkID = $routeParams.linkID;
-    
-
-    $scope.newTask = '';
-    $scope.newItem = '';
     $scope.editing = false;
 
 
@@ -62,85 +58,7 @@ angular.module('eventifyApp')
         }
       });
       return user;
-    };
-
-    $scope.createTask = function () {
-      TaskService.NewEventTask.save({}, {
-          event: $scope.event.id,
-          name: $scope.newTask
-        },
-        function (data) {
-          console.log(data);
-          $scope.event.tasks.push({
-            completed: 0,
-            id: data.id,
-            name: $scope.newTask,
-            owners: new Array
-          });
-          $scope.newTask = '';
-        },
-        function (data) {
-          console.log(data);
-        });
-    };
-
-    $scope.removeTask = function (ID) {
-      console.log(ID);
-      TaskService.RemoveEventTask.delete({
-          id: ID
-        }, {},
-        function (data) {
-          for (var i = 0; i < $scope.event.tasks.length; i++) {
-            if ($scope.event.tasks[i].id === ID) {
-              $scope.event.tasks.splice(i--, 1);
-            }
-          }
-          console.log(data);
-        },
-        function (data) {
-          console.log(data);
-        });
-    };
-
-    $scope.createItem = function () {
-      console.log($scope.event.id, $scope.newItem);
-      StuffService.newStuff.save({}, {
-          name: $scope.newItem,
-          event: $scope.event.id
-        },
-        function (data) {
-          console.log(data);
-          $scope.event.stuffs.push({
-            event: $scope.event.id,
-            id: data.id,
-            name: $scope.newItem,
-            owner: null
-          });
-          console.log($scope.event.stuffs);
-          $scope.newItem = '';
-        },
-        function (data) {
-          console.log(data);
-        });
-    };
-
-    $scope.removeItem = function (ID) {
-      console.log(ID);
-      StuffService.removeStuff.delete({
-          id: ID
-        }, {},
-        function (data) {
-          for (var i = 0; i < $scope.event.stuffs.length; i++) {
-            if ($scope.event.stuffs[i].id === ID) {
-              $scope.event.stuffs.splice(i--, 1);
-            }
-          }
-          console.log(data);
-        },
-        function (data) {
-          console.log(data);
-        });
-    };
+    };    
 
     $scope.startEditing = function () {
       $scope.editing = true;
@@ -157,32 +75,6 @@ angular.module('eventifyApp')
         description: $scope.event.description
       }, function (data) {
         console.log(data);
-      }, function (data) {
-        console.log(data);
-      });
-    };
-
-    /*$scope.createTask = function (id) {
-        TaskService.NewEventTask.save({}, {
-          event: id,
-          name: $scope.newTask
-        }, function (data) {
-          console.log(data);
-        }, function (data) {
-          console.log(data);
-        });
-      };*/
-
-    /*Refactored everything to use getEventByID,
-    so this is currently not used.
-    Left it here just in case.*/
-    $scope.getAttendees = function (ID) {
-      $scope.attendeeStatus = true;
-      EventService.EventAttendees.query({
-        id: ID
-      }, function (data) {
-        $scope.attendees = data;
-        $scope.attendeeStatus = false;
       }, function (data) {
         console.log(data);
       });
