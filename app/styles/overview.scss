@@ -25,11 +25,22 @@
 	border-radius:40px;
 	color: rgb(255, 255, 255);
 	background-color: #F06361;
+	overflow:hidden;
 }
 
 .overview-new-event:hover{
 	text-decoration: none;
 	color: white;
+	transition: width 0.5s ease-in-out;
+}
+
+.overview-new-event-text .ng-hide{
+	animation: newTextIn 0.5s;
+}
+
+@keyframes newTextIn {
+    from {margin-left:-500px}
+    to {margin-left:0px;}
 }
 
 

@@ -8,12 +8,12 @@
  * Service in the eventifyApp.
  */
 angular.module('eventifyApp')
-  .service('TaskService', function ($resource) {
-    // AngularJS will instantiate a singleton by calling "new" on this function
+    .service('TaskService', function ($resource) {
+        // AngularJS will instantiate a singleton by calling "new" on this function
 
-    this.EventTask = $resource('http://clementhamon.com/IDP/public/task/:id');
+        this.EventTask = $resource('http://clementhamon.com/IDP/public/task/:id');
 
-    this.NewEventTask = $resource('http://clementhamon.com/IDP/public/task/new');
-    
-    this.RemoveEventTask = $resource('http://clementhamon.com/IDP/public/task/delete/:id');
-  });
+        this.NewEventTask = $resource('http://clementhamon.com/IDP/public/task/new');
+
+        this.RemoveEventTask = $resource('http://clementhamon.com/IDP/public/task/delete/:id');
+    });
