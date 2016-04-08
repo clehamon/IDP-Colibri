@@ -1,3 +1,5 @@
+<ng-include src="'views/header.html'"></ng-include>
+
 <div ng-init="getEventByID()" ng-show="eventStatus">Loading...</div>
 
 <section class="module parallax">
@@ -93,7 +95,7 @@
                         </div>
                         <span ng-show="!task.owners.length" ng-click="addUserToTask()" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
                     </td>
-                    <td>{{task.name}} {{!task.owners.length}}</td>
+                    <td>{{task.name}}</td>
                     <td><span ng-click="openTaskRemove(taskIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
                 </tr>
                 <tr class="table-danger" ng-show="showDeleteTaskField(taskIndex)">

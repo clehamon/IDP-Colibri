@@ -1,6 +1,6 @@
-'use strict';
-
 /**
+
+<ng-include src="'views/header.html'"></ng-include>
  * @ngdoc function
  * @name eventifyApp.controller:ItemCtrl
  * @description
