@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('HeaderCtrl', function ($scope) {
+  .controller('HeaderCtrl', function ($scope, $location) {
 
   	$scope.showLogin = false;
 
@@ -22,5 +22,9 @@ angular.module('eventifyApp')
   	$scope.changeSignup = function(){
     	$scope.showSignup = !$scope.showSignup;
     };
+
+    $scope.isActive = function(route) {
+        return route === $location.path();
+    }
 
   });
