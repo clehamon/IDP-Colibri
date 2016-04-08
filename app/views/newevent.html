@@ -4,49 +4,11 @@
 
 <form ng-submit="processForm()" id="eventDetails">
 
-    <section class="content">
-        <h2>Yoshiko</h2>
-        <span class="input input--yoshiko">
-					<input class="input__field input__field--yoshiko" type="text" id="input-10" />
-					<label class="input__label input__label--yoshiko" for="input-10">
-						<span class="input__label-content input__label-content--yoshiko" data-content="Bird's Color">Bird's Color</span>
-        </label>
-        </span>
-        <span class="input input--yoshiko">
-					<input class="input__field input__field--yoshiko" type="text" id="input-11" />
-					<label class="input__label input__label--yoshiko" for="input-11">
-						<span class="input__label-content input__label-content--yoshiko" data-content="Wing Span">Wing Span</span>
-        </label>
-        </span>
-        <span class="input input--yoshiko">
-					<input class="input__field input__field--yoshiko" type="text" id="input-12" />
-					<label class="input__label input__label--yoshiko" for="input-12">
-						<span class="input__label-content input__label-content--yoshiko" data-content="Beak Length">Beak Length</span>
-        </label>
-        </span>
-    </section>
 
-    <section class="content bgcolor-8">
-        <h2>Isao</h2>
-        <span class="input input--isao">
-					<input class="input__field input__field--isao" type="text" id="input-38" />
-					<label class="input__label input__label--isao" for="input-38" data-content="First Name">
-						<span class="input__label-content input__label-content--isao">First Name</span>
-        </label>
-        </span>
-        <span class="input input--isao">
-					<input class="input__field input__field--isao" type="text" id="input-39" />
-					<label class="input__label input__label--isao" for="input-39" data-content="Middle Name">
-						<span class="input__label-content input__label-content--isao">Middle Name</span>
-        </label>
-        </span>
-        <span class="input input--isao">
-					<input class="input__field input__field--isao" type="text" id="input-40" />
-					<label class="input__label input__label--isao" for="input-40" data-content="Last Name">
-						<span class="input__label-content input__label-content--isao">Last Name</span>
-        </label>
-        </span>
-    </section>
+    <div class="row" align="center">
+        <h4>Lets create a rocking event</h4>
+        <hr>
+    </div>
 
 
     <div class="row" id="uploadCoverImg">
@@ -62,12 +24,13 @@
 
     <div class="row col-md-12">
 
+
         <div class="row">
             <div class="col-md-4 form-group">
-                <span class="input input--yoshiko">
-					<input class="input__field input__field--yoshiko" type="text" name="name" ng-model="event.name" id="eventName" class="form-control" required />
-					<label class="input__label input__label--yoshiko" for="input-10">
-						<span class="input__label-content input__label-content--yoshiko" data-content="Event Name">Event Name</span>
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" name="name" ng-model="event.name" id="eventName" class="form-control" required />
+					<label class="input__label input__label--isao" for="eventName" data-content="Event Name">
+						<span class="input__label-content input__label-content--isao" >Event Name</span>
                 </label>
                 </span>
             </div>
@@ -78,67 +41,76 @@
 
                 <span class="input input--isao">
 					<input class="input__field input__field--isao" type="date" name="date" ng-model="event.date" id="eventDate" class="form-control"/>
-					<label class="input__label input__label--isao" for="input-40" data-content="Event Date">
+					<label class="input__label input__label--isao" for="eventDate" data-content="Event Date">
 						<span class="input__label-content input__label-content--isao">Event Date</span>
                 </label>
                 </span>
 
-                <span class="input input--yoshiko">
-					<input class="input__field input__field--yoshiko" type="date" name="date" ng-model="event.date" id="eventDate2" class="form-control" />
-					<label class="input__label input__label--yoshiko" for="input-11" data-content="Event Date">
-						<span class="input__label-content input__label-content--yoshiko" >Event Date</span>
+
+            </div>
+
+
+            <div class="col-md-4 form-group">
+
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="time" name="time" ng-model="event.time" id="eventTime" class="form-control"/>
+					<label class="input__label input__label--isao" for="eventTime" data-content="Event Time">
+						<span class="input__label-content input__label-content--isao">Event Time</span>
                 </label>
                 </span>
 
-
-            </div>
-
-
-            <div class="col-md-4 form-group">
-                <h5>Event Time</h5>
-
-                <input type="time" name="time" placeholder="in mins" ng-model="event.time" id="eventTime" class="form-control" />
-
             </div>
             <div class="col-md-4 form-group">
-                <h5>Event Duration</h5>
 
-                <input type="number" name="duration" placeholder="in mins" ng-model="event.duration" id="eventDuration" class="form-control" />
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="number" name="duration" placeholder="in mins" ng-model="event.duration" id="eventDuration" class="form-control"/>
+					<label class="input__label input__label--isao" for="eventDuration"  data-content="Event Duration">
+						<span class="input__label-content input__label-content--isao">Event Duration</span>
+                </label>
+                </span>
+
             </div>
-
         </div>
 
         <div class="row ">
-            <div class="col-md-12 form-group">
-                <h5>Event Description</h5>
-                <textarea name="description" rows="4" cols="100" placeholder="Type your text in here...." ng-model="event.description" id="eventDescription" class="form-control">
-                </textarea>
+            <div class="col-md-6 form-group">
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" placeholder="Type your text in here...." ng-model="event.description" id="eventDescription" class="form-control"/>
+					<label class="input__label input__label--isao" for="eventDescription"  data-content="Event Descriptopn">
+						<span class="input__label-content input__label-content--isao">Event Description</span>
+                </label>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" ng-model="event.spotifyPlaylist" id="spotifyPlaylist" class="form-control">
+					<label class="input__label input__label--isao" for="spotifyPlaylist"  data-content="Spotify Playlist">
+						<span class="input__label-content input__label-content--isao">Spotify Playlist</span>
+                </label>
+                </span>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8 form-group">
-                <h5>Spotify Playlist</h5>
-                <input type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" ng-model="event.spotifyPlaylist" id="spotifyPlaylist" class="form-control" />
-            </div>
-        </div>
-        <div class="row">
             <div class="col-md-12 form-group">
-                <h5>Event Location</h5>
-                <div class="col-md-10">
 
-                    <div id="map_canvas">
 
-                        <script type="text/ng-template" id="searchbox.tpl.html">
-                            <input type="text" class="searchStyle" ng-model="event.locationName" placeholder="Search Box">
-                        </script>
+                <div id="map_canvas">
 
-                        <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-                            <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="'left-top'"></ui-gmap-search-box>
-                            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
-                        </ui-gmap-google-map>
-                    </div>
+                    <script type="text/ng-template" id="searchbox.tpl.html">
+                        <input type="text" class="searchStyle" ng-model="event.locationName" placeholder="Search for the Event Location">
+                    </script>
 
+                    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                        <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="'left-top'"></ui-gmap-search-box>
+                        <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
+                    </ui-gmap-google-map>
                 </div>
+
+
 
 
             </div>
