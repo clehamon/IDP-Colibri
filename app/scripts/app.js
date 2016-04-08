@@ -16,9 +16,10 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'uiGmapgoogle-maps'
+    'uiGmapgoogle-maps',
+    'satellizer'
   ])
-  .config(function ($routeProvider, uiGmapGoogleMapApiProvider, $httpProvider) {
+  .config(function ($routeProvider, uiGmapGoogleMapApiProvider, $httpProvider, $authProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -62,6 +63,14 @@ angular
       })
       .otherwise({
         redirectTo: '/'
+      });
+
+      $authProvider.facebook({
+        clientId: 'Facebook App ID'
+      });
+
+      $authProvider.google({
+        clientId: 'Google Client ID'
       });
 
     uiGmapGoogleMapApiProvider.configure({
