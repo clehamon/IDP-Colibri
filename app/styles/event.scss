@@ -45,6 +45,7 @@ li {
 }
 .thumb {
   width: 30px;
+  margin-left: 12px;
 }
 .info {
   li {
@@ -98,21 +99,68 @@ td.thumb-img {
 .add {
   margin: 7px;
 }
-tr {
-  -webkit-transition: 0.5s linear all;
-  transition: 0.5s linear all;
+
+.table-danger{
+  background-color: #f2dede;
 }
-.ng-animate.ng-enter {
-  height: 0;
+
+.table-danger:hover{
+  background-color: #f0c3c3 !important;
 }
-.tr.ng-enter-active {
-  height: 0;
+
+.table-warning{
+    background-color: #fcf8e3;
 }
-.slide.ng-leave {
-  height: 0;
+
+.table-success{
+    background-color: #dff0d8;
 }
-.slide.ng-leave-active {
-  height: 0;
+
+.table-left{
+    float: left;
+    margin-left: 20px;
+}
+
+.edit-buttons{
+    float: right;
+    
+    *{
+        margin: 10px;
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 1200px){
+    .descr{
+        padding-top: 270px;
+        .info{
+            margin-top: 0px;
+        }
+    }
+}
+
+
+/*====================ANIMATIONS==========================*/
+
+.appear {
+  transition: 1s linear opacity;
+  -webkit-transition: 1s linear opacity;
+}
+
+.appear.ng-enter {
+  opacity: 0;
+}
+
+.appear.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.appear.ng-leave {
+  opacity: 1;
+}
+
+.appear.ng-leave.ng-leave-active {
+  opacity: 0;
 }
 
 /*https: //css-tricks.com/animations-the-angular-way/*/

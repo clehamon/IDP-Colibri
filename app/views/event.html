@@ -1,8 +1,10 @@
 <div ng-init="getEventByID()" ng-show="eventStatus">Loading...</div>
 
 <section class="module parallax">
-    <div ng-hide="editing">
-        <!--<h1>{{event.name}}</h1>-->
+    
+    <div class="edit-buttons">
+      <a class="btn btn-primary" ng-click="startEditing()">Edit</a>
+      <a class="btn btn-primary" ng-href="#">Share</a>
     </div>
 
     <div class="descr">
@@ -10,8 +12,6 @@
             <h1>{{event.name}}</h1>
             <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
             <p>{{event.description}}</p>
-            <a class="btn" ng-click="startEditing()">Edit</a>
-            <a class="btn" ng-href="#">Share</a>
         </div>
 
         <div ng-show="editing">
