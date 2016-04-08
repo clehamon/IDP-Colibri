@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('NeweventCtrl', function ($scope, $http) {
+    .controller('NeweventCtrl', function ($scope, $http, $resource, NewService) {
         this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -87,39 +87,25 @@ angular.module('eventifyApp')
         $scope.event.longitudeMap = $scope.lngt;
 
         $scope.processForm = function () {
-            console.log("Entered http", $scope.event);
-            $http({
-                    method: 'POST',
-                    url: 'http://clementhamon.com/IDP/public/event/new',
-                    data: {
+            NewService.processForm.save({}, {
 
-                        name: $scope.event.name,
-                        date: $scope.event.date,
-                        time: $scope.event.time,
-                        locationName: $scope.event.locationName,
-                        coverPicture: $scope.event.coverPicture,
-                        duration: $scope.event.duration,
-                        locationLat: $scope.event.latitudeMap,
-                        locationLong: $scope.event.longitudeMap,
-                        description: $scope.event.description,
-                        spotifyPlaylist: $scope.event.spotifyPlaylist
-
-                    }, // pass in data as strings
-                })
-                .success(function (data) {
-                    console.log(data);
-
-                    if (!data.success) {
-                        // if not successful, bind errors to error variables
-                        $scope.errorName = data.errors.name;
-                        console.log($scope.errorName);
-
-                    } else {
-                        // if successful, bind success message to message
-                        $scope.message = data.message;
-                    }
-                });
+                name: $scope.event.name,
+                date: $scope.event.date,
+                time: $scope.event.time,
+                locationName: $scope.event.locationName,
+                coverPicture: $scope.event.coverPicture,
+                duration: $scope.event.duration,
+                locationLat: $scope.event.latitudeMap,
+                locationLong: $scope.event.longitudeMap,
+                description: $scope.event.description,
+                spotifyPlaylist: $scope.event.spotifyPlaylist
+            }, function (data) {
+                console.log(data);
+            }, function (data) {
+                console.log(data);
+            });
         };
-        console.log($scope.message);
+
+
 
     });
