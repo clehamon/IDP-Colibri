@@ -26,6 +26,28 @@
         </span>
     </section>
 
+    <section class="content bgcolor-8">
+        <h2>Isao</h2>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-38" />
+					<label class="input__label input__label--isao" for="input-38" data-content="First Name">
+						<span class="input__label-content input__label-content--isao">First Name</span>
+        </label>
+        </span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-39" />
+					<label class="input__label input__label--isao" for="input-39" data-content="Middle Name">
+						<span class="input__label-content input__label-content--isao">Middle Name</span>
+        </label>
+        </span>
+        <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" id="input-40" />
+					<label class="input__label input__label--isao" for="input-40" data-content="Last Name">
+						<span class="input__label-content input__label-content--isao">Last Name</span>
+        </label>
+        </span>
+    </section>
+
 
     <div class="row" id="uploadCoverImg">
         <div class="jumbotron" align="center">
@@ -53,16 +75,22 @@
 
         <div class="row">
             <div class="col-md-4 form-group">
+
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="date" name="date" ng-model="event.date" id="eventDate" class="form-control"/>
+					<label class="input__label input__label--isao" for="input-40" data-content="Event Date">
+						<span class="input__label-content input__label-content--isao">Event Date</span>
+                </label>
+                </span>
+
                 <span class="input input--yoshiko">
-					<input class="input__field input__field--yoshiko" type="date" name="date" ng-model="event.date" id="eventDate" class="form-control"/>
-					<label class="input__label input__label--yoshiko" for="input-10">
-						<span class="input__label-content input__label-content--yoshiko" data-content="Event Date">Event Date</span>
+					<input class="input__field input__field--yoshiko" type="date" name="date" ng-model="event.date" id="eventDate2" class="form-control" />
+					<label class="input__label input__label--yoshiko" for="input-11" data-content="Event Date">
+						<span class="input__label-content input__label-content--yoshiko" >Event Date</span>
                 </label>
                 </span>
 
 
-                <h5>Event Date</h5>
-                <input type="date" name="date" ng-model="event.date" id="eventDate" class="form-control" />
             </div>
 
 
