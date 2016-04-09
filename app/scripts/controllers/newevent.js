@@ -9,11 +9,9 @@
  */
 angular.module('eventifyApp')
     .controller('NeweventCtrl', function ($scope, $http, $resource, NewService, $location) {
-        this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+        
+        $scope.imageStyle = {'background-color':'#444'};
+
         $scope.event = {};
         $scope.adminID = 2039;
         $scope.lat = 52.47491894326404;
@@ -109,6 +107,13 @@ angular.module('eventifyApp')
                 console.log(data);
             });
         };
+
+        $scope.updateCover = function(){
+            $scope.imageStyle = {
+                background: 'linear-gradient( rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5) ), url('+$scope.event.coverPicture+') no-repeat center center',
+                'background-size': 'cover'
+            }
+        }
 
 
 

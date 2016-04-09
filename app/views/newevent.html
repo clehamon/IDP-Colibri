@@ -13,13 +13,13 @@
 
 
     <div class="row" id="uploadCoverImg">
-        <div class="jumbotron" align="center">
+        <div class="jumbotron newEventImage" align="center" ng-style="imageStyle">
             <h4>Upload Event Cover Picture</h4>
             <p>Share the link using image hosting sites like <a href="http://imgur.com/" target="_blank">Imgur.com</a> or <a href="http://postimage.org/" target="_blank">postimage.org. </a>
 
             </p>
             <span class="input input--isao">
-					<input class="input__field input__field--isao" name="coverPicture" class="url" align="center" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture"  class="form-control">
+					<input class="input__field input__field--isao" ng-change="updateCover()" name="coverPicture" class="url" align="center" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture"  class="form-control">
 					<label class="input__label input__label--isao" for="coverPicture"  data-content="Cover Picture">
 						<span class="input__label-content input__label-content--isao">Cover Picture Link</span>
             </label>
