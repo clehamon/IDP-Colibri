@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('NeweventCtrl', function ($scope, $http, $resource, NewService) {
+    .controller('NeweventCtrl', function ($scope, $http, $resource, NewService, $location) {
         this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -102,7 +102,9 @@ angular.module('eventifyApp')
                 spotifyPlaylist: $scope.event.spotifyPlaylist,
                 admin: $scope.adminID
             }, function (data) {
-                console.log(data);
+                console.log(data.linkId);
+                $location.path('/event/' + data.linkId);
+
             }, function (data) {
                 console.log(data);
             });
