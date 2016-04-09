@@ -18,9 +18,17 @@
                         <li class="hdrtxt" ng-class="{active:isActive('/')}"><a href="#/">Home</a></li>
                         <li class="hdrtxt" ng-class="{active:isActive('/about')}"><a ng-href="#/about">About</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul ng-hide="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">
                         <li ng-click="changeSignup()"><a href="">Sign up</a></li>
                         <li ng-click="changeLogin()"><a href="">Log in</a></li>
+                    </ul>
+
+                    <ul ng-show="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">
+                        <li ng-click="changeSignup()">
+                        
+                        <a href=""><img src="{{currentUser.avatar}}" alt="" class="img-circle img-responsive headerAvatar">{{currentUser.firstName}}</a>
+                        </li>
+                        <li ng-click="logOut()"><a href="">Log out</a></li>
                     </ul>
                 </div>
             </div>
