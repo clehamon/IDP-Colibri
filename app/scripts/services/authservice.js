@@ -37,6 +37,7 @@ angular.module('eventifyApp')
       },
       logout: function() {
             currentUser = null;
+            $location.path( '/' );
       },
       isLoggedIn: function() {
         return (currentUser !== null);
