@@ -10,8 +10,10 @@
 angular.module('eventifyApp')
     .controller('OverviewCtrl', function ($scope, UserService, EventService, $rootScope) {
 
-    var userId = 2039;
-
+    	var userId = 2039;
+	    if ($rootScope.user) {
+	    	userId = $rootScope.user.id;
+	    }
  	$scope.getEvents = function(){
  		UserService.UserEvents.query({
  			id: userId
