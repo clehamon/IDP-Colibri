@@ -15,6 +15,7 @@ angular.module('eventifyApp')
       'Karma'
     ];
         $scope.event = {};
+        $scope.adminID = 2039;
         $scope.lat = 52.47491894326404;
         $scope.lngt = -1.8684210293371217;
 
@@ -98,7 +99,8 @@ angular.module('eventifyApp')
                 locationLat: $scope.event.latitudeMap,
                 locationLong: $scope.event.longitudeMap,
                 description: $scope.event.description,
-                spotifyPlaylist: $scope.event.spotifyPlaylist
+                spotifyPlaylist: $scope.event.spotifyPlaylist,
+                admin: $scope.adminID
             }, function (data) {
                 console.log(data);
             }, function (data) {
