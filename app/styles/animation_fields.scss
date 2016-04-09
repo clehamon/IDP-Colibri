@@ -177,7 +177,7 @@
     top: 0;
     left: 0;
     padding: 0.75em 0.15em;
-    color: #da7071;
+    color: #985FE8;
     opacity: 0;
     -webkit-transform: translate3d(0, 50%, 0);
     transform: translate3d(0, 50%, 0);
@@ -189,7 +189,7 @@
 }
 
 .input__field--isao:focus + .input__label--isao::before {
-    background-color: #da7071;
+    background-color: #985FE8;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
 }
