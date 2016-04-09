@@ -52,7 +52,7 @@
                 <tr ng-hide="showDeleteItemField(stuffIndex)" ng-class="{true: '', false: 'table-success'}[!stuff.owners.length]">
                     <td>
                         <img class="img-circle thumb name thumb-img" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" />
-                        <span ng-show="!stuff.owners.length" ng-click="addUserToItem()" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
+                        <span ng-show="!stuff.owners.length" ng-click="addUserToItem(stuff)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
                     </td>
                     <td>{{stuff.name}}</td>
                     <td><span ng-click="openItemRemove(stuffIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>

@@ -8,7 +8,7 @@
  * Factory in the eventifyApp.
  */
 angular.module('eventifyApp')
-  .factory('AuthService', function ($auth, $location) {
+  .factory('AuthService', function ($auth, $location, $route) {
 
     var currentUser = null;
 
@@ -37,7 +37,12 @@ angular.module('eventifyApp')
       },
       logout: function() {
             currentUser = null;
-            $location.path( '/' );
+            console.log($location);
+            if ($location.$$path === '/') {
+                $route.reload();
+            } else {
+                $location.path( '/' );
+            }
       },
       isLoggedIn: function() {
         return (currentUser !== null);

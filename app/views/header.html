@@ -15,7 +15,8 @@
 
                     <ul class="nav navbar-nav navbar-left">
                         <!--   <li class="logo">Watsdplan</li> -->
-                        <li class="hdrtxt" ng-class="{active:isActive('/')}"><a href="#/">Home</a></li>
+                        <li ng-hide="{{currentUser.id>0}}" class="hdrtxt" ng-class="{active:isActive('/')}"><a href="#/">Home</a></li>
+                        <li ng-show="{{currentUser.id>0}}" class="hdrtxt" ng-class="{active:isActive('/')}"><a href="#/overview">My events</a></li>
                         <li class="hdrtxt" ng-class="{active:isActive('/about')}"><a ng-href="#/about">About</a></li>
                     </ul>
                     <ul ng-hide="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">
