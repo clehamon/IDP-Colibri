@@ -8,23 +8,24 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('HeaderCtrl', function ($scope, $location) {
+  
+.controller('HeaderCtrl', ['$scope', '$rootScope',
+    function($scope, $rootScope) {
 
-  	$scope.showLogin = false;
+        $rootScope.$on("changeSignup", function(){
+           $scope.changeSignup();
+        })
 
-  	$scope.changeLogin = function(){
-    	$scope.showLogin = !$scope.showLogin;
-    };
+      $scope.showLogin = false;
+      $scope.showSignup = false;
 
+      $scope.changeSignup = function(){
+        $scope.showSignup = !$scope.showSignup;
+      }
 
-  	$scope.showSignup = false;
+      $scope.changeLogin = function(){
+        $scope.showLogin = !$scope.showLogin;
+      }
+  }
+]);
 
-  	$scope.changeSignup = function(){
-    	$scope.showSignup = !$scope.showSignup;
-    };
-
-    $scope.isActive = function(route) {
-        return route === $location.path();
-    }
-
-  });

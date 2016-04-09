@@ -7,11 +7,20 @@
  * # MainCtrl
  * Controller of the eventifyApp
  */
+
+
 angular.module('eventifyApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+
+
+.controller('MainCtrl', ['$scope', '$rootScope',
+    function($scope, $rootScope, $location) {
+
+      $scope.showSignup = false;
+
+      $scope.callChangeSignup = function() {
+          $rootScope.$emit("changeSignup", {});
+      }
+
+
+    }
+]);
