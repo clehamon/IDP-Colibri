@@ -10,29 +10,32 @@
 
 
 angular.module('eventifyApp')
-  .controller('UserprofileCtrl', ['$scope', '$rootScope','AuthService',
-    function($scope, $rootScope, AuthService) {
+  .controller('UserprofileCtrl', ['$scope', '$rootScope','AuthService','UserService',
+    function($scope, $rootScope, AuthService, UserService) {
+
+    $scope.copyUser = angular.copy($scope.currentUser);
+    	
 
  
-
-      if (AuthService.isLoggedIn()) {
-        $scope.currentUser = AuthService.currentUser();
-      }
-
       $scope.updateProfile = function(){
 
-      	AuthService.updateUser.update({}, {
-        firstName: $scope.currentUser.firstName,
-        lastName: $scope.currentUser.lastName,
-        email: $scope.currentUser.email,
-        password: $scope.currentUser.password,
-        avatar: $scope.currentUser.avatar
+      	UserService.updateUser.update({}, {
+      	id: $scope.copyUser.id,
+        firstName: $scope.copyUser.firstName,
+        lastName: $scope.copyUser.lastName,
+        email: $scope.copyUser.email,
+        password: $scope.copyUser.password,
+        avatar: $scope.copyUser.avatar
 	      }, function (data) {
 	        console.log(data);
+	        $scope.changeView(3);
 	      }, function (data) {
 	        console.log(data);
 	      });
+
 	    };
+
+
       }
 
 ]);

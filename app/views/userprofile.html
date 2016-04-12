@@ -8,7 +8,7 @@
     </button>
 
     <div class="loginform">
-    <img src="{{currentUser.avatar}}" alt="" class="img-circle profileAvatar">
+    <img src="{{copyUser.avatar}}" alt="" class="img-circle profileAvatar">
     <h3>Edit profile</h3>
       <modal title="Profile form">
       <form role="form" >
@@ -16,30 +16,30 @@
       	 
           <div class="form-group">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" ng-model="currentUser.firstName" required/>
+            <input type="text" class="form-control" id="firstName" ng-model="copyUser.firstName"/>
           </div>
           <div class="form-group">
             <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" ng-model="currentUser.lastName" required/>
+            <input type="text" class="form-control" id="lastName" ng-model="copyUser.lastName"/>
           </div>
           <div class="form-group">
             <label for="email">Email address</label>
-            <input type="email" class="form-control" id="email" ng-model="currentUser.email" required/>
+            <input type="email" class="form-control" id="email" ng-model="copyUser.email"/>
           </div>
           <div class="form-group">
             <label for="password">Change Password</label>
-            <input type="password" class="form-control" id="password" ng-model="currentUser.password" required/>
+            <input type="password" class="form-control" id="password" ng-model="copyUser.password"/>
           </div>
           <div class="form-group">
             <label for="confirmPassword">Confirm password</label>
-            <input type="password" class="form-control" id="confirmPassword" ng-model="currentUser.password" required/>
+            <input type="password" class="form-control" id="confirmPassword" ng-model="copyUser.password"/>
           </div>
           <div class="form-group">
             <label for="avatar">Edit avatar</label>
-            <input type="text" class="form-control" id="avatar" ng-model="currentUser.avatar"/>
+            <input type="text" class="form-control" id="avatar" ng-model="copyUser.avatar"/>
           </div>
-          
-          <button type="submit" class="btn btn-default" ng-click="updateUser()"><a>Save changes</a></button>
+
+          <button type="submit" class="btn btn-default" ng-click="updateProfile()"><a>Save changes</a></button>
         </form>
       </modal>
     </div>
