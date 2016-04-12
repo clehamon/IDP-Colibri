@@ -8,10 +8,12 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function ($scope, EventService, $routeParams) {
+  .controller('EventCtrl', function ($scope, EventService, $routeParams, AuthService) {
 
     $scope.linkID = $routeParams.linkID;
     $scope.editing = false;
+    
+    $scope.isLogged = AuthService.isLoggedIn();
 
 
     //this name should be changed

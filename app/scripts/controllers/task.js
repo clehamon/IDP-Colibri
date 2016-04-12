@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('TaskCtrl', function ($scope, TaskService) {
+    .controller('TaskCtrl', function ($scope, TaskService, AuthService) {
 
         $scope.newTask = '';
 
@@ -66,8 +66,12 @@ angular.module('eventifyApp')
             $scope.deleteTaskIndex = -1;
         };
 
-        $scope.addUserToTask = function(){
-            console.log('user added');
+        $scope.addUserToTask = function(taskID){
+            console.log(taskID);
+            TaskService.addTaskOwner.save({},{
+                task: taskID,
+                owner: AuthService.currentUser().id
+            });
         };
 
     });

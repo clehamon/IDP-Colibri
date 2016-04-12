@@ -125,10 +125,10 @@ combine task and stuff controllers-->
                         <div class="thumb-img" ng-repeat="owner in task.owners">
                             <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
                         </div>
-                        <span ng-show="!task.owners.length" ng-click="addUserToTask()" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
+                        <span ng-show="!task.owners.length && isLogged" ng-click="addUserToTask(task.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
                     </td>
                     <td>{{task.name}}</td>
-                    <td><span ng-click="openTaskRemove(taskIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                    <td><span ng-show="isLogged" ng-click="openTaskRemove(taskIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
                 </tr>
                 <tr class="table-danger" ng-show="showDeleteTaskField(taskIndex)">
                     <td><span ng-click="closeTaskRemove()" class="glyphicon glyphicon-remove table-left" aria-hidden="true"></span></td>
@@ -152,7 +152,6 @@ combine task and stuff controllers-->
                 <tr>
                     <th>Avatar</th>
                     <th>Name</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>

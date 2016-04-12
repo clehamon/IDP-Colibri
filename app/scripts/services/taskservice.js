@@ -16,4 +16,6 @@ angular.module('eventifyApp')
         this.NewEventTask = $resource('http://clementhamon.com/IDP/public/task/new');
 
         this.RemoveEventTask = $resource('http://clementhamon.com/IDP/public/task/delete/:id');
+    
+        this.addTaskOwner = $resource('http://clementhamon.com/IDP/public/task/addOwner');
     });

@@ -12,8 +12,6 @@ angular.module('eventifyApp')
     .controller('ItemCtrl', function ($scope, StuffService, AuthService) {
 
         $scope.newItem = '';
-    
-        $scope.isLogged = AuthService.isLoggedIn();
 
         $scope.createItem = function () {
             
@@ -73,7 +71,6 @@ angular.module('eventifyApp')
         };
 
         $scope.addUserToItem = function (itemID) {
-            console.log(AuthService.currentUser().id);
             StuffService.updateStuff.update({}, {
                 id: itemID,
                 owner: AuthService.currentUser().id
