@@ -16,9 +16,10 @@ angular.module('eventifyApp')
     function($scope, $rootScope) {
 
       $scope.showSignup = false;
+      $scope.showProfile = false;
 
       $scope.callChangeSignup = function() {
-          $rootScope.$emit('changeSignup', {});
+          $rootScope.$emit('changeView', {});
       };
 
 
