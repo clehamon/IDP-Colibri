@@ -20,8 +20,8 @@
                         <li class="hdrtxt" ng-class="{active:isActive('/about')}"><a ng-href="#/about">About</a></li>
                     </ul>
                     <ul ng-hide="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">
-                        <li ng-click="changeSignup()"><a href="">Sign up</a></li>
-                        <li ng-click="changeLogin()"><a href="">Log in</a></li>
+                        <li ng-click="changeView(1)"><a href="">Sign up</a></li>
+                        <li ng-click="changeView(2)"><a href="">Log in</a></li>
                     </ul>
 
                     <ul ng-show="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">

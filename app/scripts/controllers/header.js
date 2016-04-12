@@ -23,12 +23,13 @@ angular.module('eventifyApp')
         $scope.currentUser = AuthService.currentUser();
       }
 
-      $scope.changeSignup = function(){
-        $scope.showSignup = !$scope.showSignup;
-      };
-
-      $scope.changeLogin = function(){
-        $scope.showLogin = !$scope.showLogin;
+      $scope.changeView = function(ID){
+        if (ID === 1) {
+          $scope.showSignup = !$scope.showSignup;
+        }
+        if (ID === 2) {
+          $scope.showLogin = !$scope.showLogin;
+        }
       };
 
       $scope.logOut = function (){
