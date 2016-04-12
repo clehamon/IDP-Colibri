@@ -12,12 +12,13 @@ angular.module('eventifyApp')
 .controller('HeaderCtrl', ['$scope', '$rootScope','AuthService',
     function($scope, $rootScope, AuthService) {
 
-      $rootScope.$on('changeSignup', function(){
-         $scope.changeSignup();
+      $rootScope.$on('changeView', function(){
+         $scope.changeView(3);
       });
 
       $scope.showLogin = false;
       $scope.showSignup = false;
+      $scope.showProfile = false;
 
       if (AuthService.isLoggedIn()) {
         $scope.currentUser = AuthService.currentUser();
@@ -29,6 +30,9 @@ angular.module('eventifyApp')
         }
         if (ID === 2) {
           $scope.showLogin = !$scope.showLogin;
+        }
+        if (ID === 3) {
+          $scope.showProfile = !$scope.showProfile;
         }
       };
 

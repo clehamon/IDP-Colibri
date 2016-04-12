@@ -1,1 +1,40 @@
-<p>This is the view for showing the user profile.</p>
+<div ng-controller="UserprofileCtrl" class="container">
+  
+<div class="darkbackground">
+
+  <div class="fakedialog">
+    <button type="button" class="close" data-dismiss="modal" ng-click="changeView(3)">
+      <span class="glyphicon glyphicon-remove-sign"></span>
+    </button>
+
+    <div class="loginform">
+    <h3>Edit profile</h3>
+      <modal title="Profile form">
+      <form role="form" >
+          <p class="errorMsg">{{signInError}}</p>
+      	  <div class="form-group">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" ng-model="currentUser.firstName" required/>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" ng-model="currentUser.lastName" required/>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" ng-model="currentUser.email" required/>
+          </div>
+          <div class="form-group">
+            <label for="password">Change Password</label>
+            <input type="password" class="form-control" id="password" ng-model="currentUser.password" required/>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" class="form-control" id="confirmPassword" ng-model="currentUser.password" required/>
+          </div>
+          <button type="submit" class="btn btn-default" ng-click="newUser()"><a>Save changes</a></button>
+        </form>
+      </modal>
+    </div>
+  </div>
+</div>

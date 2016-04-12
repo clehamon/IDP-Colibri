@@ -7,11 +7,15 @@
  * # UserprofileCtrl
  * Controller of the eventifyApp
  */
+
+
 angular.module('eventifyApp')
-  .controller('UserprofileCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('UserprofileCtrl', ['$scope', '$rootScope','AuthService',
+    function($scope, $rootScope, AuthService) {
+
+
+    	if (AuthService.isLoggedIn()) {
+        $scope.currentUser = AuthService.currentUser();
+      }
+  }
+]);
