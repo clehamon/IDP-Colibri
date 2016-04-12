@@ -1,3 +1,7 @@
+<!--check if tables should be combined to template
+combine task and stuff controllers-->
+
+
 <ng-include src="'views/header.html'"></ng-include>
 
 <div ng-init="getEventByID()" ng-show="eventStatus">Loading...</div>
@@ -80,10 +84,10 @@
                 <tr ng-hide="showDeleteItemField(stuffIndex)" ng-class="{true: '', false: 'table-success'}[!stuff.owners.length]">
                     <td>
                         <img class="img-circle thumb name thumb-img" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" />
-                        <span ng-show="!stuff.owners.length" ng-click="addUserToItem(stuff)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
+                        <span ng-show="!stuff.owner && isLogged" ng-click="addUserToItem(stuff.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
                     </td>
                     <td>{{stuff.name}}</td>
-                    <td><span ng-click="openItemRemove(stuffIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                    <td><span ng-show="isLogged" ng-click="openItemRemove(stuffIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
                 </tr>
                 <tr class="table-danger" ng-show="showDeleteItemField(stuffIndex)">
                     <td><span ng-click="closeItemRemove()" class="glyphicon glyphicon-remove table-left" aria-hidden="true"></span></td>
@@ -92,7 +96,7 @@
                 </tr>
             </tbody>
         </table>
-        <form ng-submit="createItem()">
+        <form ng-submit="createItem()" ng-show="isLogged">
             <div class="new-item form-group">
                 <input type="hidden" name="event" value="1">
                 <input class="form-control" type="text" name="name" ng-model="newItem" placeholder="Enter item name">
@@ -133,7 +137,7 @@
                 </tr>
             </tbody>
         </table>
-        <form ng-submit="createTask()">
+        <form ng-submit="createTask()" ng-show="isLogged">
             <div class="new-item form-group">
                 <input type="hidden" name="event" value="1">
                 <input class="form-control" type="text" name="name" ng-model="newTask" placeholder="Enter task name">
