@@ -13,13 +13,13 @@ angular.module('eventifyApp')
 
 
 .controller('MainCtrl', ['$scope', '$rootScope',
-    function($scope, $rootScope, $location) {
+    function($scope, $rootScope) {
 
       $scope.showSignup = false;
 
       $scope.callChangeSignup = function() {
-          $rootScope.$emit("changeSignup", {});
-      }
+          $rootScope.$emit('changeSignup', {});
+      };
 
 
     }

@@ -46,6 +46,7 @@ angular.module('eventifyApp')
             }
         };
         var events = {
+            //change back to places_changed
             places_changed: function (searchBox) {
 
                 var place = searchBox.getPlaces();
@@ -112,8 +113,8 @@ angular.module('eventifyApp')
             $scope.imageStyle = {
                 background: 'linear-gradient( rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5) ), url('+$scope.event.coverPicture+') no-repeat center center',
                 'background-size': 'cover'
-            }
-        }
+            };
+        };
 
 
 

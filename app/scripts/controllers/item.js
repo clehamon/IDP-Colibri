@@ -14,7 +14,7 @@ angular.module('eventifyApp')
         $scope.newItem = '';
 
         $scope.createItem = function () {
-            if ($scope.newItem == '') {
+            if ($scope.newItem === '') {
                 return;
             }
 
@@ -65,13 +65,13 @@ angular.module('eventifyApp')
             $scope.deleteItemIndex = index;
         };
 
-        $scope.closeItemRemove = function (index) {
+        $scope.closeItemRemove = function () {
             $scope.deleteItemIndex = -1;
         };
 
         $scope.addUserToItem = function () {
             console.log('user added to item');
-        }
+        };
 
 
     });
