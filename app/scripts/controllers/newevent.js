@@ -8,9 +8,11 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('NeweventCtrl', function ($scope, $http, $resource, NewService, $location) {
-        
-        $scope.imageStyle = {'background-color':'#444'};
+    .controller('NeweventCtrl', function ($scope, $http, $resource, EventService, $location) {
+
+        $scope.imageStyle = {
+            'background-color': '#444'
+        };
 
         $scope.event = {};
         $scope.adminID = 2039;
@@ -50,7 +52,6 @@ angular.module('eventifyApp')
             places_changed: function (searchBox) {
 
                 var place = searchBox.getPlaces();
-                console.log(place[0].geometry.location.lat());
 
 
                 if (!place || place === 'undefined' || place.length === 0) {
@@ -60,6 +61,10 @@ angular.module('eventifyApp')
 
                 $scope.lat = place[0].geometry.location.lat();
                 $scope.lngt = place[0].geometry.location.lng();
+
+                console.log($scope.lat, "+", $scope.lngt);
+                $scope.event.latitudeMap = $scope.lat;
+                $scope.event.longitudeMap = $scope.lngt;
 
                 $scope.map = {
                     center: {
@@ -72,22 +77,24 @@ angular.module('eventifyApp')
                 $scope.marker = {
                     id: 0,
                     coords: {
-                        latitude: place[0].geometry.location.lat(),
-                        longitude: place[0].geometry.location.lng()
+                        latitude: $scope.lat,
+                        longitude: $scope.lngt
                     }
                 };
 
             }
         };
+
         $scope.searchbox = {
             template: 'searchbox.tpl.html',
             events: events
         };
-        $scope.event.latitudeMap = $scope.lat;
-        $scope.event.longitudeMap = $scope.lngt;
+
+
+
 
         $scope.processForm = function () {
-            NewService.processForm.save({}, {
+            EventService.processForm.save({}, {
 
                 name: $scope.event.name,
                 date: $scope.event.date,
@@ -109,9 +116,9 @@ angular.module('eventifyApp')
             });
         };
 
-        $scope.updateCover = function(){
+        $scope.updateCover = function () {
             $scope.imageStyle = {
-                background: 'linear-gradient( rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5) ), url('+$scope.event.coverPicture+') no-repeat center center',
+                background: 'linear-gradient( rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5) ), url(' + $scope.event.coverPicture + ') no-repeat center center',
                 'background-size': 'cover'
             };
         };
