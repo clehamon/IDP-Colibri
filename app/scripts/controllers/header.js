@@ -25,14 +25,16 @@ angular.module('eventifyApp')
       }
 
       $scope.changeView = function(ID){
-        if (ID === 1) {
-          $scope.showSignup = !$scope.showSignup;
-        }
-        if (ID === 2) {
-          $scope.showLogin = !$scope.showLogin;
-        }
-        if (ID === 3) {
-          $scope.showProfile = !$scope.showProfile;
+        switch (ID) {
+          case 1:
+            $scope.showSignup = !$scope.showSignup;
+            break;
+          case 2:
+            $scope.showLogin = !$scope.showLogin;
+            break;
+          case 3:
+            $scope.showProfile = !$scope.showProfile;
+            break;
         }
       };
 
