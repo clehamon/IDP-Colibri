@@ -9,18 +9,21 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('ItemCtrl', function ($scope, StuffService) {
+    .controller('ItemCtrl', function ($scope, StuffService, AuthService) {
 
         $scope.newItem = '';
+    
+        $scope.isLogged = AuthService.isLoggedIn();
 
         $scope.createItem = function () {
+            
             if ($scope.newItem === '') {
                 return;
             }
 
             StuffService.newStuff.save({}, {
                     name: $scope.newItem,
-                    event: $scope.event.id
+                    event: $scope.event.id,
                 },
                 function (data) {
                     console.log(data);
@@ -69,8 +72,21 @@ angular.module('eventifyApp')
             $scope.deleteItemIndex = -1;
         };
 
-        $scope.addUserToItem = function () {
-            console.log('user added to item');
+        $scope.addUserToItem = function (itemID) {
+            console.log(AuthService.currentUser().id);
+            StuffService.updateStuff.update({}, {
+                id: itemID,
+                owner: AuthService.currentUser().id
+            }, function(data){
+                console.log(data);
+                for (var i = 0; i < $scope.event.stuffs.length; i++) {
+                    if ($scope.event.stuffs[i].id === itemID) {
+                        $scope.event.stuffs[i].owner = AuthService.currentUser().id;
+                    }
+                }
+            }, function(){
+                console.log(data);
+            });
         };
 
 

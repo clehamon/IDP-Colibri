@@ -13,5 +13,9 @@ angular.module('eventifyApp')
 
         this.newStuff = $resource('http://clementhamon.com/IDP/public/stuff/new');
         this.removeStuff = $resource('http://clementhamon.com/IDP/public/stuff/delete/:id');
+        this.updateStuff = $resource('http://clementhamon.com/IDP/public/stuff/update', null,
+        {'update':{
+            method:'PUT'
+        }});
 
-    });
+    });1
