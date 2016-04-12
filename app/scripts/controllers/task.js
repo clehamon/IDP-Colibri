@@ -71,6 +71,15 @@ angular.module('eventifyApp')
             TaskService.addTaskOwner.save({},{
                 task: taskID,
                 owner: AuthService.currentUser().id
+            }, function(data){
+                console.log(data);
+                for (var i = 0; i < $scope.event.tasks.length; i++) {
+                    if ($scope.event.tasks[i].id === taskID) {
+                        $scope.event.tasks[i].owners.push(AuthService.currentUser());
+                    }
+                }
+            }, function(data){
+                console.log(data);
             });
         };
 
