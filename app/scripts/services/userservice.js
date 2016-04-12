@@ -14,4 +14,14 @@ angular.module('eventifyApp')
     this.UserEvents = $resource('http://clementhamon.com/IDP/public/user/:id/events');
 
     this.User = $resource('http://clementhamon.com/IDP/public/user/:id');
+
+
+
+    this.updateUser = $resource('http://clementhamon.com/IDP/public/user/update', null, {
+            'update': {
+                method: 'PUT'
+            }
+        });
+
+
   });
