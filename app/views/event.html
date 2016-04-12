@@ -121,11 +121,11 @@ combine task and stuff controllers-->
             </tbody>
             <tbody class="appear" ng-repeat="(taskIndex, task) in event.tasks">
                 <tr ng-hide="showDeleteTaskField(taskIndex)" ng-class="{true: '', false: 'table-success'}[!task.owners.length]">
-                    <td>
-                        <div class="thumb-img" ng-repeat="owner in task.owners">
+                    <td >
+                        <div ng-repeat="owner in task.owners" class="inline">
                             <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
                         </div>
-                        <span ng-show="!task.owners.length && isLogged" ng-click="addUserToTask(task.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
+                        <span ng-show="isLogged" ng-click="addUserToTask(task.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
                     </td>
                     <td>{{task.name}}</td>
                     <td><span ng-show="isLogged" ng-click="openTaskRemove(taskIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
