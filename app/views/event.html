@@ -1,179 +1,130 @@
-<!--check if tables should be combined to template
-combine task and stuff controllers-->
-
-
 <ng-include src="'views/header.html'"></ng-include>
 
 <div ng-init="getEventByID()" ng-show="eventStatus">Loading...</div>
 
 <section class="module parallax" ng-style="bgStyle">
-    
-    <div class="edit-buttons">
-      <a class="btn btn-primary" ng-click="startEditing()">Edit</a>
+
+  <div class="descr">
+    <div class="col-lg-4 info" ng-hide="editing">
+      <h1>{{event.name}}</h1>
+      <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
+      <p>{{event.description}}</p>
+      <a class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
       <a class="btn btn-primary" ng-href="#">Share</a>
     </div>
-
-    <div class="descr">
-        <div class="col-lg-4 info" ng-hide="editing">
-            <h1>{{event.name}}</h1>
-            <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
-            <p>{{event.description}}</p>
-        </div>
-
-        <div ng-show="editing">
-            <h1>
-                <input type="text" name="name" ng-model="event.name">
-            </h1>
-            <h3>Date: <input type="text" name="date" ng-model="event.date">
-                Time: <input type="text" name="time" ng-model="event.time">
-                Duration: <input type="text" name="duration" ng-model="event.duration">
-            </h3>
-            <p>
-                <input type="text" name="description" ng-model="event.description">
-            </p>
-            <button ng-click="stopEditing()">Save</button>
-            
-            <div class="darkbackground">
-
-          <div class="fakedialog">
-            <button type="button" class="close" data-dismiss="modal" ng-click="changeLogin()">
-              <span class="glyphicon glyphicon-remove-sign"></span>
-            </button>
-
-            <div class="loginform">
-             <h3>Log in</h3>
-              <modal title="Login form">
-              <form role="form">
-                  <div class="form-group">
-                    <label for="email">Email address</label>
-                    <input type="email" class="form-control" ng-model="email" id="email" placeholder="Enter email" required/>
-                  </div>
-                  <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" ng-model="password" id="password" placeholder="Password" required/>
-                  </div>
-                  <!-- <button class="btn btn-primary" ng-click="authenticate('facebook')">Sign in with Facebook</button> -->
-
-                  <button type="submit" class="btn btn-default" ng-click="loginMail()"><a>Log in</a></button><a href="" class="links"><u>Forgot your password?</u></a>
-                </form>
-              </modal>
-            </div>
-          </div>
-        </div>
-        </div>
-    </div>
+  </div>
 </section>
 
 <div class="row part">
-    <div class="col-md-4" ng-controller="ItemCtrl">
-        <h2>Items to bring <span>({{event.stuffs.length}})</span></h2>
-        <table class="table table-hover edit">
-            <thead>
-                <tr>
-                    <th>Assigned</th>
-                    <th>Item name</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-show="!event.stuffs.length">
-                    <td>No items created yet...</td>
-                </tr>
-            </tbody>
-            <tbody class="appear" ng-repeat="(stuffIndex, stuff) in event.stuffs">
-                <tr ng-hide="showDeleteItemField(stuffIndex)" ng-class="{true: '', false: 'table-success'}[!stuff.owners.length]">
-                    <td>
-                        <img class="img-circle thumb name thumb-img" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" />
-                        <span ng-show="!stuff.owner && isLogged" ng-click="addUserToItem(stuff.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
-                    </td>
-                    <td>{{stuff.name}}</td>
-                    <td><span ng-show="isLogged" ng-click="openItemRemove(stuffIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                </tr>
-                <tr class="table-danger" ng-show="showDeleteItemField(stuffIndex)">
-                    <td><span ng-click="closeItemRemove()" class="glyphicon glyphicon-remove table-left" aria-hidden="true"></span></td>
-                    <td>Delete?</td>
-                    <td><span ng-click="removeItem(stuff.id)" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                </tr>
-            </tbody>
-        </table>
-        <form ng-submit="createItem()" ng-show="isLogged">
-            <div class="new-item form-group">
-                <input type="hidden" name="event" value="1">
-                <input class="form-control" type="text" name="name" ng-model="newItem" placeholder="Enter item name">
-                <span ng-click="createItem()" class="glyphicon add glyphicon-plus" aria-hidden="true"></span>
+  <div class="col-md-4" ng-controller="ItemCtrl">
+    <h2>Items to bring <span>({{event.stuffs.length}})</span></h2>
+    <table class="table table-hover edit">
+      <thead>
+        <tr>
+          <th>Assigned</th>
+          <th>Item name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-show="!event.stuffs.length">
+          <td>No items created yet...</td>
+        </tr>
+      </tbody>
+      <tbody class="appear" ng-repeat="(stuffIndex, stuff) in event.stuffs">
+        <tr ng-hide="showDeleteItemField(stuffIndex)" ng-class="{true: '', false: 'table-success'}[!stuff.owners.length]">
+          <td>
+            <img class="img-circle thumb name thumb-img" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" />
+            <span ng-show="!stuff.owner && isLogged" ng-click="addUserToItem(stuff.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
+          </td>
+          <td>{{stuff.name}}</td>
+          <td><span ng-show="isLogged" ng-click="openItemRemove(stuffIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+        </tr>
+        <tr class="table-danger" ng-show="showDeleteItemField(stuffIndex)">
+          <td><span ng-click="closeItemRemove()" class="glyphicon glyphicon-remove table-left" aria-hidden="true"></span></td>
+          <td>Delete?</td>
+          <td><span ng-click="removeItem(stuff.id)" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <form ng-submit="createItem()" ng-show="isLogged">
+      <div class="new-item form-group">
+        <input type="hidden" name="event" value="1">
+        <input class="form-control" type="text" name="name" ng-model="newItem" placeholder="Enter item name">
+        <span ng-click="createItem()" class="glyphicon add glyphicon-plus" aria-hidden="true"></span>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4" ng-controller="TaskCtrl">
+    <h2>Tasks to do <span>({{event.tasks.length}})</span></h2>
+    <table class="table table-hover edit">
+      <thead>
+        <tr>
+          <th>Assigned</th>
+          <th>Task name</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-show="!event.tasks.length">
+          <td>No tasks created yet...</td>
+        </tr>
+      </tbody>
+      <tbody class="appear" ng-repeat="(taskIndex, task) in event.tasks">
+        <tr ng-hide="showDeleteTaskField(taskIndex)" ng-class="{true: '', false: 'table-success'}[!task.owners.length]">
+          <td>
+            <div ng-repeat="owner in task.owners" class="inline">
+              <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
             </div>
-        </form>
-    </div>
-    <div class="col-md-4" ng-controller="TaskCtrl">
-        <h2>Tasks to do <span>({{event.tasks.length}})</span></h2>
-        <table class="table table-hover edit">
-            <thead>
-                <tr>
-                    <th>Assigned</th>
-                    <th>Task name</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-show="!event.tasks.length">
-                    <td>No tasks created yet...</td>
-                </tr>
-            </tbody>
-            <tbody class="appear" ng-repeat="(taskIndex, task) in event.tasks">
-                <tr ng-hide="showDeleteTaskField(taskIndex)" ng-class="{true: '', false: 'table-success'}[!task.owners.length]">
-                    <td >
-                        <div ng-repeat="owner in task.owners" class="inline">
-                            <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
-                        </div>
-                        <span ng-show="isLogged" ng-click="addUserToTask(task.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
-                    </td>
-                    <td>{{task.name}}</td>
-                    <td><span ng-show="isLogged" ng-click="openTaskRemove(taskIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-                </tr>
-                <tr class="table-danger" ng-show="showDeleteTaskField(taskIndex)">
-                    <td><span ng-click="closeTaskRemove()" class="glyphicon glyphicon-remove table-left" aria-hidden="true"></span></td>
-                    <td>Delete?</td>
-                    <td><span ng-click="removeTask(task.id)" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
-                </tr>
-            </tbody>
-        </table>
-        <form ng-submit="createTask()" ng-show="isLogged">
-            <div class="new-item form-group">
-                <input type="hidden" name="event" value="1">
-                <input class="form-control" type="text" name="name" ng-model="newTask" placeholder="Enter task name">
-                <span ng-click="createTask()" class="glyphicon add glyphicon-plus" aria-hidden="true"></span>
-            </div>
-        </form>
-    </div>
-    <div class="col-md-4">
-        <h2>Attendees <span>({{event.attendee.length}})</span></h2>
-        <table class="table table-hover edit">
-            <thead>
-                <tr>
-                    <th>Avatar</th>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-show="!event.attendee.length">
-                    <td>No attendees yet...</td>
-                </tr>
-                <tr ng-repeat="attendee in event.attendee">
-                    <td class="thumb-img">
-                        <img class="img-circle thumb name" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
-                    </td>
-                    <td>
-                        {{attendee.firstName}} {{attendee.lastName}}
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+            <span ng-show="isLogged" ng-click="addUserToTask(task.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
+          </td>
+          <td>{{task.name}}</td>
+          <td><span ng-show="isLogged" ng-click="openTaskRemove(taskIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+        </tr>
+        <tr class="table-danger" ng-show="showDeleteTaskField(taskIndex)">
+          <td><span ng-click="closeTaskRemove()" class="glyphicon glyphicon-remove table-left" aria-hidden="true"></span></td>
+          <td>Delete?</td>
+          <td><span ng-click="removeTask(task.id)" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <form ng-submit="createTask()" ng-show="isLogged">
+      <div class="new-item form-group">
+        <input type="hidden" name="event" value="1">
+        <input class="form-control" type="text" name="name" ng-model="newTask" placeholder="Enter task name">
+        <span ng-click="createTask()" class="glyphicon add glyphicon-plus" aria-hidden="true"></span>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <h2>Attendees <span>({{event.attendee.length}})</span></h2>
+    <table class="table table-hover edit">
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-show="!event.attendee.length">
+          <td>No attendees yet...</td>
+        </tr>
+        <tr ng-repeat="attendee in event.attendee">
+          <td class="thumb-img">
+            <img class="img-circle thumb name" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
+          </td>
+          <td>
+            {{attendee.firstName}} {{attendee.lastName}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <div class="row part">
-    <div class="col-md-12">
-        <ui-gmap-google-map center='mapCenter' zoom='14'>
-            <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
-        </ui-gmap-google-map>
-    </div>
+  <div class="col-md-12">
+    <ui-gmap-google-map center='mapCenter' zoom='14'>
+      <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
+    </ui-gmap-google-map>
+  </div>
 </div>

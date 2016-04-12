@@ -12,7 +12,7 @@ angular.module('eventifyApp')
 
     $scope.linkID = $routeParams.linkID;
     $scope.editing = false;
-    
+
     $scope.isLogged = AuthService.isLoggedIn();
 
 
@@ -26,7 +26,9 @@ angular.module('eventifyApp')
         console.log(data);
 
         //setting bg picture
-        $scope.bgStyle = {'background-image': 'url(' + $scope.event.coverPicture + ')'};
+        $scope.bgStyle = {
+          'background-image': 'url(' + $scope.event.coverPicture + ')'
+        };
 
         //not sure if this should be in MapCtrl
         $scope.mapCenter = {
@@ -47,6 +49,10 @@ angular.module('eventifyApp')
         $scope.attendees = data.attendee;
 
         $scope.eventStatus = false;
+
+        //finally save data to service
+        EventService.setEventData(data);
+
       }, function (data) {
         console.log(data);
       });
@@ -60,12 +66,14 @@ angular.module('eventifyApp')
         }
       });
       return user;
-    };    
+    };
 
+    //THIS IS NOT USED
     $scope.startEditing = function () {
       $scope.editing = true;
     };
 
+    //THIS IS NOT USED
     $scope.stopEditing = function () {
       $scope.editing = false;
       EventService.updateEvent.update({}, {

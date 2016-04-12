@@ -9,14 +9,84 @@
  */
 angular.module('eventifyApp')
   .controller('MapCtrl', function ($scope, uiGmapGoogleMapApi) {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
 
     uiGmapGoogleMapApi.then(function (maps) {
       console.log(maps);
     });
+
+    $scope.lat = 52.47491894326404;
+    $scope.lngt = -1.8684210293371217;
+
+    $scope.map = {
+      center: {
+        latitude: $scope.lat,
+        longitude: $scope.lngt
+      },
+      zoom: 15
+    }; //TODO:  set location based on users current gps location 
+    $scope.marker = {
+      id: 0,
+      coords: {
+        latitude: $scope.lat,
+        longitude: $scope.lngt
+      },
+      options: {
+        draggable: true
+      },
+      events: {
+        dragend: function (marker, eventName, args) {
+          console.log(marker, eventName, args);
+          $scope.marker.options = {
+            draggable: true,
+            labelContent: 'lat: ' + $scope.marker.coords.latitude + ' ' + 'lon: ' + $scope.marker.coords.longitude,
+            labelAnchor: '100 0',
+            labelClass: 'marker-labels'
+          };
+        }
+      }
+    };
+    var events = {
+      //change back to places_changed
+      places_changed: function (searchBox) {
+
+        var place = searchBox.getPlaces();
+
+
+        if (!place || place === 'undefined' || place.length === 0) {
+          console.log('no place data :(');
+          return;
+        }
+
+        $scope.lat = place[0].geometry.location.lat();
+        $scope.lngt = place[0].geometry.location.lng();
+
+        console.log($scope.lat, "+", $scope.lngt);
+        $scope.event.latitudeMap = $scope.lat;
+        $scope.event.longitudeMap = $scope.lngt;
+
+        $scope.map = {
+          center: {
+            latitude: $scope.lat,
+            longitude: $scope.lngt
+
+          },
+          zoom: 18
+        };
+        $scope.marker = {
+          id: 0,
+          coords: {
+            latitude: $scope.lat,
+            longitude: $scope.lngt
+          }
+        };
+
+      }
+    };
+
+    $scope.searchbox = {
+      template: 'searchbox.tpl.html',
+      events: events
+    };
+
 
   });

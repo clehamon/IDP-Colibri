@@ -61,17 +61,22 @@ angular
         controller: 'OverviewCtrl',
         controllerAs: 'overview'
       })
+      .when('/editevent/:linkID', {
+        templateUrl: 'views/newevent.html',
+        controller: 'EditeventCtrl',
+        controllerAs: 'editevent'
+      })
       .otherwise({
         redirectTo: '/'
       });
 
-      $authProvider.facebook({
-        clientId: '1734910026796308'
-      });
+    $authProvider.facebook({
+      clientId: '1734910026796308'
+    });
 
-      $authProvider.google({
-        clientId: 'Google Client ID'
-      });
+    $authProvider.google({
+      clientId: 'Google Client ID'
+    });
 
     uiGmapGoogleMapApiProvider.configure({
       //    key: 'your api key',
