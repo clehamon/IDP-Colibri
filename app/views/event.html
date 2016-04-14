@@ -15,6 +15,12 @@
   </div>
 </section>
 
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <input type="text" class="event-link" value="{{'http://localhost:9000/#/event/'+event.linkId}}" readonly>
+  </div>
+</div>
+
 <div class="row part">
   <div class="col-md-4" ng-controller="ItemCtrl">
     <h2>Items to bring <span>({{event.stuffs.length}})</span></h2>
