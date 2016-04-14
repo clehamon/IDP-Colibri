@@ -68,6 +68,11 @@
 	width:100%;
 	position:relative;
 	margin-bottom:30px;
+	transition: 0.3s ease-in-out;
+}
+
+.eventCard.faded{
+	opacity:0.5;
 }
 
 .eventCard-admin{
@@ -114,6 +119,8 @@
 
 .eventCard-attendees-list{
 	background-color:white;
+	max-height: 205;
+	overflow: scroll;
 	box-shadow: 1px 1px 1px 1px #DDD;
 	width:180px;
 	color:#000;

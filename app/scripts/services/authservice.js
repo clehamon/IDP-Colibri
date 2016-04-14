@@ -11,6 +11,7 @@ angular.module('eventifyApp')
   .factory('AuthService', function ($auth, $location, $route) {
 
     var currentUser = null;
+    var lastError = '';
 
     // Public API here
     return {
@@ -28,11 +29,15 @@ angular.module('eventifyApp')
                 currentUser = response.data;
                 // $window.location.href = '#/overview';
                 $location.path( '/overview' );
+
+                return true;
           })
           .catch(function(response) {
                 // Handle errors here, such as displaying a notification
                 // for invalid email and/or password.
                 console.log(response);
+                lastError = response.data.error;
+                return false;
           });
       },
       logout: function() {
@@ -46,6 +51,9 @@ angular.module('eventifyApp')
       },
       isLoggedIn: function() {
         return (currentUser !== null);
+      },
+      lastError: function() {
+        return lastError;
       },
       currentUser: function() { 
         return currentUser; 

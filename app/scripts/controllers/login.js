@@ -22,6 +22,12 @@ var mymodal = angular.module('eventifyApp');
 		};
 
 		AuthService.login(user);
+
+        if (!AuthService.isLoggedIn()) {
+            $scope.loginError = AuthService.lastError();
+        } else {
+            $scope.loginError = '';
+        }
     };
 
 

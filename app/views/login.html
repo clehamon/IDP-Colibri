@@ -11,6 +11,7 @@
      <h3>Log in</h3>
       <modal title="Login form">
       <form role="form">
+          <p class="error">{{loginError}}</p>
           <div class="form-group">
             <label for="email">Email address</label>
             <input type="email" class="form-control" ng-model="email" id="email" placeholder="Enter email" required/>
@@ -21,7 +22,8 @@
           </div>
           <!-- <button class="btn btn-primary" ng-click="authenticate('facebook')">Sign in with Facebook</button> -->
 
-          <button type="submit" class="btn btn-default" ng-click="loginMail()"><a>Log in</a></button><a href="" class="links"><u>Forgot your password?</u></a>
+          <button type="submit" class="btn btn-default" ng-click="loginMail()"><a>Log in</a></button>
+          <!-- <a href="" class="links"><u>Forgot your password?</u></a> -->
         </form>
       </modal>
     </div>

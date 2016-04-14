@@ -9,7 +9,7 @@
 
 		<div class="row overviewMain">
 			<div ng-repeat="event in events | filter:dateRangeFilter('date', upcoming)" class="col-md-4 eventCardContainer">
-				<div class="eventCard">
+				<div class="eventCard" ng-class="{faded:event.going==0}">
 					<div class="eventCard-admin">
 						<span class="glyphicon glyphicon glyphicon-king" title="Administrator" ng-show="{{event.isAdmin}}"></span>
 
@@ -23,10 +23,10 @@
 							<h3>{{event.name}}</h3>
 							<p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date: "HH:mm"}}</p>
 							<p>{{event.location}}</p>
-							<div class="eventCard-attendees" ng-click="showAttendees = !showAttendees" ng-init="showAttendees = false">
+							<div class="eventCard-attendees" ng-mouseenter="showAttendees = true" ng-mouseleave="showAttendees = false" ng-init="showAttendees = false">
 								<span class="glyphicon glyphicon glyphicon-user"></span>
 								{{event.attendee.length}}
-								<li class="eventCard-attendees-list"  ng-show="showAttendees">
+								<li class="eventCard-attendees-list"  ng-show="showAttendees" >
 									<ul class="eventCard-attendee" ng-repeat="attendee in event.attendee">
 										<img src="{{attendee.avatar}}" alt="" class="img-circle">
 										{{attendee.firstName +" "+ attendee.lastName}}
@@ -38,14 +38,22 @@
 					<div class="eventCard-middle">
 						<div class="col-xs-6 eventCard-list">
 							<p class="eventCard-item-title">My items</p>
-							<p class="eventCard-item" ng-repeat="stuff in event.stuffs">
+							<p class="eventCard-item" ng-repeat="stuff in event.stuffs" ng-if ="$index < 3">
 								{{stuff.name}}
+							</p>
+
+							<p class="eventCard-item" ng-if ="event.stuff.length > 3">
+								...
 							</p>
 						</div>
 						<div class="col-xs-6 eventCard-list">
 							<p class="eventCard-item-title">My tasks</p>
-							<p class="eventCard-item" ng-repeat="task in event.tasks">
+							<p class="eventCard-item" ng-repeat="task in event.tasks" ng-if ="$index < 3">
 								{{task.name}}
+							</p>
+
+							<p class="eventCard-item" ng-if ="event.tasks.length > 3">
+								...
 							</p>
 						</div>
 					</div>
