@@ -14,6 +14,8 @@ angular.module('eventifyApp')
     $scope.editing = false;
 
     $scope.isLogged = AuthService.isLoggedIn();
+    
+    $scope.user = AuthService.currentUser();
 
 
     //this name should be changed

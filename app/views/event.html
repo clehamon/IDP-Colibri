@@ -34,7 +34,7 @@
       <tbody class="appear" ng-repeat="(stuffIndex, stuff) in event.stuffs">
         <tr ng-hide="showDeleteItemField(stuffIndex)" ng-class="{true: '', false: 'table-success'}[!stuff.owners.length]">
           <td>
-            <img class="img-circle thumb name thumb-img" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" />
+            <img ng-show="stuff.owner" class="img-circle thumb name thumb-img" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" ng-click="removeUserFromItem(stuff.id)"/>
             <span ng-show="!stuff.owner && isLogged" ng-click="addUserToItem(stuff.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
           </td>
           <td>{{stuff.name}}</td>
@@ -74,7 +74,8 @@
         <tr ng-hide="showDeleteTaskField(taskIndex)" ng-class="{true: '', false: 'table-success'}[!task.owners.length]">
           <td>
             <div ng-repeat="owner in task.owners" class="inline">
-              <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
+              <img class="img-circle thumb name" src="{{owner.avatar}}" default-SRC="images/yeoman.png"/><!--ng-class="{true:'own-pic', false:''}[owner.id == user.id]"-->
+              <img class="img-circle thumb name own-pic" ng-if="owner.id == user.id" src="../images/yeoman.png" ng-click="removeUserFromTask(task.id)"/>
             </div>
             <span ng-show="isLogged" ng-click="addUserToTask(task.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
           </td>

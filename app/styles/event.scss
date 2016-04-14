@@ -129,6 +129,16 @@ td {
     }
 }
 
+.own-pic{
+    z-index: 10000;
+    opacity: 0;
+}
+
+.own-pic:hover{
+    border: 1px solid black;
+    opacity: 1;
+}
+
 
 /*====================ANIMATIONS==========================*/
 

@@ -68,7 +68,7 @@ angular.module('eventifyApp')
 
         $scope.addUserToTask = function(taskID){
             console.log(taskID);
-            TaskService.addTaskOwner.save({},{
+            TaskService.AddTaskOwner.save({},{
                 task: taskID,
                 owner: AuthService.currentUser().id
             }, function(data){
@@ -78,6 +78,18 @@ angular.module('eventifyApp')
                         $scope.event.tasks[i].owners.push(AuthService.currentUser());
                     }
                 }
+            }, function(data){
+                console.log(data);
+            });
+        };
+    
+        $scope.removeUserFromTask = function(taskID){
+            console.log(taskID + ', owner:' + AuthService.currentUser().id);
+            TaskService.RemoveTaskOwner.delete({},{
+                task: taskID,
+                owner: AuthService.currentUser().id
+            }, function(data){
+                console.log(data);
             }, function(data){
                 console.log(data);
             });
