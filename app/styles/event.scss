@@ -41,6 +41,7 @@ li {
 .thumb {
   width: 30px;
   margin-left: 12px;
+  margin-top: -5px;
 }
 .info {
   li {
@@ -137,12 +138,14 @@ td {
   }
 }
 .own-pic {
+  width: 15px;
+  height: 15px;
   z-index: 10000;
-  opacity: 0;
+  margin-left: -13px;
+  top: -9px;
 }
 .own-pic:hover {
-  border: 1px solid black;
-  opacity: 1;
+  color: red;
 }
 .event-link {
   width: 100%;

@@ -85,10 +85,11 @@ angular.module('eventifyApp')
     
         $scope.removeUserFromTask = function(taskID){
             console.log(taskID + ', owner:' + AuthService.currentUser().id);
-            TaskService.RemoveTaskOwner.delete({},{
-                task: taskID,
-                owner: AuthService.currentUser().id
-            }, function(data){
+            TaskService.RemoveTaskOwner.delete({
+                taskId: taskID,
+                ownerId: AuthService.currentUser().id
+            },{},
+            function(data){
                 console.log(data);
             }, function(data){
                 console.log(data);

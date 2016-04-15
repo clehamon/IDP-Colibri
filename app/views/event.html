@@ -85,7 +85,7 @@
             <div ng-repeat="owner in task.owners" class="inline">
               <img class="img-circle thumb name" src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
               <!--ng-class="{true:'own-pic', false:''}[owner.id == user.id]"-->
-              <img class="img-circle thumb name own-pic" ng-if="owner.id == user.id" src="../images/yeoman.png" ng-click="removeUserFromTask(task.id)" />
+              <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span>
             </div>
             <span ng-show="isLogged" ng-click="addUserToTask(task.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
           </td>

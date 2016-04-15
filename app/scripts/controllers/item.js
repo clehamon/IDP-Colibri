@@ -89,14 +89,14 @@ angular.module('eventifyApp')
         StuffService.updateStuff.update({}, {
             id: itemID,
             owner: null
-        }, function(data){
+          },
+          function(data){
             console.log(data);
             for (var i = 0; i < $scope.event.stuffs.length; i++) {
               if ($scope.event.stuffs[i].id === itemID) {
                 $scope.event.stuffs[i].owner = null;
               }
             }
-            $scope.$apply();
         }, function(data){
             console.log(data);
         });
