@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('NeweventCtrl', function ($scope, $http, $resource, EventService, $location) {
+  .controller('NeweventCtrl', function ($scope, $http, $resource, EventService, $location, $filter, AuthService) {
 
     //this could/should be shared with editevent.js
     $scope.imageStyle = {
@@ -16,14 +16,15 @@ angular.module('eventifyApp')
     };
 
     $scope.event = {};
-    $scope.adminID = 2039;
+    var user = AuthService.currentUser();
+    $scope.adminID = user.id;
 
     $scope.processForm = function () {
       EventService.processForm.save({}, {
 
         name: $scope.event.name,
         date: $scope.event.date,
-        time: $scope.event.time,
+        time: $filter('date')($scope.event.time , "HH:mm:ss"),
         locationName: $scope.event.locationName,
         coverPicture: $scope.event.coverPicture,
         duration: $scope.event.duration,
@@ -40,10 +41,6 @@ angular.module('eventifyApp')
         console.log(data);
       });
     };
-
-    $scope.printTime = function(){
-      console.log($scope.event.time);
-    }
 
 
     //this could/should be shared with editevent.js
