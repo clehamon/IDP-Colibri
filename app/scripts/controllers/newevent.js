@@ -41,6 +41,10 @@ angular.module('eventifyApp')
       });
     };
 
+    $scope.printTime = function(){
+      console.log($scope.event.time);
+    }
+
 
     //this could/should be shared with editevent.js
     $scope.updateCover = function () {
