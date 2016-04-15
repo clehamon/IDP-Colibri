@@ -7,13 +7,17 @@
       <span class="glyphicon glyphicon-remove-sign"></span>
     </button>
 
+    <h3 class="loginTitle"> Edit profile</h3>
     <div class="loginform">
     <img src="{{copyUser.avatar}}" alt="" class="img-circle profileAvatar">
-    <h3>Edit profile</h3>
       <modal title="Profile form">
       <form role="form" >
           <p class="errorMsg">{{signInError}}</p>
-      	 
+
+          <div class="form-group">
+            <label for="avatar">Edit avatar</label>
+            <input type="text" class="form-control" id="avatar" ng-model="copyUser.avatar"/>
+          </div>
           <div class="form-group">
             <label for="firstName">First name</label>
             <input type="text" class="form-control" id="firstName" ng-model="copyUser.firstName"/>
@@ -33,10 +37,6 @@
           <div class="form-group">
             <label for="confirmPassword">Confirm password</label>
             <input type="password" class="form-control" id="confirmPassword" ng-model="copyUser.password"/>
-          </div>
-          <div class="form-group">
-            <label for="avatar">Edit avatar</label>
-            <input type="text" class="form-control" id="avatar" ng-model="copyUser.avatar"/>
           </div>
 
           <button type="submit" class="btn btn-default" ng-click="updateProfile()"><a>Save changes</a></button>
