@@ -12,19 +12,10 @@ angular.module('eventifyApp')
     angular.element(document).ready(function () {
       $scope.event = EventService.getEventData();
       console.log($scope.event);
-        
-      //var dateArr = $scope.event.date;//.split('-');
-      /*var tmp = dateArr[2];
-      tmp.push(dateArr[1]);
-      tmp.push(dateArr[0]);
-      dateArr = tmp.join("-");
-      console.log(dateArr);*/
-      //$scope.event.date = dateArr;
     });
-    
-    
-    $scope.processForm = function () {
-        console.log($scope.event.time);
+
+
+      $scope.processForm = function () {
         EventService.updateEvent.update({}, {
           id: $scope.event.id,
           name: $scope.event.name,
@@ -46,4 +37,5 @@ angular.module('eventifyApp')
           console.log(data);
         });
       };
+    });
   });
