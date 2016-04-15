@@ -9,6 +9,7 @@
     <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
     <p>{{event.description}}</p>
     <a class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
+    <a  ng-if="eventAdmin"  class="btn btn-danger" ng-href="#/editevent/{{event.linkId}}">Delete</a>
     <!--<a class="btn btn-primary" ng-href="#">Share</a>-->
   </div>
   <div class="col-lg-3 map-cont">

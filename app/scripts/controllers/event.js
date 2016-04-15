@@ -27,6 +27,10 @@ angular.module('eventifyApp')
         $scope.event = data;
         console.log(data);
 
+        if ($scope.isLogged) {
+          $scope.eventAdmin = ($scope.user.id === $scope.event.admin);
+        }
+
         //setting bg picture
         $scope.bgStyle = {
           'background-image': 'url(' + $scope.event.coverPicture + ')'
