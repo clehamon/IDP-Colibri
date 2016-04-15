@@ -19,10 +19,6 @@ angular.module('eventifyApp')
 
         $scope.SpotifyURI = "";
 
-        if ($scope.isLogged) {
-          $scope.eventAdmin = ($scope.user.id === $scope.event.admin);
-        }
-
         //this name should be changed
         $scope.getEventByID = function () {
             $scope.eventStatus = true;
@@ -31,6 +27,10 @@ angular.module('eventifyApp')
             }, function (data) {
                 $scope.event = data;
                 console.log(data);
+
+                if ($scope.isLogged) {
+                  $scope.eventAdmin = ($scope.user.id === $scope.event.admin);
+                }
 
                 //setting bg picture
                 $scope.bgStyle = {
