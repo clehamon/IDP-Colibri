@@ -23,10 +23,6 @@ angular.module('eventifyApp')
           $scope.eventAdmin = ($scope.user.id === $scope.event.admin);
         }
 
-        //setting bg picture
-        $scope.bgStyle = {
-          'background-image': 'url(' + $scope.event.coverPicture + ')'
-
         //this name should be changed
         $scope.getEventByID = function () {
             $scope.eventStatus = true;
@@ -86,7 +82,6 @@ angular.module('eventifyApp')
                 }
             });
             return user;
->>>>>>> fc497658090f0495e04fa26463fa2cda89a409a1
         };
 
         //THIS IS NOT USED

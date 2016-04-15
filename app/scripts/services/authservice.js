@@ -51,7 +51,7 @@ angular.module('eventifyApp')
             }
       },
       isLoggedIn: function() {
-        return (currentUser !== null);
+        return (currentUser !== null && currentUser !== undefined);
       },
       lastError: function() {
         return lastError;
