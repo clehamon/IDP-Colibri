@@ -2,22 +2,25 @@
 
 <div ng-init="getEventByID()" ng-show="eventStatus">Loading...</div>
 
-<section class="module parallax" ng-style="bgStyle">
+<section class="module parallax row" ng-style="bgStyle">
 
-  <div class="descr">
-    <div class="col-lg-4 info" ng-hide="editing">
-      <h1>{{event.name}}</h1>
-      <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
-      <p>{{event.description}}</p>
-      <a class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
-      <a class="btn btn-primary" ng-href="#">Share</a>
-    </div>
+  <div class="descr col-lg-4 col-lg-offset-3 info">
+    <h1>{{event.name}}</h1>
+    <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
+    <p>{{event.description}}</p>
+    <a class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
+    <!--<a class="btn btn-primary" ng-href="#">Share</a>-->
+  </div>
+  <div class="col-lg-3 map-cont">
+    <ui-gmap-google-map center='mapCenter' zoom='14'>
+      <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
+    </ui-gmap-google-map>
   </div>
 </section>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <input type="text" class="event-link" value="{{'http://localhost:9000/#/event/'+event.linkId}}" readonly>
+  <div class="col-md-4 col-md-offset-4">
+    <input type="text" class="event-link" value="Share event: {{'http://localhost:9000/#/event/'+event.linkId}}" readonly>
   </div>
 </div>
 
@@ -40,7 +43,7 @@
       <tbody class="appear" ng-repeat="(stuffIndex, stuff) in event.stuffs">
         <tr ng-hide="showDeleteItemField(stuffIndex)" ng-class="{true: '', false: 'table-success'}[!stuff.owners.length]">
           <td>
-            <img ng-show="stuff.owner" class="img-circle thumb name thumb-img" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" ng-click="removeUserFromItem(stuff.id)"/>
+            <img ng-show="stuff.owner" class="img-circle thumb name thumb-img" ng-src="{{getUserByID(stuff.owner).avatar}}" default-SRC="images/yeoman.png" ng-click="removeUserFromItem(stuff.id)" />
             <span ng-show="!stuff.owner && isLogged" ng-click="addUserToItem(stuff.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
           </td>
           <td>{{stuff.name}}</td>
@@ -80,8 +83,9 @@
         <tr ng-hide="showDeleteTaskField(taskIndex)" ng-class="{true: '', false: 'table-success'}[!task.owners.length]">
           <td>
             <div ng-repeat="owner in task.owners" class="inline">
-              <img class="img-circle thumb name" src="{{owner.avatar}}" default-SRC="images/yeoman.png"/><!--ng-class="{true:'own-pic', false:''}[owner.id == user.id]"-->
-              <img class="img-circle thumb name own-pic" ng-if="owner.id == user.id" src="../images/yeoman.png" ng-click="removeUserFromTask(task.id)"/>
+              <img class="img-circle thumb name" src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
+              <!--ng-class="{true:'own-pic', false:''}[owner.id == user.id]"-->
+              <img class="img-circle thumb name own-pic" ng-if="owner.id == user.id" src="../images/yeoman.png" ng-click="removeUserFromTask(task.id)" />
             </div>
             <span ng-show="isLogged" ng-click="addUserToTask(task.id)" class="glyphicon glyphicon-user table-left" aria-hidden="true"></span>
           </td>
@@ -128,10 +132,10 @@
     </table>
   </div>
 </div>
-<div class="row part">
+<!--<div class="row part">
   <div class="col-md-12">
     <ui-gmap-google-map center='mapCenter' zoom='14'>
       <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
     </ui-gmap-google-map>
   </div>
-</div>
+</div>-->

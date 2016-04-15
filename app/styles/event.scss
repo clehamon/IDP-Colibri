@@ -1,11 +1,20 @@
 .angular-google-map-container {
-  height: 300px;
+  height: 400px !important;
   margin: 30px;
+  -webkit-box-shadow: -1px 9px 22px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 9px 22px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 9px 22px -3px rgba(0, 0, 0, 0.75);
 }
 li {
   list-style: none;
 }
 .descr {
+  -webkit-box-shadow: -1px 9px 22px -3px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 9px 22px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 9px 22px -3px rgba(0, 0, 0, 0.75);
+  background-color: rgba(255, 255, 255, 0.7);
+  margin-top: 30px;
+  padding: 20px;
   .info {
     background-color: rgba(240, 248, 255, 0.76);
     color: black;
@@ -79,67 +88,63 @@ tr {
 td {
   padding-top: 16px !important;
 }
+
 /*td.thumb-img {
   padding-top: 12px !important;
 }*/
 
-.inline{
-    display: inline;
+.inline {
+  display: inline;
 }
 .add {
   margin: 7px;
 }
-
-.table-danger{
+.table-danger {
   background-color: #f2dede;
 }
-
-.table-danger:hover{
+.table-danger:hover {
   background-color: #f0c3c3 !important;
 }
-
-.table-warning{
-    background-color: #fcf8e3;
+.table-warning {
+  background-color: #fcf8e3;
 }
-
-.table-success{
-    background-color: #dff0d8;
+.table-success {
+  background-color: #dff0d8;
 }
-
-.table-left{
-    float: left;
-    margin-left: 20px;
+.table-left {
+  float: left;
+  margin-left: 20px;
 }
-
-.edit-buttons{
-    float: right;
-    
-    *{
-        margin: 10px;
-        margin-top: 30px;
+.edit-buttons {
+  float: right;
+  * {
+    margin: 10px;
+    margin-top: 30px;
+  }
+}
+@media (max-width: 1200px) {
+  .descr {
+    margin-top: 200px;
+    .info {
+      margin-top: 0px;
     }
+  }
+  .map-cont {
+    margin-top: 200px;
+  }
+  .part {
+    margin-top: 500px;
+  }
 }
-
-@media (max-width: 1200px){
-    .descr{
-        padding-top: 270px;
-        .info{
-            margin-top: 0px;
-        }
-    }
+.own-pic {
+  z-index: 10000;
+  opacity: 0;
 }
-
-.own-pic{
-    z-index: 10000;
-    opacity: 0;
+.own-pic:hover {
+  border: 1px solid black;
+  opacity: 1;
 }
-
-.own-pic:hover{
-    border: 1px solid black;
-    opacity: 1;
-}
-
-.event-link{
+.event-link {
   width: 100%;
   padding: 10px 7px;
   background-color: #444;
@@ -147,26 +152,21 @@ td {
   border: none;
 }
 
-
 /*====================ANIMATIONS==========================*/
 
 .appear {
   transition: 1s linear opacity;
   -webkit-transition: 1s linear opacity;
 }
-
 .appear.ng-enter {
   opacity: 0;
 }
-
 .appear.ng-enter.ng-enter-active {
   opacity: 1;
 }
-
 .appear.ng-leave {
   opacity: 1;
 }
-
 .appear.ng-leave.ng-leave-active {
   opacity: 0;
 }
