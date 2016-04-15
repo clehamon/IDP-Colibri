@@ -6,132 +6,132 @@
 <form ng-submit="processForm()" id="eventDetails">
 
 
-  <div class="row" align="center">
-    <h4>Lets create a rocking event</h4>
-    <hr>
-  </div>
-
-
-  <div class="row" id="uploadCoverImg">
-    <div class="jumbotron newEventImage" align="center" ng-style="imageStyle">
-      <h4>Upload Event Cover Picture</h4>
-      <p>Share the link using image hosting sites like <a href="http://imgur.com/" target="_blank">Imgur.com</a> or <a href="http://postimage.org/" target="_blank">postimage.org. </a>
-
-      </p>
-      <span class="input input--isao">
-					<input class="input__field input__field--isao" ng-change="updateCover()" name="coverPicture" class="url" align="center" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture"  class="form-control">
-					<label class="input__label input__label--isao" for="coverPicture"  data-content="Cover Picture">
-						<span class="input__label-content input__label-content--isao">Cover Picture Link</span>
-      </label>
-      </span>
-      <!--
-
-            <input type="url" name="coverPicture" class="url" align="center" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture" />
-            <!-- <button>Upload Image</button> -->
-
-
+    <div class="row textColor" align="center">
+        <h2>Lets create a rocking event (in 8 Simple steps)</h2>
+        <hr>
     </div>
-  </div>
 
 
-  <div class="row col-md-12">
+    <div class="row col-md-12">
 
 
-    <div class="row">
-      <div class="col-md-4 form-group">
-        <span class="input input--isao">
+        <div class="row" align="center">
+            <div class="col-md-4 col-md-offset-4 form-group">
+                <span class="input input--isao">
 					<input class="input__field input__field--isao" type="text" name="name" ng-model="event.name" id="eventName" class="form-control" required />
 					<label class="input__label input__label--isao" for="eventName" data-content="Event Name">
-						<span class="input__label-content input__label-content--isao" >Event Name</span>
-        </label>
-        </span>
-      </div>
-    </div>
+						<span class="input__label-content input__label-content--isao" >1.Event Name(*)</span>
+                </label>
+                </span>
+            </div>
+        </div>
 
-    <div class="row">
-      <div class="col-md-4 form-group">
+        <div class="row" id="uploadCoverImg">
+            <div class="jumbotron newEventImage" align="center" ng-style="imageStyle">
+                <h4>Upload Event Cover Picture</h4>
+                <p>Share the link using image hosting sites like <a href="http://imgur.com/" target="_blank">Imgur.com</a> or <a href="http://postimage.org/" target="_blank">postimage.org. </a>
 
-        <span class="input input--isao">
-					<input class="input__field input__field--isao" type="date" name="date" ng-model="event.date" id="eventDate" class="form-control"/>
-					<label class="input__label input__label--isao" for="eventDate" data-content="Event Date">
-						<span class="input__label-content input__label-content--isao">Event Date</span>
-        </label>
-        </span>
-
-
-      </div>
-
-
-      <div class="col-md-4 form-group">
-
-        <span class="input input--isao">
-					<input class="input__field input__field--isao" type="time" ng-change="printTime()" name="time" ng-model="event.time" min="00:00:00" max="23:59:59" id="eventTime" class="form-control"/>
-					<label class="input__label input__label--isao" for="eventTime" data-content="Event Time">
-						<span class="input__label-content input__label-content--isao">Event Time</span>
-        </label>
-        </span>
-
-      </div>
-      <div class="col-md-4 form-group">
-
-        <!-- <span class="input input--isao">
-					<input class="input__field input__field--isao" type="number" name="duration" placeholder="in mins" ng-model="event.duration" id="eventDuration" class="form-control"/>
-					<label class="input__label input__label--isao" for="eventDuration"  data-content="Event Duration">
-						<span class="input__label-content input__label-content--isao">Event Duration</span>
-        </label>
-        </span> -->
-
-      </div>
-    </div>
-
-    <div class="row ">
-      <div class="col-md-6 form-group">
-        <span class="input input--isao">
-					<input class="input__field input__field--isao" type="text" placeholder="Type your text in here...." ng-model="event.description" id="eventDescription" class="form-control"/>
-					<label class="input__label input__label--isao" for="eventDescription"  data-content="Event Descriptopn">
-						<span class="input__label-content input__label-content--isao">Event Description</span>
-        </label>
-        </span>
-      </div>
-
-    </div>
-
-    <div class="row">
-      <div class="col-md-6 form-group">
-        <span class="input input--isao">
-					<input class="input__field input__field--isao" type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" ng-model="event.spotifyPlaylist" id="spotifyPlaylist" class="form-control">
-					<label class="input__label input__label--isao" for="spotifyPlaylist"  data-content="Spotify Playlist">
-						<span class="input__label-content input__label-content--isao">Spotify Playlist</span>
-        </label>
-        </span>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 form-group">
+                </p>
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" ng-change="updateCover()" name="coverPicture" class="url" align="center" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture"  class="form-control">
+					<label class="input__label input__label--isao" for="coverPicture"  data-content="Cover Picture">
+						<span class="input__label-content input__label-content--isao">2.Cover Picture Link</span>
+                </label>
+                </span>
 
 
-        <div id="map_canvas" ng-controller="MapCtrl">
-
-          <script type="text/ng-template" id="searchbox.tpl.html">
-            <input type="text" class="searchStyle" ng-model="event.locationName" placeholder="Search for the Event Location">
-          </script>
-
-          <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
-            <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="'left-top'"></ui-gmap-search-box>
-            <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
-          </ui-gmap-google-map>
+            </div>
         </div>
 
 
-      </div>
-    </div>
-    {{event}}
-  </div>
 
-  <div class="jumbotron" align="center">
-    <input type="submit" class="btn btn-default" ng-if="!event.id" value="Lets create the party">
-    <input type="submit" class="btn btn-default" ng-if="event.id" value="Update event">
-  </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="date" name="date" ng-model="event.date" id="eventDate" class="form-control"/>
+					<label class="input__label input__label--isao" for="eventDate" data-content="Event Date">
+						<span class="input__label-content input__label-content--isao">3.Event Date</span>
+                </label>
+                </span>
+
+
+            </div>
+
+
+            <div class="col-md-4 form-group">
+
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="time" ng-change="printTime()" name="time" ng-model="event.time" min="00:00:00" max="23:59:59" id="eventTime" class="form-control"/>
+					<label class="input__label input__label--isao" for="eventTime" data-content="Event Time">
+						<span class="input__label-content input__label-content--isao">4.Event Time</span>
+                </label>
+                </span>
+
+            </div>
+            <div class="col-md-4 form-group">
+
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="number" name="duration" placeholder="in mins" ng-model="event.duration" id="eventDuration" class="form-control"/>
+					<label class="input__label input__label--isao" for="eventDuration"  data-content="Event Duration">
+						<span class="input__label-content input__label-content--isao">5.Event Duration</span>
+                </label>
+                </span>
+
+            </div>
+        </div>
+
+        <div class="row ">
+            <div class="col-md-6 form-group">
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="text" placeholder="Type your text in here...." ng-model="event.description" id="eventDescription" class="form-control"/>
+					<label class="input__label input__label--isao" for="eventDescription"  data-content="Event Descriptopn">
+						<span class="input__label-content input__label-content--isao">6.Event Description</span>
+                </label>
+                </span>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <span class="input input--isao">
+					<input class="input__field input__field--isao" type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" ng-model="event.spotifyPlaylist" id="spotifyPlaylist" class="form-control">
+					<label class="input__label input__label--isao" for="spotifyPlaylist"  data-content="Spotify Playlist">
+						<span class="input__label-content input__label-content--isao">7.Spotify Playlist</span>
+                </label>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+
+
+                <div id="map_canvas" ng-controller="MapCtrl">
+
+                    <script type="text/ng-template" id="searchbox.tpl.html">
+                        <input type="text" class="searchStyle" ng-model="event.locationName" placeholder="8. Search for the Event Location">
+                    </script>
+
+                    <ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options">
+                        <ui-gmap-search-box template="searchbox.template" events="searchbox.events" position="'left-top'"></ui-gmap-search-box>
+                        <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
+                    </ui-gmap-google-map>
+                </div>
+
+
+            </div>
+        </div>
+        {{event}}
+
+        <div class="jumbotron" align="center">
+            <input type="submit" class="btn btn-default" ng-if="!event.id" value="Lets create the party">
+            <input type="submit" class="btn btn-default" ng-if="event.id" value="Update event">
+        </div>
+
+    </div>
+
+
 
 
 
