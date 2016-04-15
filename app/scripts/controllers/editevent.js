@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EditeventCtrl', function ($scope, EventService, $location) {
+  .controller('EditeventCtrl', function ($scope, EventService, $location, $filter) {
     angular.element(document).ready(function () {
       $scope.event = EventService.getEventData();
       console.log($scope.event);
@@ -24,11 +24,12 @@ angular.module('eventifyApp')
     
     
     $scope.processForm = function () {
+        console.log($scope.event.time);
         EventService.updateEvent.update({}, {
           id: $scope.event.id,
           name: $scope.event.name,
           date: $scope.event.date,
-          time: $scope.event.time,
+          time: $filter('date')($scope.event.time , "HH:mm:ss"),
           locationName: $scope.event.locationName,
           coverPicture: $scope.event.coverPicture,
           duration: $scope.event.duration,
