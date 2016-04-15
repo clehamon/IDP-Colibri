@@ -38,10 +38,6 @@ angular.module('eventifyApp')
         }
       };
 
-      $scope.updateUser = function (){
-        $scope.currentUser = AuthService.currentUser();
-      }
-
       $scope.logOut = function (){
         AuthService.logout();
       };

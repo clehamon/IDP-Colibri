@@ -11,7 +11,7 @@
 
 angular.module('eventifyApp')
   .controller('UserprofileCtrl', ['$scope', '$rootScope','AuthService','UserService',
-    function($scope, $parent, AuthService, UserService) {
+    function($scope, $rootScope, AuthService, UserService) {
 
     $scope.copyUser = angular.copy($scope.currentUser);
     	
@@ -27,11 +27,10 @@ angular.module('eventifyApp')
         password: $scope.copyUser.password,
         avatar: $scope.copyUser.avatar
 	      }, function (data) {
-
+	        console.log(data);
           AuthService.setUser($scope.copyUser);
-          $scope.updateUser();
+          $scope.currentUser = $scope.copyUser;
 	        $scope.changeView(3);
-
 	      }, function (data) {
 	        console.log(data);
 	      });
