@@ -29,9 +29,10 @@
         <div class="row" id="uploadCoverImg">
             <div class="jumbotron newEventImage" align="center" ng-style="imageStyle">
                 <h4>Upload Event Cover Picture</h4>
-                <p>Share the link using image hosting sites like <a href="http://imgur.com/" target="_blank">Imgur.com</a> or <a href="http://postimage.org/" target="_blank">postimage.org. </a>
+                <!--    <p>Share the link using image hosting sites like <a href="http://imgur.com/" target="_blank">Imgur.com</a> or <a href="http://postimage.org/" target="_blank">postimage.org. </a> 
 
-                </p>
+                </p> -->
+                <p>Paste image url ending with .png</p>
                 <span class="input input--isao">
 					<input class="input__field input__field--isao" ng-change="updateCover()" name="coverPicture" class="url" align="center" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture"  class="form-control">
 					<label class="input__label input__label--isao" for="coverPicture"  data-content="Cover Picture">
@@ -97,8 +98,8 @@
             <div class="col-md-6 form-group">
                 <span class="input input--isao">
 					<input class="input__field input__field--isao" type="url" name="spotifyPlaylist" placeholder="Paste the link to the spotify playlist" ng-model="event.spotifyPlaylist" id="spotifyPlaylist" class="form-control">
-					<label class="input__label input__label--isao" for="spotifyPlaylist"  data-content="Spotify Playlist">
-						<span class="input__label-content input__label-content--isao">7.Spotify Playlist</span>
+					<label class="input__label input__label--isao" for="spotifyPlaylist"  data-content="Spotify Playlist URI">
+						<span class="input__label-content input__label-content--isao">7.Spotify Playlist <a href="http://www.mrgeek.me/tips/how-to-add-the-spotify-play-button-to-your-website/" target="_blank" data-toggle="tooltip" title="click to know where to find URI">URI</a></span>
                 </label>
                 </span>
             </div>
