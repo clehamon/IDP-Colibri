@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('NeweventCtrl', function ($scope, $http, $resource, EventService, $location, $filter, AuthService) {
+  .controller('NeweventCtrl', function ($scope, $http, $resource, EventService, $location, AuthService) {
 
     //this could/should be shared with editevent.js
     $scope.imageStyle = {
@@ -16,15 +16,19 @@ angular.module('eventifyApp')
     };
 
     $scope.event = {};
-    var user = AuthService.currentUser();
-    $scope.adminID = user.id;
+
+    if (AuthService.isLoggedIn()) {
+      $scope.adminID = AuthService.currentUser().id;
+    } else {
+       $location.path('#/');
+    }
 
     $scope.processForm = function () {
       EventService.processForm.save({}, {
 
         name: $scope.event.name,
         date: $scope.event.date,
-        time: $filter('date')($scope.event.time , "HH:mm:ss"),
+        time: $scope.event.time,
         locationName: $scope.event.locationName,
         coverPicture: $scope.event.coverPicture,
         duration: $scope.event.duration,

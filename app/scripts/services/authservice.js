@@ -8,9 +8,9 @@
  * Factory in the eventifyApp.
  */
 angular.module('eventifyApp')
-  .factory('AuthService', function ($auth, $location, $route) {
+  .factory('AuthService', function ($auth, $location, $route, $cookies) {
 
-    var currentUser = null;
+    var currentUser = $cookies.getObject('user');
     var lastError = '';
 
     // Public API here
@@ -27,6 +27,7 @@ angular.module('eventifyApp')
                 // Redirect user here after a successful log in.
                 // console.log(response);
                 currentUser = response.data;
+                $cookies.putObject('user',response.data);
                 // $window.location.href = '#/overview';
                 $location.path( '/overview' );
 
@@ -42,7 +43,7 @@ angular.module('eventifyApp')
       },
       logout: function() {
             currentUser = null;
-            console.log($location);
+            $cookies.remove('user');
             if ($location.$$path === '/') {
                 $route.reload();
             } else {
@@ -50,13 +51,15 @@ angular.module('eventifyApp')
             }
       },
       isLoggedIn: function() {
-        return (currentUser !== null);
+        return (currentUser !== null && currentUser !== undefined);
       },
       lastError: function() {
         return lastError;
       },
       setUser: function(user) { 
         currentUser = user;
+        $cookies.putObject('user',user);
+
         return currentUser; 
       },
       currentUser: function() { 
