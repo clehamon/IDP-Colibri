@@ -41,5 +41,8 @@
   },
   "scripts": {
     "test": "karma start test\\karma.conf.js"
+  },
+  "dependencies": {
+    "ng-disable-scroll": "^0.1.1"
   }
 }

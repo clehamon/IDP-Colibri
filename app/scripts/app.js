@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'uiGmapgoogle-maps',
-    'satellizer'
+    'satellizer',
+    'ngDisableScroll'
   ])
   .config(function ($routeProvider, uiGmapGoogleMapApiProvider, $httpProvider, $authProvider) {
     $routeProvider
