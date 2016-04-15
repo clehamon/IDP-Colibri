@@ -55,6 +55,10 @@ angular.module('eventifyApp')
       lastError: function() {
         return lastError;
       },
+      setUser: function(user) { 
+        currentUser = user;
+        return currentUser; 
+      },
       currentUser: function() { 
         return currentUser; 
       }

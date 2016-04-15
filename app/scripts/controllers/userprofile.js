@@ -28,6 +28,8 @@ angular.module('eventifyApp')
         avatar: $scope.copyUser.avatar
 	      }, function (data) {
 	        console.log(data);
+          AuthService.setUser($scope.copyUser);
+          $scope.currentUser = $scope.copyUser;
 	        $scope.changeView(3);
 	      }, function (data) {
 	        console.log(data);
