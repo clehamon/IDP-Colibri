@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('NeweventCtrl', function ($scope, $http, $resource, EventService, $location, AuthService) {
+  .controller('NeweventCtrl', function ($scope, $http, $resource, EventService, $location, AuthService, $filter) {
 
     //this could/should be shared with editevent.js
     $scope.imageStyle = {
@@ -28,13 +28,13 @@ angular.module('eventifyApp')
 
         name: $scope.event.name,
         date: $scope.event.date,
-        time: $scope.event.time,
+        time: $filter('date')($scope.event.time , 'HH:mm:ss'),
         locationName: $scope.event.locationName,
         coverPicture: $scope.event.coverPicture,
         duration: $scope.event.duration,
         locationLat: $scope.event.latitudeMap,
         locationLong: $scope.event.longitudeMap,
-        description: $scope.event.description,
+        // description: $scope.event.description,
         spotifyPlaylist: $scope.event.spotifyPlaylist,
         admin: $scope.adminID
       }, function (data) {

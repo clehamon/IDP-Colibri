@@ -63,16 +63,14 @@ angular.module('eventifyApp')
 	 	
 	 		//Convert the date from a DD/MM/YYYY format to a js Date object
 	        var dateArray = item[property].split('-');
-	        var itemDate = new Date(dateArray[2],dateArray[1],dateArray[0]);
+	        var itemDate = new Date(dateArray[0],dateArray[1]-1,dateArray[2]);
 	        var itemTimestamp = itemDate.getTime();
 	        var currentDate = Date.now();
 
-	        if (upcoming && itemTimestamp>=currentDate){
+	        if ( (upcoming && itemTimestamp>=currentDate) || (!upcoming && itemTimestamp<currentDate) ){
 	        	return true;
-	        } else if(!upcoming && itemTimestamp<currentDate){
-	        	return false;
 	        }
-	        return true;
+	        return false;
 	    };
 	};
 

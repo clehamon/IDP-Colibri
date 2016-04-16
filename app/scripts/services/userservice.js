@@ -15,6 +15,8 @@ angular.module('eventifyApp')
 
     this.User = $resource('http://clementhamon.com/IDP/public/user/:id');
 
+    this.newUser = $resource('http://clementhamon.com/IDP/public/user/new');
+
 
 
     this.updateUser = $resource('http://clementhamon.com/IDP/public/user/update', null, {

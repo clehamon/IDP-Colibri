@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('CreateaccountCtrl', function ($scope, $auth) {
+  .controller('CreateaccountCtrl', function ($scope, UserService) {
 
   	$scope.signInError = '';
     
@@ -25,25 +25,21 @@ angular.module('eventifyApp')
 			password: $scope.password
 		};
 
-		var	httpConfig = {
-			url: 'http://clementhamon.com/IDP/public/user/new'
-		};
+		console.log(user);
 
-		$auth.signup(user, httpConfig)
-		.then(function(response) {
-			// Redirect user here to login page or perhaps some other intermediate page
-			// that requires email address verification before any other part of the site
-			// can be accessed.
-			console.log(response);
+		UserService.newUser.save({}, {
+			firstName: $scope.firstName,
+			lastName: $scope.lastName,
+			email: $scope.email,
+			password: $scope.password
+		}, 
 
-		})
-		.catch(function(response) {
-			// Handle errors here.
-			console.log(response);
+		function (data) {
+	        console.log(data);
 
-		});
-
-
+      	}, function (data) {
+        	console.log(data);
+      	});
 
     };
   });
