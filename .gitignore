@@ -6,3 +6,11 @@
 app/styles/event.scss
 
 app/styles/event.scss
+
+app/views/newevent.html
+
+app/views/newevent.html
+
+app/scripts/controllers/createaccount.js
+
+app/scripts/controllers/editevent.js
