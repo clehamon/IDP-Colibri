@@ -13,6 +13,8 @@ angular.module('eventifyApp')
         $scope.linkID = $routeParams.linkID;
         $scope.editing = false;
 
+        $scope.Spotify = "";
+
         $scope.isLogged = AuthService.isLoggedIn();
 
         $scope.user = AuthService.currentUser();
@@ -26,11 +28,12 @@ angular.module('eventifyApp')
                 eventId: $scope.linkID
             }, function (data) {
                 $scope.event = data;
-                console.log(data);
 
                 if ($scope.isLogged) {
-                  $scope.eventAdmin = ($scope.user.id === $scope.event.admin);
+                    $scope.eventAdmin = ($scope.user.id === $scope.event.admin);
                 }
+                //checking spotify playlist for ng-show
+
 
                 //setting bg picture
                 $scope.bgStyle = {
@@ -54,13 +57,20 @@ angular.module('eventifyApp')
                 $scope.id = data.id;
                 $scope.Spotify = data.spotifyPlaylist;
 
+                console.log(data.spotifyPlaylist);
+
+                $scope.checkPlaylist = function () {
+                    if (data.spotifyPlaylist) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                };
 
 
-                //       $scope.SetSpotifyURI = function () {
                 $scope.SpotifyURI = 'https://embed.spotify.com/?uri=' + $scope.Spotify;
-                //    };
-                console.log($scope.Spotify);
-                console.log($scope.SpotifyURI);
+
+
 
                 $scope.attendees = data.attendee;
 
@@ -73,6 +83,9 @@ angular.module('eventifyApp')
                 console.log(data);
             });
         };
+
+
+
 
         $scope.getUserByID = function (ID) {
             var user;

@@ -5,19 +5,19 @@
 <section class="module parallax row" ng-style="bgStyle">
 
 
-  <div class="descr col-lg-4 col-lg-offset-3 info">
-    <h1>{{event.name}}</h1>
-    <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
-    <p>{{event.description}}</p>
-    <a class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
-    <a  ng-if="eventAdmin"  class="btn btn-danger" ng-href="#/editevent/{{event.linkId}}">Delete</a>
-    <!--<a class="btn btn-primary" ng-href="#">Share</a>-->
-  </div>
-  <div class="col-lg-3 map-cont">
-    <ui-gmap-google-map center='mapCenter' zoom='14'>
-      <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
-    </ui-gmap-google-map>
-  </div>
+    <div class="descr col-lg-4 col-lg-offset-3 info">
+        <h1>{{event.name}}</h1>
+        <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
+        <p>{{event.description}}</p>
+        <a class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
+        <a ng-if="eventAdmin" class="btn btn-danger" ng-href="#/editevent/{{event.linkId}}">Delete</a>
+        <!--<a class="btn btn-primary" ng-href="#">Share</a>-->
+    </div>
+    <div class="col-lg-3 map-cont">
+        <ui-gmap-google-map center='mapCenter' zoom='14'>
+            <ui-gmap-marker idKey="id" coords='markerCenter'></ui-gmap-marker>
+        </ui-gmap-google-map>
+    </div>
 
 </section>
 
@@ -136,9 +136,12 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div ng-show="checkPlaylist()">
             <h2>Spotify Playlist</h2>
             <iframe ng-src="{{SpotifyURI}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+        </div>
+        <div ng-show="!checkPlaylist()">
+            <h2>No Spotify List availaible</h2>
         </div>
     </div>
 </div>
