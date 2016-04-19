@@ -141,7 +141,9 @@
             <iframe ng-src="{{SpotifyURI}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
         </div>
         <div ng-show="!checkPlaylist()">
-            <h2>No Spotify List availaible</h2>
+            <h2>Add Spotify Playlist</h2>
+            <input name="Add Playlist" placeholder="Paste your playlist link here.." ng-model="newPlaylist" id="addPlaylist">
+            <button ng-click="uploadPlaylist()">Add</button>
         </div>
     </div>
 </div>

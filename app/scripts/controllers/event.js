@@ -8,18 +8,45 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-    .controller('EventCtrl', function ($scope, EventService, $routeParams, AuthService) {
+    .controller('EventCtrl', function ($scope, EventService, $routeParams, $location, $filter, AuthService) {
 
         $scope.linkID = $routeParams.linkID;
         $scope.editing = false;
 
         $scope.Spotify = "";
 
+        $scope.newPlaylist = "";
+
         $scope.isLogged = AuthService.isLoggedIn();
 
         $scope.user = AuthService.currentUser();
 
         $scope.SpotifyURI = "";
+
+        $scope.uploadPlaylist = function () {
+            console.log("calling function");
+            EventService.updateEvent.update({}, {
+                id: $scope.event.id,
+                name: $scope.event.name,
+                date: $scope.event.date,
+                time: $filter('date')($scope.event.time, "HH:mm:ss"),
+                locationName: $scope.event.locationName,
+                coverPicture: $scope.event.coverPicture,
+                duration: $scope.event.duration,
+                locationLat: $scope.event.latitudeMap,
+                locationLong: $scope.event.longitudeMap,
+                description: $scope.event.description,
+                spotifyPlaylist: $scope.newPlaylist,
+                admin: $scope.adminID
+            }, function (data) {
+                console.log(data);
+                $location.path('/event/' + $scope.event.linkId);
+
+            }, function (data) {
+                console.log(data);
+            });
+
+        };
 
         //this name should be changed
         $scope.getEventByID = function () {
