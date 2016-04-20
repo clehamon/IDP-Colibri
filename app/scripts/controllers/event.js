@@ -20,17 +20,14 @@ angular.module('eventifyApp')
     $scope.user = AuthService.currentUser();
 
     $scope.SpotifyURI = "";
-
-    $scope.isAttending = function () {
-      var attending = false;
-      for (var i = 0; i < $scope.event.attendee.length; i++) {
-        if ($scope.event.attendee[i].id == $scope.user.id) {
-          attending = true;
-        }
-      }
-      return attending;
-    }
-
+  
+    $scope.popClicked = false;
+  
+    $scope.clickPop = function(){
+      console.log($scope.popClicked);
+      $scope.popClicked = !$scope.popClicked;
+    };
+  
     //this name should be changed
     $scope.getEventByID = function () {
       $scope.eventStatus = true;
@@ -82,6 +79,16 @@ angular.module('eventifyApp')
         $scope.attendees = data.attendee;
 
         $scope.eventStatus = false;
+          
+        $scope.isAttending = function () {
+          var attending = false;
+          for (var i = 0; i < $scope.event.attendee.length; i++) {
+            if ($scope.event.attendee[i].id === $scope.user.id) {
+              attending = true;
+            }
+          }
+          return attending;
+        };
 
         //finally save data to service
         EventService.setEventData(data);
@@ -99,6 +106,19 @@ angular.module('eventifyApp')
         }
       });
       return user;
+    };
+    
+    $scope.addUserToEvent = function(){
+        if($scope.user){
+            EventService.addAttendee.save({},{
+                event: $scope.event.id,
+                user: $scope.user.id
+            }, function(data){
+                console.log(data);
+            }, function(data){
+                console.log(data);
+            });
+        }
     };
 
   });

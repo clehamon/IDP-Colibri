@@ -14,7 +14,6 @@ angular.module('eventifyApp')
 
     $scope.ownsTask = function (taskID) {
       var found = false;
-      console.log(taskID)
       for (var i = 0; i < $scope.event.tasks.length; i++) {
         if ($scope.event.tasks[i].id === taskID) {
           for (var j = 0; j < $scope.event.tasks[i].owners.length; j++) {
@@ -120,5 +119,6 @@ angular.module('eventifyApp')
           console.log(data);
         });
     };
+
 
   });

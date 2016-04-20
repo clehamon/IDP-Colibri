@@ -47,6 +47,6 @@ angular.module('eventifyApp')
 
         this.processForm = $resource('http://clementhamon.com/IDP/public/event/new');
 
-
+        this.addAttendee = $resource('http://clementhamon.com/IDP/public/event/attendance/new');
 
     });
