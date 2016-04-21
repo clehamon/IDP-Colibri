@@ -20,7 +20,7 @@ angular.module('eventifyApp')
     if (AuthService.isLoggedIn()) {
       $scope.adminID = AuthService.currentUser().id;
     } else {
-       $location.path('#/');
+      $location.path('#/');
     }
 
     $scope.processForm = function () {
@@ -28,7 +28,7 @@ angular.module('eventifyApp')
 
         name: $scope.event.name,
         date: $scope.event.date,
-        time: $filter('date')($scope.event.time , 'HH:mm:ss'),
+        time: $filter('date')($scope.event.time, 'HH:mm:ss'),
         locationName: $scope.event.locationName,
         coverPicture: $scope.event.coverPicture,
         duration: $scope.event.duration,
