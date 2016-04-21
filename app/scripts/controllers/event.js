@@ -28,6 +28,13 @@ angular.module('eventifyApp')
       $scope.popClicked = !$scope.popClicked;
     };
   
+    /*$scope.dynamicPopover = {
+    content: 'Hello, World!',
+    templateUrl: 'myPopoverTemplate.html',
+    title: 'Attendees'
+  };*/
+  
+  
     //this name should be changed
     $scope.getEventByID = function () {
       $scope.eventStatus = true;

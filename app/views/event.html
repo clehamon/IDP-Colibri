@@ -69,6 +69,7 @@
             </div>
         </form>
     </div>
+  
     <div class="col-md-4" ng-controller="TaskCtrl">
         <h2>Tasks to do <span>({{event.tasks.length}})</span></h2>
         <table class="table table-hover edit">
@@ -92,16 +93,18 @@
                             <!--ng-class="{true:'own-pic', false:''}[owner.id == user.id]"-->
                             <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span>
                         </div>
-                        <div ng-if="task.owners.length > 2">
+                        <div class="pop-cont" ng-if="task.owners.length > 2">
                           <span class="glyphicon glyphicon-option-horizontal hover-pop table-left" ng-click="clickPop()">
-                            <span ng-class="{'show-pop':popClicked}" class="pops above">
-                              <!--<div ng-if="task.owners.length <= 2" ng-repeat="owner in task.owners" class="inline">
+                          <div class="popo" ng-show="popClicked">
+                            <h5>Attendees</h5>
+                            <ul ng-repeat="owner in task.owners"> 
+                              <li>
                                   <img class="img-circle thumb name" src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
-                                  ng-class="{true:'own-pic', false:''}[owner.id == user.id]"
-                                  <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span>
-                              </div>-->
-                            </span>
-                          </span>  
+                                  {{owner.firstName}}
+                                  {{owner.lastName}}
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                         <img ng-show="!ownsTask(task.id) && isLogged" ng-click="addUserToTask(task.id)" class="add-icon table-left" src="../images/add_user.png" />
                     </td>
@@ -123,6 +126,14 @@
             </div>
         </form>
     </div>
+  
+    <!--<script type="text/ng-template" id="myPopoverTemplate.html">
+      <div>
+        <ul ng-repeat="attendee in dynamicPopover.content">
+          <li>{{attendee.firstName}}</li>
+        </ul>
+      </div>
+    </script>-->
     <div class="col-md-4">
         <h2>Attendees <span>({{event.attendee.length}})</span></h2>
         <table class="table table-hover edit">
