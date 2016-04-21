@@ -7,7 +7,7 @@
 
     <div class="descr col-lg-4 col-lg-offset-3 info">
         <h1>{{event.name}}</h1>
-        <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
+        <h3>Date: {{event.date}} Time: {{event.time}} Duration: {{event.duration}}min</h3>
         <h4 id="nakki">{{event.description}}</h4>
         <a ng-if="eventAdmin" class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
         <a ng-if="eventAdmin" class="btn btn-danger" ng-href="#/editevent/{{event.linkId}}">Delete</a>
