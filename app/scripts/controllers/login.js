@@ -9,11 +9,7 @@
  */
 var mymodal = angular.module('eventifyApp');
 
-	mymodal.controller('LoginCtrl', function ($scope,  $auth, $rootScope, $location, AuthService) {
-
-    $scope.authenticate = function(provider) {
-    	$auth.authenticate(provider);
-    };
+	mymodal.controller('LoginCtrl', function ($scope, $location, AuthService) {
 
     $scope.loginMail = function () {
     	var user = {
@@ -21,12 +17,18 @@ var mymodal = angular.module('eventifyApp');
 			password: $scope.password
 		};
 
-		AuthService.login(user);
+		AuthService.login(user, loginCallback);
 
-        if (!AuthService.isLoggedIn()) {
+       
+    };
+
+
+    var loginCallback = function () {
+         if (!AuthService.isLoggedIn()) {
             $scope.loginError = AuthService.lastError();
         } else {
             $scope.loginError = '';
+            $location.path( '/overview' );
         }
     };
 

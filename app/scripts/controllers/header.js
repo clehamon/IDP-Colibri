@@ -13,7 +13,7 @@ angular.module('eventifyApp')
     function($scope, $rootScope, AuthService) {
 
       $rootScope.$on('changeView', function(){
-         $scope.changeView(3);
+         $scope.changeView(1);
       });
 
       $scope.showLogin = false;

@@ -37,7 +37,7 @@
 					</div>
 					<div class="eventCard-middle">
 						<div class="col-xs-6 eventCard-list">
-							<p class="eventCard-item-title">My items</p>
+							<p class="eventCard-item-title stuff"><span style="display: block">My items</span></p>
 							<p class="eventCard-item" ng-repeat="stuff in event.stuffs" ng-if ="$index < 3">
 								{{stuff.name}}
 							</p>
@@ -47,7 +47,7 @@
 							</p>
 						</div>
 						<div class="col-xs-6 eventCard-list">
-							<p class="eventCard-item-title">My tasks</p>
+							<p class="eventCard-item-title task">My tasks</p>
 							<p class="eventCard-item" ng-repeat="task in event.tasks" ng-if ="$index < 3">
 								{{task.name}}
 							</p>

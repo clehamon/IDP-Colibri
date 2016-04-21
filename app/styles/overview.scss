@@ -155,11 +155,23 @@
 
 
 .eventCard-item-title{
-	background-color: #116CE6;
-	color: white;
+	position:relative;
+	color: #3E53CE;
 	padding-top: 3px;
 	padding-bottom: 3px;
 	text-align: center;
+
+	&:after {
+		background: #3E53CE;
+		content: '';
+	    position: absolute;
+	    margin: 0 auto;
+	    left:0; 
+	    right:0;
+	    bottom: 0;
+	    width: 50%;
+	    height: 3px;
+	}
 }
 
 .eventCard-item{
