@@ -90,7 +90,6 @@
                     <td>
                         <div ng-if="task.owners.length <= 2" ng-repeat="owner in task.owners" class="inline">
                             <img class="img-circle thumb name" src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
-                            <!--ng-class="{true:'own-pic', false:''}[owner.id == user.id]"-->
                             <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span>
                         </div>
                         <div class="pop-cont" ng-if="task.owners.length > 2">
@@ -100,6 +99,7 @@
                             <ul ng-repeat="owner in task.owners"> 
                               <li>
                                   <img class="img-circle thumb name" src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
+                                  <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span>
                                   {{owner.firstName}}
                                   {{owner.lastName}}
                               </li>
