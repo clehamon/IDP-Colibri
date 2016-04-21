@@ -8,7 +8,7 @@
     <div class="descr col-lg-4 col-lg-offset-3 info">
         <h1>{{event.name}}</h1>
         <h3>{{event.date}} {{event.time}} {{event.duration}}</h3>
-        <p id="nakki">{{event.description}}</p>
+        <h4 id="nakki">{{event.description}}</h4>
         <a ng-if="eventAdmin" class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
         <a ng-if="eventAdmin" class="btn btn-danger" ng-href="#/editevent/{{event.linkId}}">Delete</a>
         <a ng-if="!isLogged || !isAttending()" class="btn btn-success" ng-click="addUserToEvent()">Join party!</a>

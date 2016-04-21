@@ -50,9 +50,16 @@ angular.module('eventifyApp')
         //checking spotify playlist for ng-show
 
         //setting bg picture
-        $scope.bgStyle = {
-          'background-image': 'url(' + $scope.event.coverPicture + ')'
-        };
+        if($scope.event.coverPicture == null){
+            $scope.bgStyle = {
+              'background-image': 'url(../../images/pattern.png)'
+            };
+        }else{
+          $scope.bgStyle = {
+            'background-image': 'url(' + $scope.event.coverPicture + ')'
+          };
+        }
+        
 
         //not sure if this should be in MapCtrl
         $scope.mapCenter = {
