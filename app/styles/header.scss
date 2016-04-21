@@ -15,3 +15,29 @@
 	height:30px;
 	width:30px;
 }
+
+.navbar{
+  margin-bottom: 0px;
+}
+nav{
+  li{
+    margin-top: 5px;
+  }
+  .log-img{
+    margin-top: 1px;
+  }
+}
+
+.dark{
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 0px;
+  color: white !important;
+}
+
+.white{
+  color: white !important;
+  font-size: 22px !important;
+}
+/*.navbar{
+  border-radius: 0px;
+}*/

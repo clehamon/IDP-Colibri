@@ -9,8 +9,8 @@
  */
 angular.module('eventifyApp')
   
-.controller('HeaderCtrl', ['$scope', '$rootScope','AuthService',
-    function($scope, $rootScope, AuthService) {
+.controller('HeaderCtrl', ['$scope', '$rootScope','AuthService', '$location',
+    function($scope, $rootScope, AuthService, $location) {
 
       $rootScope.$on('changeView', function(){
          $scope.changeView(3);
@@ -40,6 +40,10 @@ angular.module('eventifyApp')
 
       $scope.logOut = function (){
         AuthService.logout();
+      };
+      
+      $scope.isActive = function (viewLocation) { 
+        return viewLocation === $location.path();
       };
 
   }
