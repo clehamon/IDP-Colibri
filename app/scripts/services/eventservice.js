@@ -15,13 +15,18 @@ angular.module('eventifyApp')
 
         this.setEventData = function (data) {
             eventData = angular.copy(data);
-            var dateArr = eventData.date.split('-');
-            var date = new Date(dateArr[0], dateArr[1], dateArr[2]);
-            console.log(date);
-            eventData.date = date;
-            var time = eventData.time.split(':');
-            eventData.time = new Date(dateArr[0], dateArr[1], dateArr[2], time[0], time[1]);
-            console.log(new Date(dateArr[0], dateArr[1], dateArr[2], time[0], time[1]));
+            if(eventData.date  != null){
+              var dateArr = eventData.date.split('-');
+              var date = new Date(dateArr[0], dateArr[1], dateArr[2]);
+              console.log(date);
+              eventData.date = date;
+            }
+          
+            if(eventData.time != null){
+              var time = eventData.time.split(':');
+              eventData.time = new Date(dateArr[0], dateArr[1], dateArr[2], time[0], time[1]);
+              console.log(new Date(dateArr[0], dateArr[1], dateArr[2], time[0], time[1]));
+            }
         };
 
 

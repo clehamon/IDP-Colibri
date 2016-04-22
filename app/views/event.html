@@ -157,31 +157,6 @@
                 </tr>
             </tbody>
         </table>
-        <div>
-<<<<<<< HEAD
-            <h2>Attendees <span>({{event.attendee.length}})</span></h2>
-            <table class="table table-hover edit">
-                <thead>
-                    <tr>
-                        <th>Avatar</th>
-                        <th>Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-show="!event.attendee.length">
-                        <td>No attendees yet...</td>
-                    </tr>
-                    <tr ng-repeat="attendee in event.attendee">
-                        <td class="thumb-img">
-                            <img class="img-circle thumb name" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
-                        </td>
-                        <td>
-                            {{attendee.firstName}} {{attendee.lastName}}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
         <div ng-show="checkPlaylist()">
             <h2>Spotify Playlist</h2>
             <iframe ng-src="{{SpotifyURI}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
@@ -190,15 +165,6 @@
             <h2>Add Spotify Playlist</h2>
             <input name="Add Playlist" placeholder="Paste your playlist link here.." ng-model="newPlaylist" id="addPlaylist">
             <button ng-click="uploadPlaylist()">Add</button>
-=======
-            <!-- <div ng-show="checkPlaylist()">
-        <h2>Spotify Playlist</h2>
-        <iframe ng-src="{{SpotifyURI}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-      </div>
-      <div ng-show="!checkPlaylist()">
-        <h2>No Spotify List availaible</h2>
-      </div>-->
->>>>>>> 3a7fdb5c02fbcde184e411af5195caebb647283c
         </div>
     </div>
 </div>
