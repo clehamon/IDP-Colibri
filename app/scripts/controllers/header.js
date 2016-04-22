@@ -19,12 +19,15 @@ angular.module('eventifyApp')
       $scope.showLogin = false;
       $scope.showSignup = false;
       $scope.showProfile = false;
+      $scope.blockModal = false;
 
       if (AuthService.isLoggedIn()) {
         $scope.currentUser = AuthService.currentUser();
       }
 
       $scope.changeView = function(ID){
+
+        $scope.blockModal = !$scope.blockModal;
         switch (ID) {
           case 1:
             $scope.showSignup = !$scope.showSignup;
