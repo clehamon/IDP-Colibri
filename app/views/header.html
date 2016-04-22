@@ -1,5 +1,4 @@
-<div ng-controller="HeaderCtrl">
-
+  <nav ng-class="{ dark: isActive('/')}" class="navbar navbar-default" ng-controller="HeaderCtrl">
     <div ng-show="showLogin">
         <ng-include src="'views/login.html'"></ng-include>
     </div>
@@ -11,34 +10,47 @@
     <div ng-show="showProfile">
         <ng-include src="'views/userprofile.html'"></ng-include>
     </div>
-
-    <div class="header">
-        <div class="navbar" role="navigation">
-            <div class="container">
-                <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-                    <ul class="nav navbar-nav navbar-left">
-                        <!--   <li class="logo">Watsdplan</li> -->
-                        <li ng-hide="{{currentUser.id>0}}" class="hdrtxt" ng-class="{active:isActive('/')}"><a href="#/">Home</a></li>
-                        <li ng-show="{{currentUser.id>0}}" class="hdrtxt" ng-class="{active:isActive('/')}"><a href="#/overview">My events</a></li>
-                        <li class="hdrtxt" ng-class="{active:isActive('/about')}"><a ng-href="#/about">About</a></li>
-                    </ul>
-                    <ul ng-hide="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">
-                        <li ng-click="changeView(1)"><a href="">Sign up</a></li>
-                        <li ng-click="changeView(2)"><a href="">Log in</a></li>
-                    </ul>
-
-                    <ul ng-show="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">
-                        <li ng-click="changeView(3)">
-
-                        <a href=""><img src="{{currentUser.avatar}}" alt="" class="img-circle headerAvatar">  {{currentUser.firstName}}</a>
-                        </li>
-                        <li ng-click="logOut()"><a href="">Log out</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-</div>
 
-<div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-left">
+          <li ng-hide="{{currentUser.id>0}}" class="hdrtxt" ng-class="{active:isActive('/')}">
+            <a ng-class="{ white: isActive('/')}" href="#/">Home</a>
+          </li>
+          <li ng-show="{{currentUser.id>0}}" class="hdrtxt" ng-class="{active:isActive('/overview')}">
+            <a ng-class="{ white: isActive('/')}" href="#/overview">My events</a>
+          </li>
+          <li class="hdrtxt" ng-class="{active:isActive('/about')}">
+            <a ng-class="{ white: isActive('/')}" ng-href="#/about">About</a>
+          </li>
+      </ul>
+      <ul ng-hide="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">
+          <li ng-click="changeView(1)">
+            <a ng-class="{ white: isActive('/')}" href="">Sign up</a>
+          </li>
+          <li ng-click="changeView(2)">
+            <a ng-class="{ white: isActive('/')}" href="">Log in</a>
+          </li>
+      </ul>
+
+      <ul ng-show="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">
+          <li class="log-img" ng-click="changeView(3)">
+            <a ng-class="{ white: isActive('/')}" href=""><img src="{{currentUser.avatar}}" alt="" class="img-circle headerAvatar">  {{currentUser.firstName}}</a>
+          </li>
+          <li ng-click="logOut()">
+            <a ng-class="{ white: isActive('/')}" href="">Log out</a>
+          </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>                     

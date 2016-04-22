@@ -1,21 +1,52 @@
 .logo {
-    padding-top: 12px;
-    padding-right: 50px;
-    margin-left: 0;
-    color: green;
-    font-weight: bold;
-    font-size: 18px;
+  padding-top: 12px;
+  padding-right: 50px;
+  margin-left: 0;
+  color: green;
+  font-weight: bold;
+  font-size: 18px;
 }
 
 .navbar {
-    z-index: 6;
+  z-index: 6;
 }
 
-.hdrtxt {
-    color: white;
+.headerAvatar {
+  height: 30px;
+  width: 30px;
 }
 
-.headerAvatar{
-	height:30px;
-	width:30px;
+.navbar {
+  margin-bottom: 0px;
 }
+
+nav {
+  li {
+    margin-top: 5px;
+  }
+  .log-img {
+    margin-top: 1px;
+  }
+}
+
+.dark {
+  background-color: rgba(0, 0, 0, 0) !important;
+  border: 0px;
+  color: white !important;
+}
+
+.white {
+  color: white !important;
+  font-size: 22px !important;
+}
+
+@media (max-width:767px) {
+  .navbar-collapse {
+    background-color: rgba(128, 128, 128, 0.86);
+  }
+}
+
+
+/*.navbar{
+  border-radius: 0px;
+}*/

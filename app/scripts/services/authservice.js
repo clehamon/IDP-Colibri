@@ -16,7 +16,7 @@ angular.module('eventifyApp')
     // Public API here
     return {
 
-      login: function(user) {
+      login: function(user, callback) {
 
           var httpConfig = {
             url: 'http://clementhamon.com/IDP/public/auth/login'
@@ -29,16 +29,14 @@ angular.module('eventifyApp')
                 currentUser = response.data;
                 $cookies.putObject('user',response.data);
                 // $window.location.href = '#/overview';
-                $location.path( '/overview' );
-
-                return true;
+                callback();
           })
           .catch(function(response) {
                 // Handle errors here, such as displaying a notification
                 // for invalid email and/or password.
                 console.log(response);
                 lastError = response.data.error;
-                return false;
+                callback();
           });
       },
       logout: function() {

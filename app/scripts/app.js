@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'uiGmapgoogle-maps',
     'satellizer',
-    'ngDisableScroll'
+    'ngDisableScroll',
+    'ui.bootstrap'
   ])
     .config(function ($routeProvider, uiGmapGoogleMapApiProvider, $httpProvider, $authProvider, $sceDelegateProvider) {
         $routeProvider
