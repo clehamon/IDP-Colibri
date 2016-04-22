@@ -60,16 +60,8 @@ angular.module('eventifyApp')
           };
         }
         
-
         //not sure if this should be in MapCtrl
         $scope.mapCenter = {
-          latitude: data.locationLat,
-          longitude: data.locationLong
-        };
->>>>>>> 3a7fdb5c02fbcde184e411af5195caebb647283c
-
-        //This is required by the directive
-        $scope.markerCenter = {
           latitude: data.locationLat,
           longitude: data.locationLong
         };
