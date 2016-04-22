@@ -103,4 +103,20 @@ angular
         $httpProvider.defaults.headers.put = {};
         $httpProvider.defaults.headers.patch = {};
 
-    });
+    })
+    .run( function($rootScope, $location, AuthService) {
+
+      // register listener to watch route changes
+      $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+        //if ( $rootScope.currentUser == null ) {
+        if(AuthService.currentUser != null){
+          // no logged user, we should be going to #login
+          if ( next.templateUrl == "views/main.html" ) {
+            // already going to #login, no redirect needed
+            console.log('here');
+            $location.path( "/overview" );
+          }
+        }         
+      });
+   });
+
