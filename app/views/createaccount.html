@@ -8,7 +8,7 @@
     </button>
 
     <div class="loginform">
-    <h3>Sign up</h3>
+    <h3 class="sign-head">Sign up</h3>
       <modal title="Sign up form">
       <form role="form">
           <p class="errorMsg">{{signInError}}</p>
@@ -34,6 +34,22 @@
           </div>
           <button type="submit" class="btn btn-default" ng-click="newUser()"><a>Sign up</a></button>
         </form>
+        
+        <!--<h3 class="sign-head">or log in</h3>
+        
+        <form role="form" ng-controller="LoginCtrl">
+          <p class="error">{{loginError}}</p>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" ng-model="email" id="email" placeholder="Enter email" required/>
+          </div>
+          <div class="form-group">
+            <label for="pass">Password</label>
+            <input type="password" class="form-control" ng-model="password" id="pass" placeholder="Password" required/>
+          </div>
+          <button type="submit" class="btn btn-default" ng-click="loginMail()"><a>Log in</a></button>
+        </form>-->
+        
       </modal>
     </div>
   </div>

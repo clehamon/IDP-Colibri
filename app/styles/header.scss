@@ -9,6 +9,7 @@
 
 .navbar {
   z-index: 6;
+  height: 76px;
 }
 
 .headerAvatar {
@@ -18,16 +19,25 @@
 
 .navbar {
   margin-bottom: 0px;
+  border: 0px;
+  border-radius: 0px;
 }
 
 nav {
   li {
-    margin-top: 5px;
+    margin-top: 11px;
   }
   .log-img {
     margin-top: 1px;
   }
 }
+
+.tom{
+  padding-top: 24px !important;
+}
+/*.navbar-default .navbar-nav > .active{
+  background-color: #b4b0b0;
+}*/
 
 .dark {
   background-color: rgba(0, 0, 0, 0) !important;
@@ -37,7 +47,7 @@ nav {
 
 .white {
   color: white !important;
-  font-size: 22px !important;
+  /*font-size: 22px !important;*/
 }
 
 @media (max-width:767px) {
@@ -46,6 +56,10 @@ nav {
   }
 }
 
+.sign-head{
+  color: black;
+  text-align: center;
+}
 
 /*.navbar{
   border-radius: 0px;
