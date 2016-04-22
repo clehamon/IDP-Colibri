@@ -26,6 +26,7 @@ angular.module('eventifyApp')
           .then(function(response) {
                 // Redirect user here after a successful log in.
                 // console.log(response);
+                // console.log(response.data);
                 currentUser = response.data;
                 $cookies.putObject('user',response.data);
                 // $window.location.href = '#/overview';
