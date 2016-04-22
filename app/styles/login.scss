@@ -6,6 +6,7 @@
     width: 100%;
     height: 100%;
     z-index: 10;
+    overflow: auto;
 }
 
 .fakedialog {
@@ -19,7 +20,6 @@
 
 .no-scrolling {
     overflow: hidden;
-
 }
 
 
@@ -52,3 +52,6 @@ a:active {
     color: #F06361;
 }
 
+label {
+    color: #23273B;
+}
