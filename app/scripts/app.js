@@ -105,15 +105,11 @@ angular
 
     })
     .run( function($rootScope, $location, AuthService) {
+      var logged = AuthService.isLoggedIn();
 
-      // register listener to watch route changes
       $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-        //if ( $rootScope.currentUser == null ) {
-        if(AuthService.currentUser != null){
-          // no logged user, we should be going to #login
-          if ( next.templateUrl == "views/main.html" ) {
-            // already going to #login, no redirect needed
-            console.log('here');
+        if(logged){
+          if ( next.templateUrl == "views/main.html" ) {            
             $location.path( "/overview" );
           }
         }         
