@@ -23,10 +23,10 @@
 							<h3>{{event.name}}</h3>
 							<p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date: "HH:mm"}}</p>
 							<p>{{event.location}}</p>
-							<div class="eventCard-attendees" ng-mouseenter="showAttendees = true" ng-mouseleave="showAttendees = false" ng-init="showAttendees = false">
+							<div  class="eventCard-attendees" ng-mouseenter="showAttendees = true" ng-mouseleave="showAttendees = false" ng-init="showAttendees = false">
 								<span class="glyphicon glyphicon glyphicon-user"></span>
 								{{event.attendee.length}}
-								<li class="eventCard-attendees-list"  ng-show="showAttendees" >
+								<li ng-if="event.attendee.length > 0" class="eventCard-attendees-list"  ng-show="showAttendees" >
 									<ul class="eventCard-attendee" ng-repeat="attendee in event.attendee">
 										<img src="{{attendee.avatar}}" alt="" class="img-circle">
 										{{attendee.firstName +" "+ attendee.lastName}}
@@ -64,7 +64,10 @@
 					</div>
 				</div>
 			</div>
-			<div ng-show="!events.length" class="no-events">It seems like you do not have any events yet... why not creating a new one? :)</h2>
+			<div ng-show="loadEvents" >
+				<img class="img-responsive center-block" src="images/Loading_icon.gif" alt="">
+			</div>
+			<div ng-show="events.length == 0" class="no-events">It seems like you do not have any events yet... why not creating a new one? :)</h2>
 			</div>
 		</div>
 

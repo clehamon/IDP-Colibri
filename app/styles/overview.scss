@@ -5,9 +5,7 @@
     width: 50%;
     padding-top: 100px;
 
-
 }
-
 
 .overview{
 	min-height: 100%;
@@ -21,6 +19,11 @@
 	height:100%;
 	width:100%;
 	position: relative;
+}
+
+.loadEvents{
+	width:100%;
+	height: 800px;
 }
 
 .overview-new-event{
@@ -55,7 +58,7 @@
 }
 
 .eventCardContainer{
-	height: 350px;
+	max-height: 370px;
 }
 
 .eventCard{

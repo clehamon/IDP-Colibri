@@ -13,6 +13,8 @@ angular.module('eventifyApp')
         var userId;
 
         $scope.limitItems = 3;
+        $scope.loadEvents = false;
+
 
         if (AuthService.isLoggedIn()) {
             userId = AuthService.currentUser().id;
@@ -21,18 +23,23 @@ angular.module('eventifyApp')
         }
 
         $scope.getEvents = function () {
+            $scope.loadEvents = true;
             UserService.UserEvents.query({
                 id: userId
             }, function (data) {
                 console.log(data);
                 angular.forEach(data, function (event) {
+
                     if (event.coverPicture) {
                         event.bgStyle = 'background: linear-gradient( rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5) ), url(' + event.coverPicture + ') no-repeat center center;';
                     }
                 });
+                $scope.loadEvents = false;
                 $scope.events = data;
+
             }, function (data) {
                 console.log(data);
+                $scope.loadEvents = false;
             });
         };
 
