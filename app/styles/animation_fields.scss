@@ -1,3 +1,7 @@
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../styles/color_palette.scss";
+// endbower
 .input {
     position: relative;
     z-index: 1;
@@ -177,7 +181,7 @@
     top: 0;
     left: 0;
     padding: 0.75em 0.15em;
-    color: #985FE8;
+    color: $base;
     opacity: 0;
     -webkit-transform: translate3d(0, 50%, 0);
     transform: translate3d(0, 50%, 0);
@@ -189,7 +193,7 @@
 }
 
 .input__field--isao:focus + .input__label--isao::before {
-    background-color: #985FE8;
+    background-color: $base;
     -webkit-transform: scale3d(1, 1, 1);
     transform: scale3d(1, 1, 1);
 }
