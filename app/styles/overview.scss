@@ -1,197 +1,170 @@
 .no-events {
-
-	font-size: 30px;
-	margin: auto;
-    width: 50%;
-    padding-top: 100px;
-
+  font-size: 30px;
+  margin: auto;
+  width: 50%;
+  padding-top: 100px;
 }
-
-.overview{
-	min-height: 100%;
+.overview {
+  min-height: 100%;
   margin-top: 30px;
 }
-
-.overviewMain{
-	margin-top:20px;
+.overviewMain {
+  margin-top: 20px;
 }
-
-.overview-create{
-	height:100%;
-	width:100%;
-	position: relative;
+.overview-create {
+  height: 100%;
+  width: 100%;
+  position: relative;
 }
-
-.loadEvents{
-	width:100%;
-	height: 800px;
+.loadEvents {
+  width: 100%;
+  height: 800px;
 }
-
-.overview-new-event{
-	position: fixed;
-	right: 20px;
-	bottom: 20px;
-	z-index:2;
-	min-height: 60px;
-	min-width: 60px;
-	font-size: 2em;
-	padding: 12px 22px;
-	text-align: center;
-	border-radius:40px;
-	color: rgb(255, 255, 255);
-	background-color: #F06361;
-	overflow:hidden;
+.overview-new-event {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 2;
+  min-height: 60px;
+  min-width: 60px;
+  font-size: 2em;
+  padding: 12px 22px;
+  text-align: center;
+  border-radius: 40px;
+  color: rgb(255, 255, 255);
+  background-color: #F06361;
+  overflow: hidden;
 }
-
-.overview-new-event:hover{
-	text-decoration: none;
-	color: white;
-	transition: width 0.5s ease-in-out;
+.overview-new-event:hover {
+  text-decoration: none;
+  color: white;
+  transition: width 0.5s ease-in-out;
 }
-
-.overview-new-event-text .ng-hide{
-	animation: newTextIn 0.5s;
+.overview-new-event-text .ng-hide {
+  animation: newTextIn 0.5s;
 }
-
 @keyframes newTextIn {
-    from {margin-left:-500px}
-    to {margin-left:0px;}
+  from {
+    margin-left: -500px
+  }
+  to {
+    margin-left: 0px;
+  }
 }
-
-.eventCardContainer{
-	max-height: 370px;
+.eventCardContainer {
+  max-height: 400px;
 }
-
-.eventCard{
-	background-color: #EEE;
-	box-shadow: 0px 1px 2px 1px #DDD;
-	border-radius: 3px;
-	display:table;
-	// overflow:auto;
-	max-height: 320px;
-	width:100%;
-	position:relative;
-	margin-bottom:30px;
-	transition: 0.3s ease-in-out;
+.eventCard {
+  background-color: #EEE;
+  box-shadow: 0px 1px 2px 1px #DDD;
+  border-radius: 3px;
+  display: table;
+  // overflow:auto;
+  max-height: 320px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 30px;
+  transition: 0.3s ease-in-out;
 }
-
-.eventCard.faded{
-	opacity:0.5;
+.eventCard.faded {
+  opacity: 0.5;
 }
-
-.eventCard-admin{
-	z-index: 2;
-	position: absolute;
-	top:5px;
-	right:10px;
-	font-size: 1.5em;
-	// color:#FAAE1C;
-	color: white;
+.eventCard-admin {
+  z-index: 2;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 1.5em;
+  // color:#FAAE1C;
+  color: white;
 }
-
-.eventCard-top{
-	background-size: cover;
-	background-size: 100%;
-	padding: 10px;
-	border-radius: 3px 3px 0 0 ;
+.eventCard-top {
+  background-size: cover;
+  background-size: 100%;
+  padding: 10px;
+  border-radius: 3px 3px 0 0;
 }
-
-.eventCard .is-no-bg{
-	background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+.eventCard .is-no-bg {
+  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
-
-.eventCard-top-info{
-	opacity: 1;
-	color: rgba(255,255,255, 1);
+.eventCard-top-info {
+  opacity: 1;
+  color: rgba(255, 255, 255, 1);
 }
-
-.eventCard-attendees{
-	position: relative;
-	float: right;
-	z-index: 2;
-	height: 50px;
-	width: 50px;
-	background-color: rgb(255,255,255);
-	color: rgb(0,0,0);
-	margin-top: -50px;
-	line-height: 40px;
-	text-align: center;
-	padding: 5px;
-	border-radius: 50%;
-	cursor:pointer;
+.eventCard-attendees {
+  position: relative;
+  float: right;
+  z-index: 2;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  margin-top: -50px;
+  line-height: 40px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 50%;
+  cursor: pointer;
 }
-
-.eventCard-attendees-list{
-	background-color:white;
-	max-height: 205;
-	overflow: scroll;
-	box-shadow: 1px 1px 1px 1px #DDD;
-	width:180px;
-	color:#000;
-	padding:5px;
-	z-index:2;
-	list-style-type: none;
-	display:block;
-	overflow: auto;
-	top:25px;
-	left:25px;
-	position:absolute;
-
+.eventCard-attendees-list {
+  background-color: white;
+  max-height: 205;
+  overflow: scroll;
+  box-shadow: 1px 1px 1px 1px #DDD;
+  width: 180px;
+  color: #000;
+  padding: 5px;
+  z-index: 2;
+  list-style-type: none;
+  display: block;
+  overflow: auto;
+  top: 25px;
+  left: 25px;
+  position: absolute;
 }
-
-.eventCard-attendee{
-	padding: 0;
+.eventCard-attendee {
+  padding: 0;
 }
-
-.eventCard-attendee img{
-	height:40px;
-	widows: 40px;
+.eventCard-attendee img {
+  height: 40px;
+  widows: 40px;
 }
-
-.eventCard-middle{
-	height: 100%;
+.eventCard-middle {
+  height: 100%;
 }
-
-.eventCard-list{
-	padding: 0;
-	min-height: 66px;
+.eventCard-list {
+  padding: 0;
+  min-height: 66px;
 }
-
-
-.eventCard-item-title{
-	position:relative;
-	color: #3E53CE;
-	padding-top: 3px;
-	padding-bottom: 3px;
-	text-align: center;
-
-	&:after {
-		background: #3E53CE;
-		content: '';
-	    position: absolute;
-	    margin: 0 auto;
-	    left:0; 
-	    right:0;
-	    bottom: 0;
-	    width: 50%;
-	    height: 3px;
-	}
+.eventCard-item-title {
+  position: relative;
+  color: #3E53CE;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-align: center;
+  &:after {
+    background: #3E53CE;
+    content: '';
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    height: 3px;
+  }
 }
-
-.eventCard-item{
-	padding-left: 10px;
+.eventCard-item {
+  padding-left: 10px;
 }
-
-.eventCard-bottom{
-	border-radius: 0 0 3px 3px ;
-	height:40px;
+.eventCard-bottom {
+  border-radius: 0 0 3px 3px;
+  height: 40px;
 }
-
-.eventCard-btn-event{
-	margin:5px auto 5px auto;
-    display:block;
+.eventCard-btn-event {
+  margin: 5px auto 5px auto;
+  display: block;
 }
-
 .cmn-toggle {
   position: absolute;
   margin-left: -9999px;
@@ -204,7 +177,6 @@
   outline: none;
   user-select: none;
 }
-
 input.cmn-toggle-round-flat + label {
   padding: 2px;
   width: 38px;
