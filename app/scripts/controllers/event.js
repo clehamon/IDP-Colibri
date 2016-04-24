@@ -32,7 +32,7 @@ angular.module('eventifyApp')
       console.log($scope.popClicked);
     };
 
-    //this name should be changed
+    //this method initializes the data for the view
     $scope.getEventByID = function () {
       $scope.eventStatus = true;
       EventService.Event.get({
@@ -57,13 +57,10 @@ angular.module('eventifyApp')
           };
         }
 
-        //not sure if this should be in MapCtrl
         $scope.mapCenter = {
           latitude: data.locationLat,
           longitude: data.locationLong
         };
-
-        //couldn't make "{{event.id}}" work directly in the HTML
 
         $scope.id = data.id;
         $scope.Spotify = data.spotifyPlaylist;
@@ -119,6 +116,7 @@ angular.module('eventifyApp')
           user: $scope.user.id
         }, function (data) {
           console.log(data);
+          $scope.event.attendee.push($scope.user);
         }, function (data) {
           console.log(data);
         });
