@@ -36,7 +36,7 @@ angular.module('eventifyApp')
 			// Redirect user here to login page or perhaps some other intermediate page
 			// that requires email address verification before any other part of the site
 			// can be accessed.
-			AuthService.login(user, signupCallback);
+			AuthService.login(user, $scope.loginCallback);
 			console.log(response);
 
 		})

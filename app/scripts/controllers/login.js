@@ -17,7 +17,7 @@ var mymodal = angular.module('eventifyApp');
 			password: $scope.password
 		};
 
-		AuthService.login(user, loginCallback);
+		AuthService.login(user, $scope.loginCallback);
 
        
     };

@@ -9,8 +9,7 @@
  */
 angular.module('eventifyApp')
   
-.controller('HeaderCtrl', ['$scope', '$rootScope','AuthService', '$location',
-    function($scope, $rootScope, AuthService, $location) {
+.controller('HeaderCtrl', function($scope, $rootScope, AuthService, EventService, $location, $route) {
 
       $rootScope.$on('changeView', function(){
          $scope.changeView(1);
@@ -39,6 +38,32 @@ angular.module('eventifyApp')
         }
       };
 
+      $scope.loginCallback = function () {
+         if (!AuthService.isLoggedIn()) {
+            $scope.loginError = AuthService.lastError();
+          } else {
+              $scope.loginError = '';
+
+              var eventID = AuthService.getRedirectID();
+              var user = AuthService.currentUser();
+              console.log(eventID);
+
+              if (eventID) {
+                  EventService.addAttendee.save({}, {
+                    event: eventID,
+                    user: user.id
+                  }, function (data) {
+                      $route.reload();
+                      // $location.path( '/event/'+AuthService.getRedirectLink()); 
+                  }, function (data) {
+                    console.log(data);
+                  });
+              } else {
+                  $location.path( '/overview' );
+              }
+          }
+      };
+
       $scope.logOut = function (){
         AuthService.logout();
       };
@@ -52,5 +77,5 @@ angular.module('eventifyApp')
       };
 
   }
-]);
+);
 
