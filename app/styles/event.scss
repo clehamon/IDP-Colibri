@@ -124,9 +124,12 @@ td {
     margin-top: 30px;
   }
 }
+.event-share {
+  height: 200px;
+}
 @media (max-width: 1200px) {
   .descr {
-    margin-top: 200px;
+    margin-top: 100px;
     .info {
       margin-top: 0px;
     }
@@ -135,7 +138,39 @@ td {
     margin-top: 200px;
   }
   .part {
-    margin-top: 500px;
+    margin-top: 400px;
+  }
+}
+@media (max-width: 990px) {
+  .event-share {
+    margin-top: 220px;
+  }
+}
+@media (max-width: 650px) {
+  .map-cont {
+    margin-top: 160px;
+  }
+  .parallax {
+    height: 600px;
+  }
+}
+@media (max-width: 450px) {
+  .map-cont {
+    margin-top: 220px;
+  }
+  .part {
+    margin-top: 400x;
+  }
+  /*.event-share {
+  margin-top: 180px;
+}*/
+  .parallax {
+    height: 700px;
+  }
+}
+@media (max-width: 350px) {
+  .map-cont {
+    margin-top: 130px;
   }
 }
 .own-pic {
@@ -182,28 +217,26 @@ td {
 
 /*====================POPOVER=============================*/
 
-.pop-cont{
+.pop-cont {
   position: absolute;
 }
-
-.popo{
+.popo {
   z-index: 100;
   position: relative;
   background-color: rgba(0, 0, 0, 0.51);
   color: white;
   padding: 10px;
   border-radius: 5px;
-  
-  li{
+  li {
     margin: 10px;
     margin-left: -30px;
   }
-  
-  h5{
+  h5 {
     text-align: center;
     margin-bottom: 5px;
   }
 }
+
 /*
 .hover-pop {
   
