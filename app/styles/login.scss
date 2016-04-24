@@ -1,57 +1,50 @@
 .darkbackground {
-    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.7));
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 10;
-    overflow: auto;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  overflow: auto;
 }
-
 .fakedialog {
-    background-color: white;
-    z-index: 100;
-    width: 50%;
-    margin: 100px auto;
-    padding: 10px;
-    
+  background-color: white;
+  z-index: 100;
+  width: 50%;
+  margin: 100px auto;
+  padding: 10px;
 }
-
 .no-scrolling {
-    overflow: hidden;
+  overflow: hidden;
 }
-
-
 .loginform {
-	padding: 50px;
+  padding: 50px;
 }
-
 a:link {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 a:visited {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 a:active {
-    text-decoration: none;
+  text-decoration: none;
 }
-
 .links {
-    text-decoration: underline;
-    padding:10px;
+  text-decoration: underline;
+  padding: 10px;
 }
-
-.error{
-    color: #F06361;
+.error {
+  color: #F06361;
 }
-
 label {
-    color: #23273B;
+  color: #23273B;
+}
+@media (max-width: 600px) {
+  .fakedialog {
+    width: 75%;
+  }
 }
