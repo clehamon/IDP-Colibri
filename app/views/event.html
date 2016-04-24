@@ -4,14 +4,12 @@
 
 <section class="module parallax row" ng-style="bgStyle">
 
-
   <div class="descr col-lg-4 col-lg-offset-3 info">
     <h1>{{event.name}}</h1>
     <h3>Date: {{event.date}} Time: {{event.time}} Duration: {{event.duration}}min</h3>
-    <h5 id="nakki">{{event.description}}</h5>
-    <a ng-if="eventAdmin" class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
+    <h5>{{event.description}}</h5>
     <div ng-if="eventAdmin">
-      <a class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
+      <a ng-if="eventAdmin" class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
       <a ng-show="showDelete" class="btn btn-success" ng-click="deleteEvent()">
         <span class="glyphicon glyphicon-trash"></span>
       </a>

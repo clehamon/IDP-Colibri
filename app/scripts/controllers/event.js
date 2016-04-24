@@ -21,7 +21,7 @@ angular.module('eventifyApp')
 
     $scope.SpotifyURI = "";
 
-    $scope.popClicked = 1;
+    $scope.popClicked = 0;
 
     $scope.clickPop = function (index) {
       if ($scope.popClicked == index) {
@@ -125,20 +125,19 @@ angular.module('eventifyApp')
       }
     };
 
-    $scope.deleteEvent = function(ID){
-        if($scope.user){
-            EventService.deleteEvent.delete({
-              id: $scope.event.id
-            }, {},
-            function (data) {
-              console.log(data)
-              $location.path('/overview');
-
-            },
-            function (data) {
-              console.log(data);
-            });
-        }
+    $scope.deleteEvent = function (ID) {
+      if ($scope.user) {
+        EventService.deleteEvent.delete({
+            id: $scope.event.id
+          }, {},
+          function (data) {
+            console.log(data)
+            $location.path('/overview');
+          },
+          function (data) {
+            console.log(data);
+          });
+      }
     };
 
   });
