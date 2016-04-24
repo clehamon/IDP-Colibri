@@ -100,17 +100,19 @@
                         <ui-gmap-marker coords="marker.coords" options="marker.options" events="marker.events" idkey="marker.id"></ui-gmap-marker>
                     </ui-gmap-google-map>
                 </div>
+                <p> Event Location:- <i><u>{{event.placeName}}</u></i></p>
             </div>
+
 
         </div>
 
 
-      <div class="customBg" align="center">
-    <br>
-    <input type="submit" class="btn btn-create" ng-if="!event.id" value="Create new event">
-    <input type="submit" class="btn btn-update" ng-if="event.id" value="Update event">
-    <br>
-</div>
+        <div class="customBg" align="center">
+            <br>
+            <input type="submit" class="btn btn-create" ng-if="!event.id" value="Create new event">
+            <input type="submit" class="btn btn-update" ng-if="event.id" value="Update event">
+            <br>
+        </div>
 
     </div>
 
