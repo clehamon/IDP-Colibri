@@ -31,6 +31,7 @@ angular.module('eventifyApp')
           AuthService.setUser($scope.copyUser);
           $scope.currentUser = $scope.copyUser;
 	        $scope.changeView(3);
+          $scope.updateHeader();
 	      }, function (data) {
 	        console.log(data);
 	      });

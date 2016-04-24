@@ -47,6 +47,10 @@ angular.module('eventifyApp')
         return viewLocation === $location.path();
       };
 
+      $scope.updateHeader = function () {
+        $scope.currentUser = AuthService.currentUser();
+      }
+
   }
 ]);
 
