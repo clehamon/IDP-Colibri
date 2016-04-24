@@ -4,7 +4,7 @@
 
 <section class="module parallax row" ng-style="bgStyle">
 
-  <div class="descr col-lg-4 col-lg-offset-2 info">
+  <div class="descr col-lg-4 col-lg-offset-1 info">
     <h1>{{event.name}}</h1>
     <h3>Date: {{event.date}} Time: {{event.time}} Duration: {{event.duration}}min</h3>
     <h5>{{event.description}}</h5>
@@ -19,14 +19,18 @@
       <a ng-hide="showDelete" ng-click="showDelete=true" class="btn btn-danger" ng-init="showDelete=false">Delete</a>
     </div>
     <a ng-if="!isLogged || !isAttending()" class="btn btn-success" ng-click="addUserToEvent()">Join party!</a>
+    <form class="share-form">
+      <label for="eventlink">Share event with this link:</label>
+      <input id="eventlink" type="text" class="event-link" value="{{'http://localhost:9000/#/event/'+event.linkId}}" readonly ng-click="highlight()">
+    </form>
   </div>
-  <div class="col-lg-3 col-md-12">
+  <div class="col-lg-3 col-lg-offset-0 col-md-6 col-md-offset-1">
     <!--map-cont-->
     <ui-gmap-google-map center='mapCenter' zoom='14'>
       <ui-gmap-marker idKey="id" coords='mapCenter'></ui-gmap-marker>
     </ui-gmap-google-map>
   </div>
-  <div class="col-lg-2 spot">
+  <div class="col-lg-2 col-md-5 spot">
     <div ng-show="checkPlaylist()">
       <iframe ng-src="{{SpotifyURI}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
     </div>
@@ -36,9 +40,9 @@
       <button ng-click="uploadPlaylist()">Add</button>
     </div>
   </div>
-  <div class="col-md-6 col-md-offset-3">
-    <input type="text" class="event-link" value="Share event: {{'http://localhost:9000/#/event/'+event.linkId}}" readonly>
-  </div>
+  <!--<div class="col-md-6 col-md-offset-3">
+  <input type="text" class="event-link" value="Share event: {{'http://localhost:9000/#/event/'+event.linkId}}" readonly>
+</div>-->
 </section>
 
 <div class="row part">
