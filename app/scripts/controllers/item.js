@@ -34,6 +34,7 @@ angular.module('eventifyApp')
         },
         function (data) {
           console.log(data);
+          $scope.$parent.showError();
         });
     };
 
@@ -53,6 +54,7 @@ angular.module('eventifyApp')
         },
         function (data) {
           console.log(data);
+          $scope.$parent.showError();
         });
     };
 
@@ -79,26 +81,29 @@ angular.module('eventifyApp')
             $scope.event.stuffs[i].owner = AuthService.currentUser().id;
           }
         }
-          
+
       }, function (data) {
         console.log(data);
+        $scope.$parent.showError();
       });
     };
-    
-    $scope.removeUserFromItem = function(itemID){
-        StuffService.updateStuff.update({}, {
-            id: itemID,
-            owner: null
-          },
-          function(data){
-            console.log(data);
-            for (var i = 0; i < $scope.event.stuffs.length; i++) {
-              if ($scope.event.stuffs[i].id === itemID) {
-                $scope.event.stuffs[i].owner = null;
-              }
+
+    $scope.removeUserFromItem = function (itemID) {
+      StuffService.updateStuff.update({}, {
+          id: itemID,
+          owner: null
+        },
+        function (data) {
+          console.log(data);
+          for (var i = 0; i < $scope.event.stuffs.length; i++) {
+            if ($scope.event.stuffs[i].id === itemID) {
+              $scope.event.stuffs[i].owner = null;
             }
-        }, function(data){
-            console.log(data);
+          }
+        },
+        function (data) {
+          console.log(data);
+          $scope.$parent.showError();
         });
     };
 

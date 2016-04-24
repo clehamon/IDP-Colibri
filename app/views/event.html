@@ -1,6 +1,6 @@
 <ng-include src="'views/header.html'"></ng-include>
 
-<div ng-init="getEventByID()" ng-show="eventStatus">Loading...</div>
+<div ng-init="getEventByID()" ng-hide="eventStatus == null" class="status-box">{{eventStatus}}</div>
 
 <section class="module parallax row" ng-style="bgStyle">
 
@@ -21,7 +21,7 @@
     <a ng-if="!isLogged || !isAttending()" class="btn btn-success" ng-click="addUserToEvent()">Join party!</a>
     <form class="share-form">
       <label for="eventlink">Share event with this link:</label>
-      <input id="eventlink" type="text" class="event-link" value="{{'http://localhost:9000/#/event/'+event.linkId}}" readonly ng-click="highlight()">
+      <input id="eventlink" type="text" class="event-link" value="{{'http://localhost:9000/#/event/'+event.linkId}}" readonly highlight-on-click>
     </form>
   </div>
   <div class="col-lg-3 col-lg-offset-0 col-md-6 col-md-offset-1">
@@ -89,6 +89,7 @@
 
   <div class="col-md-4" ng-controller="TaskCtrl">
     <h2>Tasks to do <span>({{event.tasks.length}})</span></h2>
+    <!--<div ng-hide="taskStatus == 'text'" class="status-box">{{taskStatus}}</div>-->
     <table class="table table-hover edit">
       <thead>
         <tr>
@@ -166,7 +167,4 @@
       </tbody>
     </table>
   </div>
-</div>
-<div class="row">
-
 </div>

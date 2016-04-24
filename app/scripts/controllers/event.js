@@ -23,6 +23,8 @@ angular.module('eventifyApp')
 
     $scope.popClicked = 0;
 
+    $scope.eventStatus = null;
+
     $scope.clickPop = function (index) {
       if ($scope.popClicked == index) {
         $scope.popClicked = 0;
@@ -34,7 +36,6 @@ angular.module('eventifyApp')
 
     //this method initializes the data for the view
     $scope.getEventByID = function () {
-      $scope.eventStatus = true;
       EventService.Event.get({
         eventId: $scope.linkID
       }, function (data) {
@@ -79,7 +80,7 @@ angular.module('eventifyApp')
 
         $scope.attendees = data.attendee;
 
-        $scope.eventStatus = false;
+
 
         $scope.isAttending = function () {
           var attending = false;
@@ -96,6 +97,7 @@ angular.module('eventifyApp')
 
       }, function (data) {
         console.log(data);
+        $scope.showError();
       });
     };
 
@@ -119,6 +121,7 @@ angular.module('eventifyApp')
           $scope.event.attendee.push($scope.user);
         }, function (data) {
           console.log(data);
+          $scope.showError();
         });
       }
     };
@@ -134,12 +137,17 @@ angular.module('eventifyApp')
           },
           function (data) {
             console.log(data);
+            $scope.showError();
           });
       }
     };
 
-    $scope.highlight = function () {
-
+    $scope.showError = function () {
+      $scope.eventStatus = 'Error, please reload the page and try again';
+      setTimeout(function () {
+        $scope.eventStatus = null;
+      }, 2000);
     };
+
 
   });

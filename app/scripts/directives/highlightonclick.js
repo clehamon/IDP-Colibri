@@ -7,12 +7,16 @@
  * # highlightOnClick
  */
 angular.module('eventifyApp')
-  .directive('highlightOnClick', function () {
+  .directive('highlightOnClick', ['$window', function ($window) {
     return {
-      template: '<div></div>',
-      restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the highlightOnClick directive');
+      restrict: 'A',
+      link: function (scope, element, attrs) {
+        element.on('click', function () {
+          if (!$window.getSelection().toString()) {
+            // Required for mobile Safari
+            this.setSelectionRange(0, this.value.length)
+          }
+        });
       }
     };
-  });
+  }]);

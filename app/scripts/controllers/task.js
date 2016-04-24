@@ -12,6 +12,8 @@ angular.module('eventifyApp')
 
     $scope.newTask = '';
 
+    $scope.taskStatus = 'text';
+
     $scope.ownsTask = function (taskID) {
       var found = false;
       for (var i = 0; i < $scope.event.tasks.length; i++) {
@@ -43,9 +45,11 @@ angular.module('eventifyApp')
             owners: []
           });
           $scope.newTask = '';
+
         },
         function (data) {
           console.log(data);
+          $scope.$parent.showError();
         });
     };
 
@@ -54,6 +58,7 @@ angular.module('eventifyApp')
           id: ID
         }, {},
         function (data) {
+
           for (var i = 0; i < $scope.event.tasks.length; i++) {
             if ($scope.event.tasks[i].id === ID) {
               $scope.event.tasks.splice(i--, 1);
@@ -64,6 +69,7 @@ angular.module('eventifyApp')
         },
         function (data) {
           console.log(data);
+          $scope.$parent.showError();
         });
     };
 
@@ -93,6 +99,7 @@ angular.module('eventifyApp')
         }
       }, function (data) {
         console.log(data);
+        $scope.$parent.showError();
       });
     };
 
@@ -117,8 +124,8 @@ angular.module('eventifyApp')
         },
         function (data) {
           console.log(data);
+          $scope.$parent.showError();
         });
     };
-
 
   });

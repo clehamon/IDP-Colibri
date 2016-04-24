@@ -8,6 +8,42 @@
 li {
   list-style: none;
 }
+.status-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  webkit-transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  color: white;
+  z-index: 10;
+  color: white;
+  opacity: 1;
+}
+.status-box {
+  -webkit-transition: all ease-in 0.5s;
+  transition: all ease-in 0.5s;
+}
+.status-box.ng-hide {
+  opacity: 0;
+}
+
+/*.status-box {
+  opacity: 1;
+  amimation: fade 2s linear;
+}
+@keyframes fade {
+  0%,
+  100% {
+    opacity: 0
+  }
+  50% {
+    opacity: 1
+  }
+}*/
+
 .descr {
   -webkit-box-shadow: -1px 9px 22px -3px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px 9px 22px -3px rgba(0, 0, 0, 0.75);
@@ -33,6 +69,7 @@ li {
 }
 .part {
   margin-top: 80px;
+  margin-bottom: 50px;
 }
 .col-md-4 > h2 {
   margin-left: auto;
