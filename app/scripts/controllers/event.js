@@ -20,21 +20,18 @@ angular.module('eventifyApp')
     $scope.user = AuthService.currentUser();
 
     $scope.SpotifyURI = "";
-  
-    $scope.popClicked = false;
-  
-    $scope.clickPop = function(){
+
+    $scope.popClicked = 1;
+
+    $scope.clickPop = function (index) {
+      if ($scope.popClicked == index) {
+        $scope.popClicked = 0;
+      } else {
+        $scope.popClicked = index;
+      }
       console.log($scope.popClicked);
-      $scope.popClicked = !$scope.popClicked;
     };
-  
-    /*$scope.dynamicPopover = {
-    content: 'Hello, World!',
-    templateUrl: 'myPopoverTemplate.html',
-    title: 'Attendees'
-  };*/
-  
-  
+
     //this name should be changed
     $scope.getEventByID = function () {
       $scope.eventStatus = true;
@@ -50,16 +47,16 @@ angular.module('eventifyApp')
         //checking spotify playlist for ng-show
 
         //setting bg picture
-        if($scope.event.coverPicture == null){
-            $scope.bgStyle = {
-              'background-image': 'url(../../images/pattern.png)'
-            };
-        }else{
+        if ($scope.event.coverPicture == null) {
+          $scope.bgStyle = {
+            'background-image': 'url(../../images/pattern.png)'
+          };
+        } else {
           $scope.bgStyle = {
             'background-image': 'url(' + $scope.event.coverPicture + ')'
           };
         }
-        
+
         //not sure if this should be in MapCtrl
         $scope.mapCenter = {
           latitude: data.locationLat,
@@ -86,7 +83,7 @@ angular.module('eventifyApp')
         $scope.attendees = data.attendee;
 
         $scope.eventStatus = false;
-          
+
         $scope.isAttending = function () {
           var attending = false;
           for (var i = 0; i < $scope.event.attendee.length; i++) {
@@ -114,18 +111,18 @@ angular.module('eventifyApp')
       });
       return user;
     };
-    
-    $scope.addUserToEvent = function(){
-        if($scope.user){
-            EventService.addAttendee.save({},{
-                event: $scope.event.id,
-                user: $scope.user.id
-            }, function(data){
-                console.log(data);
-            }, function(data){
-                console.log(data);
-            });
-        }
+
+    $scope.addUserToEvent = function () {
+      if ($scope.user) {
+        EventService.addAttendee.save({}, {
+          event: $scope.event.id,
+          user: $scope.user.id
+        }, function (data) {
+          console.log(data);
+        }, function (data) {
+          console.log(data);
+        });
+      }
     };
 
   });

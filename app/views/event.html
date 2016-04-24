@@ -85,23 +85,24 @@
       <tbody class="appear" ng-repeat="(taskIndex, task) in event.tasks">
         <tr ng-hide="showDeleteTaskField(taskIndex)" ng-class="{true: '', false: 'table-success'}[!task.owners.length]">
           <td>
-            <div ng-if="task.owners.length <= 2" ng-repeat="owner in task.owners" class="inline">
+            <span ng-if="task.owners.length <= 2" ng-repeat="owner in task.owners" class="inline">
               <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
               <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span>
+            </span>
+            <span class="pop-cont" ng-if="task.owners.length > 2">
+              <span class="glyphicon glyphicon-option-horizontal hover-pop table-left" ng-click="clickPop(taskIndex)"></span>
+            <div class="popo" ng-show="popClicked == taskIndex">
+              <h5>Attendees</h5>
+              <span ng-click="clickPop(0)" class="glyphicon glyphicon-remove-sign remo"></span>
+              <ul ng-repeat="owner in task.owners">
+                <li>
+                  <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
+                  <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span> {{owner.firstName}} {{owner.lastName}}
+                </li>
+              </ul>
             </div>
-            <div class="pop-cont" ng-if="task.owners.length > 2">
-              <span class="glyphicon glyphicon-option-horizontal hover-pop table-left" ng-click="clickPop()"></span>
-              <div class="popo" ng-show="popClicked">
-                <h5>Attendees</h5>
-                <ul ng-repeat="owner in task.owners">
-                  <li>
-                    <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
-                    <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span> {{owner.firstName}} {{owner.lastName}}
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <img ng-show="!ownsTask(task.id) && isLogged" ng-click="addUserToTask(task.id)" class="add-icon table-left" src="../images/add_user.png" />
+            </span>
+            <span><img ng-show="!ownsTask(task.id) && isLogged" ng-click="addUserToTask(task.id)" class="add-icon table-left" ng-class="{true:'table-left-double'}[task.owners.length > 2]" src="../images/add_user.png" /></span>
           </td>
           <td>{{task.name}}</td>
           <td><span ng-show="isLogged" ng-click="openTaskRemove(taskIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>

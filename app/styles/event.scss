@@ -117,6 +117,12 @@ td {
   float: left;
   margin-left: 20px;
 }
+.table-left-double {
+  margin-left: 40px;
+}
+.top-fix {
+  top: -16px;
+}
 .edit-buttons {
   float: right;
   * {
@@ -124,8 +130,16 @@ td {
     margin-top: 30px;
   }
 }
+.marg {
+  margin-bottom: 10px;
+}
 .event-share {
   height: 200px;
+}
+.remo {
+  position: absolute;
+  top: 6px;
+  left: 160px;
 }
 @media (max-width: 1200px) {
   .descr {
@@ -159,13 +173,16 @@ td {
     margin-top: 220px;
   }
   .part {
-    margin-top: 400x;
+    margin-top: 480px;
   }
-  /*.event-share {
-  margin-top: 180px;
-}*/
   .parallax {
     height: 700px;
+  }
+  .thumb {
+    width: 20px;
+  }
+  .add-icon {
+    width: 20px;
   }
 }
 @media (max-width: 350px) {
@@ -176,7 +193,7 @@ td {
 .own-pic {
   width: 15px;
   height: 15px;
-  z-index: 10000;
+  z-index: 2;
   margin-left: -13px;
   top: -9px;
 }
@@ -223,7 +240,7 @@ td {
 .popo {
   z-index: 100;
   position: relative;
-  background-color: rgba(0, 0, 0, 0.51);
+  background-color: rgba(0, 0, 0, 0.8);
   color: white;
   padding: 10px;
   border-radius: 5px;
@@ -233,7 +250,7 @@ td {
   }
   h5 {
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
   }
 }
 
