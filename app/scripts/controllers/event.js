@@ -147,4 +147,8 @@ angular.module('eventifyApp')
       }
     };
 
+    $scope.highlight = function () {
+
+    };
+
   });

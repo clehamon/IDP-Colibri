@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('CreateaccountCtrl', function ($scope, $auth) {
+  .controller('CreateaccountCtrl', function ($scope, $auth, AuthService, $location) {
 
   	$scope.signInError = '';
     
@@ -25,6 +25,8 @@ angular.module('eventifyApp')
 			password: $scope.password
 		};
 
+
+
 		var	httpConfig = {
 			url: 'http://clementhamon.com/IDP/public/user/new'
 		};
@@ -34,6 +36,7 @@ angular.module('eventifyApp')
 			// Redirect user here to login page or perhaps some other intermediate page
 			// that requires email address verification before any other part of the site
 			// can be accessed.
+			AuthService.login(user, signupCallback);
 			console.log(response);
 
 		})
@@ -43,7 +46,16 @@ angular.module('eventifyApp')
 
 		});
 
+		
 
+    };
 
+    var signupCallback = function () {
+         if (!AuthService.isLoggedIn()) {
+            $scope.loginError = AuthService.lastError();
+        } else {
+            $scope.loginError = '';
+            $location.path( '/overview' );
+        }
     };
   });

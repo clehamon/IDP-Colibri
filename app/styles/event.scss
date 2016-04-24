@@ -23,7 +23,7 @@ li {
   }
 }
 .parallax {
-  height: 500px;
+  height: 550px;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -146,7 +146,7 @@ td {
 }
 @media (max-width: 1200px) {
   .descr {
-    margin-top: 100px;
+    margin-top: 50px;
     .info {
       margin-top: 0px;
     }
@@ -155,12 +155,18 @@ td {
     margin-top: 200px;
   }
   .part {
-    margin-top: 400px;
+    margin-top: 700px;
   }
 }
 @media (max-width: 990px) {
   .event-share {
     margin-top: 220px;
+  }
+  .spot {
+    margin-left: 31%
+  }
+  .part {
+    margin-top: 800px;
   }
 }
 @media (max-width: 650px) {
@@ -170,13 +176,16 @@ td {
   .parallax {
     height: 600px;
   }
+  .spot {
+    margin-left: 22%
+  }
 }
 @media (max-width: 450px) {
   .map-cont {
     margin-top: 220px;
   }
   .part {
-    margin-top: 480px;
+    margin-top: 850px;
   }
   .parallax {
     height: 700px;
@@ -187,10 +196,16 @@ td {
   .add-icon {
     width: 20px;
   }
+  .spot {
+    margin-left: 11%
+  }
 }
 @media (max-width: 350px) {
   .map-cont {
     margin-top: 130px;
+  }
+  .spot {
+    margin-left: -8%
   }
 }
 .own-pic {
@@ -204,13 +219,13 @@ td {
   color: red;
 }
 .event-link {
-  margin-top: 15px;
   width: 100%;
   padding: 10px 7px;
-  background-color: #444;
-  color: white;
   border: none;
   text-align: center;
+}
+.share-form {
+  margin-top: 15px;
 }
 .add-icon {
   width: 20px;
