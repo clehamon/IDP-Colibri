@@ -29,21 +29,21 @@ var mymodal = angular.module('eventifyApp');
         } else {
             $scope.loginError = '';
 
-            var redirectEvent = AuthService.getEventID();
-            var user = AuthService.currentUser();
-            console.log(redirectEvent['id'], redirectEvent.id);
-            if (redirectEvent) {
-                EventService.addAttendee.save({}, {
-                  event: redirectEvent,
-                  user: user.id
-                }, function (data) {
-                    $location.path( '/event/'+AuthService.getEventLink()); 
-                }, function (data) {
-                  console.log(data);
-                });
-            } else {
+            // var redirectEvent = AuthService.getEventID();
+            // var user = AuthService.currentUser();
+            // console.log(redirectEvent['id'], redirectEvent.id);
+            // if (redirectEvent) {
+            //     EventService.addAttendee.save({}, {
+            //       event: redirectEvent,
+            //       user: user.id
+            //     }, function (data) {
+            //         $location.path( '/event/'+AuthService.getEventLink()); 
+            //     }, function (data) {
+            //       console.log(data);
+            //     });
+            // } else {
                 $location.path( '/overview' );
-            }
+            // }
         }
     };
 
