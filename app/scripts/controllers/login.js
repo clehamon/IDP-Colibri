@@ -9,7 +9,7 @@
  */
 var mymodal = angular.module('eventifyApp');
 
-	mymodal.controller('LoginCtrl', function ($scope, $location, AuthService) {
+	mymodal.controller('LoginCtrl', function ($scope, $location, AuthService, EventService, $route) {
 
     $scope.loginMail = function () {
     	var user = {
@@ -17,7 +17,7 @@ var mymodal = angular.module('eventifyApp');
 			password: $scope.password
 		};
 
-		AuthService.login(user, loginCallback);
+		AuthService.login(user, $scope.loginCallback);
 
        
     };
@@ -28,7 +28,23 @@ var mymodal = angular.module('eventifyApp');
             $scope.loginError = AuthService.lastError();
         } else {
             $scope.loginError = '';
-            $location.path( '/overview' );
+
+            var eventID = AuthService.getRedirectID();
+            var user = AuthService.currentUser();
+            console.log(eventID);
+            if (eventID) {
+                EventService.addAttendee.save({}, {
+                  event: eventID,
+                  user: user.id
+                }, function (data) {
+                    $route.reload()
+                    // $location.path( '/event/'+AuthService.getRedirectLink()); 
+                }, function (data) {
+                  console.log(data);
+                });
+            } else {
+                $location.path( '/overview' );
+            }
         }
     };
 

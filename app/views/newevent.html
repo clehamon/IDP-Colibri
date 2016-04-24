@@ -6,9 +6,10 @@
 <form ng-submit="processForm()" id="eventDetails">
 
 
-    <div class="row textColor" align="center">
-        <h2>Lets create a rocking event (in 8 Simple steps)</h2>
-        <hr>
+    <div class="row textColor customBg" align="center">
+        <h3><b>Lets create an awesome event (in 8 quick steps)</b></h3>
+        <br>
+
     </div>
 
 
@@ -28,11 +29,10 @@
 
         <div class="row" id="uploadCoverImg">
             <div class="jumbotron newEventImage" align="center" ng-style="imageStyle">
-                <h4>Upload Event Cover Picture</h4>
-                <!--    <p>Share the link using image hosting sites like <a href="http://imgur.com/" target="_blank">Imgur.com</a> or <a href="http://postimage.org/" target="_blank">postimage.org. </a> 
-
-                </p> -->
-                <p>Paste image url ending with .png</p>
+                <div class="textWhite">
+                    <h4>Upload Event Cover Picture</h4>
+                    <p>Paste image url ending with .png or .jpg</p>
+                </div>
                 <span class="input input--isao">
 					<input class="input__field input__field--isao" ng-change="updateCover()" name="coverPicture" class="url" align="center" placeholder="Paste your link here.." ng-model="event.coverPicture" id="coverPicture"  class="form-control">
 					<label class="input__label input__label--isao" for="coverPicture"  data-content="Cover Picture">
@@ -105,10 +105,12 @@
         </div>
 
 
-        <div class="jumbotron" align="center">
-            <input type="submit" class="btn btn-create" ng-if="!event.id" value="Lets create the party">
-            <input type="submit" class="btn btn-default" ng-if="event.id" value="Update event">
-        </div>
+      <div class="customBg" align="center">
+    <br>
+    <input type="submit" class="btn btn-create" ng-if="!event.id" value="Create new event">
+    <input type="submit" class="btn btn-update" ng-if="event.id" value="Update event">
+    <br>
+</div>
 
     </div>
 

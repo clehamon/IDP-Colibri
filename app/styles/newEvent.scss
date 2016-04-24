@@ -1,7 +1,6 @@
-// bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+
+// @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "../styles/color_palette.scss";
-// endbower
 .in-row {
     list-style-type: none;
 }
@@ -16,10 +15,6 @@
     margin: 1%;
 }
 
-.dark {
-    background-color: #ac5adb;
-}
-
 .url {
     width: 60%;
 }
@@ -29,12 +24,26 @@
     color: white;
 }
 
+.customBg {
+    background-color: $strips;
+}
+
+.textWhite {
+    color: white;
+}
+
 .textColor {
-    color: #985FE8;
+    color: $base;
 }
 
 .btn-create {
     color: #ffffff;
     background-color: $create !important;
     border: $create;
+}
+
+.btn-update {
+    color: #ffffff;
+    background-color: $update !important;
+    border: $update;
 }

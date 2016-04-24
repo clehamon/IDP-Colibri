@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function ($scope, EventService, $routeParams, AuthService, $location) {
+  .controller('EventCtrl', function ($scope, EventService, $routeParams, AuthService, $location, $rootScope) {
 
     $scope.linkID = $routeParams.linkID;
     $scope.editing = false;
@@ -123,6 +123,11 @@ angular.module('eventifyApp')
           console.log(data);
           $scope.showError();
         });
+      } else {
+        AuthService.redirectEvent($scope.event.id, $scope.event.linkId);
+
+        $rootScope.$emit('changeView', {});
+
       }
     };
 

@@ -12,6 +12,8 @@ angular.module('eventifyApp')
 
     var currentUser = $cookies.getObject('user');
     var lastError = '';
+    var redirectID = null;
+    var redirectLink = null;
 
     // Public API here
     return {
@@ -42,6 +44,8 @@ angular.module('eventifyApp')
       },
       logout: function() {
             currentUser = null;
+            redirectID = null;
+            redirectLink = null;
             $cookies.remove('user');
             if ($location.$$path === '/') {
                 $route.reload();
@@ -54,6 +58,16 @@ angular.module('eventifyApp')
       },
       lastError: function() {
         return lastError;
+      },
+      redirectEvent : function(id, linkID){
+        redirectID = id;
+        redirectLink = linkID;
+      },
+      getRedirectID : function(){
+        return redirectID;
+      },
+      getRedirectLink : function(){
+        return redirectLink;
       },
       setUser: function(user) { 
         currentUser = user;

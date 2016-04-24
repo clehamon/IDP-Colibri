@@ -1,7 +1,4 @@
-// bower:scss
-@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 @import "../styles/color_palette.scss";
-// endbower
 .no-events {
     font-size: 30px;
     margin: auto;
@@ -70,7 +67,7 @@
 }
 
 .eventCard {
-    background-color: #EEE;
+    background-color: $strips;
     box-shadow: 0px 1px 2px 1px #DDD;
     border-radius: 3px;
     display: table;
@@ -129,7 +126,7 @@
 
 .eventCard-attendees-list {
     background-color: white;
-    max-height: 205;
+    max-height: 205px;
     overflow: scroll;
     box-shadow: 1px 1px 1px 1px #DDD;
     width: 180px;
@@ -146,6 +143,7 @@
 
 .eventCard-attendee {
     padding: 0;
+    text-align: left;
 }
 
 .eventCard-attendee img {
@@ -164,12 +162,12 @@
 
 .eventCard-item-title {
     position: relative;
-    color: #3E53CE;
+    color: $titleText;
     padding-top: 3px;
     padding-bottom: 3px;
     text-align: center;
     &:after {
-        background: #3E53CE;
+        background: $titleText;
         content: '';
         position: absolute;
         margin: 0 auto;
