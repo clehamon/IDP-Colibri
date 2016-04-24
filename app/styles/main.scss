@@ -1,6 +1,7 @@
 $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../styles/color_palette.scss";
 // endbower
 html {
     height: 100%;
@@ -19,9 +20,9 @@ body {
 }
 
 .btn-create {
-    color: #E86F05;
-    background-color: #E86F05 !important;
-    border: #E86F05;
+    color: $create;
+    background-color: $create !important;
+    border: $create;
 }
 
 
