@@ -15,7 +15,6 @@ angular.module('eventifyApp')
         $scope.limitItems = 3;
         $scope.loadEvents = false;
 
-
         if (AuthService.isLoggedIn()) {
             userId = AuthService.currentUser().id;
         } else {
