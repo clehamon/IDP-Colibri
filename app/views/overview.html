@@ -53,36 +53,64 @@
                                     {{task.name}}
                                 </p>
 
-								<p class="eventCard-item" ng-if="event.tasks.length > 3">
-									...
-								</p>
-							</div>
-						</div>
-						<div class="eventCard-bottom">
-							<div class="col-xs-10 col-xs-offset-1">
-								<a type="button" class="eventCard-btn-event btn btn-primary" ng-href="#/event/{{event.linkId}}">Go to Event</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-			</div>
-			<div ng-show="loadEvents" >
-				<img class="img-responsive center-block" src="images/Loading_icon.gif" alt="">
-			</div>
-			<div ng-show="events.length == 0" class="no-events"><h2 class"sign-head">Welcome! </h2><h3>It seems like you do not have any events yet... why not creating a new one?</h3>
-			</div>
-		</div>
 
+                                <p class="eventCard-item" ng-if="event.tasks.length > 3">
+                                    ...
+                                </p>
+                            </div>
+                        </div>
+                        <div class="eventCard-bottom">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <a type="button" class="eventCard-btn-event btn btn-primary" ng-href="#/event/{{event.linkId}}">Go to Event</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div ng-show="loadEvents">
+                <img class="img-responsive center-block" src="images/Loading_icon.gif" alt="">
+            </div>
+            <div ng-show="events.length == 0" class="no-events">
+                <h2 class "sign-head">Welcome! </h2>
+                <h3>It seems like you do not have any events yet... why not creating a new one?</h3>
+            </div>
+        </div>
+
+        <p class="eventCard-item" ng-if="event.tasks.length > 3">
+            ...
+        </p>
     </div>
-
-    <div class="overview-create">
-        <a href="#/newEvent" class="overview-new-event" ng-mouseenter="newEventExtend = true" ng-mouseleave="newEventExtend = false">
-            <span ng-show="newEventExtend" class="overview-new-event-text">Create new event </span><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-        </a>
-    </div>
-
 </div>
+<div class="eventCard-bottom">
+    <div class="col-xs-10 col-xs-offset-1">
+        <a type="button" class="eventCard-btn-event btn btn-primary" ng-href="#/event/{{event.linkId}}">Go to Event</a>
+    </div>
+</div>
+
+
+<div ng-show="loadEvents">
+    <img class="img-responsive center-block" src="images/Loading_icon.gif" alt="">
+</div>
+<div ng-show="events.length == 0" class="no-events">
+    <h2>It seems like you do not have any events yet... why not creating a new one? :)</h2>
+</div>
+
+<div ng-show="loadEvents">
+    <img class="img-responsive center-block" src="images/Loading_icon.gif" alt="">
+</div>
+<div ng-show="events.length == 0" class="no-events">
+    <h2>It seems like you do not have any events yet... why not creating a new one? :)</h2>
+</div>
+
+
+
+<div class="overview-create">
+    <a href="#/newEvent" class="overview-new-event" ng-mouseenter="newEventExtend = true" ng-mouseleave="newEventExtend = false">
+        <span ng-show="newEventExtend" class="overview-new-event-text">Create new event </span><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+</div>
+
 
 <!-- <div class="footer">
   <div class="container">
