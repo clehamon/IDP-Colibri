@@ -49,7 +49,7 @@ angular.module('eventifyApp')
 
       $scope.updateHeader = function () {
         $scope.currentUser = AuthService.currentUser();
-      }
+      };
 
   }
 ]);
