@@ -25,12 +25,6 @@
 
 </section>
 
-<!--<div class="row event-share">
-  <div class="col-md-6 col-md-offset-3">
-    <input type="text" class="event-link" value="Share event: {{'http://localhost:9000/#/event/'+event.linkId}}" readonly>
-  </div>
-</div>-->
-
 <div class="row part">
   <div class="col-md-4" ng-controller="ItemCtrl">
     <h2>Items to bring <span>({{event.stuffs.length}})</span></h2>
@@ -92,73 +86,65 @@
         <tr ng-hide="showDeleteTaskField(taskIndex)" ng-class="{true: '', false: 'table-success'}[!task.owners.length]">
           <td>
             <div ng-if="task.owners.length <= 2" ng-repeat="owner in task.owners" class="inline">
-              <img class="img-circle thumb name" src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
+              <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
               <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span>
             </div>
             <div class="pop-cont" ng-if="task.owners.length > 2">
-              <span class="glyphicon glyphicon-option-horizontal hover-pop table-left" ng-click="clickPop()">
-                          <div class="popo" ng-show="popClicked">
-                            <h5>Attendees</h5>
-                            <ul ng-repeat="owner in task.owners"> 
-                              <li>
-                                  <img class="img-circle thumb name" src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
-                                  <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span> {{owner.firstName}} {{owner.lastName}}
-              </li>
-              </ul>
+              <span class="glyphicon glyphicon-option-horizontal hover-pop table-left" ng-click="clickPop()"></span>
+              <div class="popo" ng-show="popClicked">
+                <h5>Attendees</h5>
+                <ul ng-repeat="owner in task.owners">
+                  <li>
+                    <img class="img-circle thumb name" ng-src="{{owner.avatar}}" default-SRC="images/yeoman.png" />
+                    <span class="glyphicon glyphicon-remove own-pic" ng-if="owner.id == user.id" ng-click="removeUserFromTask(task.id)"></span> {{owner.firstName}} {{owner.lastName}}
+                  </li>
+                </ul>
+              </div>
             </div>
-  </div>
-  <img ng-show="!ownsTask(task.id) && isLogged" ng-click="addUserToTask(task.id)" class="add-icon table-left" src="../images/add_user.png" />
-  </td>
-  <td>{{task.name}}</td>
-  <td><span ng-show="isLogged" ng-click="openTaskRemove(taskIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-  </tr>
-  <tr class="table-danger" ng-show="showDeleteTaskField(taskIndex)">
-    <td><span ng-click="removeTask(task.id)" class="glyphicon glyphicon-ok table-left" aria-hidden="true"></span></td>
-    <td>Delete?</td>
-    <td><span ng-click="closeTaskRemove()" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
-  </tr>
-  </tbody>
-  </table>
-  <form ng-submit="createTask()" ng-show="isLogged">
-    <div class="new-item form-group">
-      <input type="hidden" name="event" value="1">
-      <input class="form-control" type="text" name="name" ng-model="newTask" placeholder="Enter task name">
-      <span ng-click="createTask()" class="glyphicon add glyphicon-plus" aria-hidden="true"></span>
-    </div>
-  </form>
-</div>
-
-<!--<script type="text/ng-template" id="myPopoverTemplate.html">
-      <div>
-        <ul ng-repeat="attendee in dynamicPopover.content">
-          <li>{{attendee.firstName}}</li>
-        </ul>
+            <img ng-show="!ownsTask(task.id) && isLogged" ng-click="addUserToTask(task.id)" class="add-icon table-left" src="../images/add_user.png" />
+          </td>
+          <td>{{task.name}}</td>
+          <td><span ng-show="isLogged" ng-click="openTaskRemove(taskIndex)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+        </tr>
+        <tr class="table-danger" ng-show="showDeleteTaskField(taskIndex)">
+          <td><span ng-click="removeTask(task.id)" class="glyphicon glyphicon-ok table-left" aria-hidden="true"></span></td>
+          <td>Delete?</td>
+          <td><span ng-click="closeTaskRemove()" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <form ng-submit="createTask()" ng-show="isLogged">
+      <div class="new-item form-group">
+        <input type="hidden" name="event" value="1">
+        <input class="form-control" type="text" name="name" ng-model="newTask" placeholder="Enter task name">
+        <span ng-click="createTask()" class="glyphicon add glyphicon-plus" aria-hidden="true"></span>
       </div>
-    </script>-->
-<div class="col-md-4">
-  <h2>Attendees <span>({{event.attendee.length}})</span></h2>
-  <table class="table table-hover edit">
-    <thead>
-      <tr>
-        <th>Avatar</th>
-        <th>Name</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-show="!event.attendee.length">
-        <td>No attendees yet...</td>
-      </tr>
-      <tr ng-repeat="attendee in event.attendee">
-        <td class="thumb-img">
-          <img class="img-circle thumb name" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
-        </td>
-        <td>
-          {{attendee.firstName}} {{attendee.lastName}}
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+    </form>
+  </div>
+  <div class="col-md-4">
+    <h2>Attendees <span>({{event.attendee.length}})</span></h2>
+    <table class="table table-hover edit">
+      <thead>
+        <tr>
+          <th>Avatar</th>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-show="!event.attendee.length">
+          <td>No attendees yet...</td>
+        </tr>
+        <tr ng-repeat="attendee in event.attendee">
+          <td class="thumb-img">
+            <img class="img-circle thumb name" ng-src="{{attendee.avatar}}" default-SRC="images/yeoman.png" />
+          </td>
+          <td>
+            {{attendee.firstName}} {{attendee.lastName}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="row">
