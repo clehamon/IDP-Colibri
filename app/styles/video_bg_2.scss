@@ -613,11 +613,17 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .navbar-nav > li > a {
-    margin-top: 13px;
-    margin-bottom: 13px;
-    padding-bottom: 12px;
-    padding-top: 12px;
+        margin-top: 0px;
+    margin-bottom: 0px;
+    padding-bottom: 2px;
+    padding-top: 17px;
     font-size: 16px;
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 0px !important;
+    margin-left: 15px;
+    margin-right: 15px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0);
 }
 
 .navbar-nav > li > a [class^="fa"] {
@@ -683,8 +689,9 @@ fieldset[disabled] .btn-warning.active {
 .navbar-default .navbar-nav > li > a:focus {
     background-color: rgba(255, 255, 255, 0);
     border-radius: 3px;
-    color: #2C93FF;
+   /* color: #2C93FF;*/
     opacity: 1;
+  border-bottom: 2px solid grey;
 }
 
 .navbar-default .navbar-nav > .dropdown > a:hover .caret,

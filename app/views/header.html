@@ -45,7 +45,7 @@
 
       <ul ng-show="{{currentUser.id>0}}" class="nav navbar-nav navbar-right">
           <li class="log-img" ng-click="changeView(3)">
-            <a ng-class="{ white: isActive('/')}" href=""><img src="{{currentUser.avatar}}" alt="" class="img-circle headerAvatar">  {{currentUser.firstName}}</a>
+            <a class="tom" ng-class="{ white: isActive('/')}" href=""><img src="{{currentUser.avatar}}" alt="" class="img-circle headerAvatar">  {{currentUser.firstName}}</a>
           </li>
           <li ng-click="logOut()">
             <a ng-class="{ white: isActive('/')}" href="">Log out</a>

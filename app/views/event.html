@@ -164,14 +164,17 @@
                 </tr>
             </tbody>
         </table>
-        <div ng-show="checkPlaylist()">
-            <h2>Spotify Playlist</h2>
-            <iframe ng-src="{{SpotifyURI}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-        </div>
-        <div ng-show="!checkPlaylist()">
-            <h2>Add Spotify Playlist</h2>
-            <input name="Add Playlist" placeholder="Paste your playlist link here.." ng-model="newPlaylist" id="addPlaylist">
-            <button ng-click="uploadPlaylist()">Add</button>
-        </div>
+    </div>
+</div>
+
+<div class="row">
+  <div ng-show="checkPlaylist()">
+        <h2>Spotify Playlist</h2>
+        <iframe ng-src="{{SpotifyURI}}" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+    </div>
+    <div ng-show="!checkPlaylist()">
+        <h2>Add Spotify Playlist</h2>
+        <input name="Add Playlist" placeholder="Paste your playlist link here.." ng-model="newPlaylist" id="addPlaylist">
+        <button ng-click="uploadPlaylist()">Add</button>
     </div>
 </div>
