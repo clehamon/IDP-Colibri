@@ -112,6 +112,7 @@ angular.module('eventifyApp')
       return user;
     };
 
+
     $scope.addUserToEvent = function () {
       if ($scope.user) {
         EventService.addAttendee.save({}, {
@@ -119,6 +120,7 @@ angular.module('eventifyApp')
           user: $scope.user.id
         }, function (data) {
           console.log(data);
+          $scope.event.attendee.push($scope.user);
         }, function (data) {
           console.log(data);
         });
