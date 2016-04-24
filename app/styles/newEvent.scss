@@ -1,3 +1,7 @@
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "../styles/color_palette.scss";
+// endbower
 .in-row {
     list-style-type: none;
 }
@@ -27,4 +31,10 @@
 
 .textColor {
     color: #985FE8;
+}
+
+.btn-create {
+    color: #ffffff;
+    background-color: $create !important;
+    border: $create;
 }
