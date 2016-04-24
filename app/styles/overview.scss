@@ -52,7 +52,9 @@
   }
 }
 .eventCardContainer {
-  max-height: 400px;
+  max-height: 390px;
+  margin-bottom: 30px;
+
 }
 .eventCard {
   background-color: #EEE;
@@ -63,7 +65,6 @@
   max-height: 320px;
   width: 100%;
   position: relative;
-  margin-bottom: 30px;
   transition: 0.3s ease-in-out;
 }
 .eventCard.faded {
@@ -165,6 +166,7 @@
   margin: 5px auto 5px auto;
   display: block;
 }
+
 .cmn-toggle {
   position: absolute;
   margin-left: -9999px;

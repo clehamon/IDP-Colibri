@@ -1,81 +1,91 @@
 <ng-include src="'views/header.html'"></ng-include>
 
 <div class="row  overview" ng-init="getEvents()">
-  <div class="col-md-10 col-md-offset-1">
-    <ul class="nav nav-pills nav-justified" ng-init="upcoming = true">
-      <li ng-class="{'active' : upcoming}"><a href="#/overview" ng-click="upcoming = true">Upcoming events</a></li>
-      <li ng-class="{'active' : !upcoming}"><a href="#/overview" ng-click="upcoming = false">Past events</a></li>
-    </ul>
+	<div class="col-md-10 col-md-offset-1">
+		<ul class="nav nav-pills nav-justified" ng-init="upcoming = true">
+			<li ng-class="{'active' : upcoming}"><a href="#/overview" ng-click="upcoming = true">Upcoming events</a></li>
+			<li ng-class="{'active' : !upcoming}"><a href="#/overview" ng-click="upcoming = false">Past events</a></li>
+		</ul>
 
-    <div class="row overviewMain">
-      <div ng-repeat="event in events | filter:dateRangeFilter('date', upcoming)" class="col-md-4 eventCardContainer">
-        <div class="eventCard" ng-class="{faded:event.going==0}">
-          <div class="eventCard-admin">
-            <span class="glyphicon glyphicon glyphicon-king" title="Administrator" ng-show="{{event.isAdmin}}"></span>
 
-            <div class="checkbox" ng-hide="{{event.isAdmin}}">
-              <input id="{{'toggle'+event.id}}" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" ng-change="updateAttendance(event, event.going)" ng-model="event.going" ng-true-value="'1'" ng-false-value="'0'">
-              <label for="{{'toggle'+event.id}}"></label>
-            </div>
-          </div>
-          <div class="eventCard-top" style="{{event.bgStyle}}" ng-class="{'is-no-bg':{{event.coverPicture==null}}}">
-            <div class="eventCard-top-info">
-              <h3>{{event.name}}</h3>
-              <p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date: "HH:mm"}}</p>
-              <p>{{event.location}}</p>
-              <div class="eventCard-attendees" ng-mouseenter="showAttendees = true" ng-mouseleave="showAttendees = false" ng-init="showAttendees = false">
-                <span class="glyphicon glyphicon glyphicon-user"></span> {{event.attendee.length}}
-                <li ng-if="event.attendee.length > 0" class="eventCard-attendees-list" ng-show="showAttendees">
-                  <ul class="eventCard-attendee" ng-repeat="attendee in event.attendee">
-                    <img ng-src="{{attendee.avatar}}" alt="" class="img-circle"> {{attendee.firstName +" "+ attendee.lastName}}
-                  </ul>
-                </li>
-              </div>
-            </div>
-          </div>
-          <div class="eventCard-middle">
-            <div class="col-xs-6 eventCard-list">
-              <p class="eventCard-item-title stuff"><span style="display: block">My items</span></p>
-              <p class="eventCard-item" ng-repeat="stuff in event.stuffs" ng-if="$index < 3">
-                {{stuff.name}}
-              </p>
+		<div class="row overviewMain">
+			<div ng-repeat="event in events | filter:dateRangeFilter('date', upcoming)">
+				<div class="clearfix" ng-if="$index % 3 == 0"></div>
+				<div class="col-md-4 eventCardContainer">
+					<div class="eventCard" ng-class="{faded:event.going==0}">
+						<div class="eventCard-admin">
+							<span class="glyphicon glyphicon glyphicon-king" title="Administrator" ng-show="{{event.isAdmin}}"></span>
 
-              <p class="eventCard-item" ng-if="event.stuff.length > 3">
-                ...
-              </p>
-            </div>
-            <div class="col-xs-6 eventCard-list">
-              <p class="eventCard-item-title task">My tasks</p>
-              <p class="eventCard-item" ng-repeat="task in event.tasks" ng-if="$index < 3">
-                {{task.name}}
-              </p>
+							<div class="checkbox" ng-hide="{{event.isAdmin}}">
+								<input id="{{'toggle'+event.id}}" class="cmn-toggle cmn-toggle-round-flat" type="checkbox" ng-change="updateAttendance(event, event.going)" ng-model="event.going" ng-true-value="'1'" ng-false-value="'0'">
+								<label for="{{'toggle'+event.id}}"></label>
+							</div>
+						</div>
+						<div class="eventCard-top" style="{{event.bgStyle}}" ng-class="{'is-no-bg':{{event.coverPicture==null}}}">
+							<div class="eventCard-top-info">
+								<h3>{{event.name}}</h3>
+								<p>{{event.date | date:"dd/MM/yyyy"}} at {{event.time | date: "HH:mm"}}</p>
+								<p>{{event.location}}</p>
+								<div class="eventCard-attendees" ng-mouseenter="showAttendees = true" ng-mouseleave="showAttendees = false" ng-init="showAttendees = false">
+									<span class="glyphicon glyphicon glyphicon-user"></span> {{event.attendee.length}}
+									<li ng-if="event.attendee.length > 0" class="eventCard-attendees-list" ng-show="showAttendees">
+										<ul class="eventCard-attendee" ng-repeat="attendee in event.attendee">
+											<img ng-src="{{attendee.avatar}}" alt="" class="img-circle"> {{attendee.firstName +" "+ attendee.lastName}}
+										</ul>
+									</li>
+								</div>
+							</div>
+						</div>
+						<div class="eventCard-middle">
+							<div class="col-xs-6 eventCard-list">
+								<p class="eventCard-item-title stuff"><span style="display: block">My items</span></p>
+								<p class="eventCard-item" ng-repeat="stuff in event.stuffs" ng-if="$index < 3">
+									{{stuff.name}}
+								</p>
 
-              <p class="eventCard-item" ng-if="event.tasks.length > 3">
-                ...
-              </p>
-            </div>
-          </div>
-          <div class="eventCard-bottom">
-            <div class="col-xs-10 col-xs-offset-1">
-              <a type="button" class="eventCard-btn-event btn btn-primary" ng-href="#/event/{{event.linkId}}">Go to Event</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div ng-show="loadEvents">
-        <img class="img-responsive center-block" src="images/Loading_icon.gif" alt="">
-      </div>
-      <div ng-show="events.length == 0" class="no-events">It seems like you do not have any events yet... why not creating a new one? :)</h2>
-      </div>
-    </div>
+								<p class="eventCard-item" ng-if="event.stuff.length > 3">
+									...
+								</p>
+							</div>
+							<div class="col-xs-6 eventCard-list">
+								<p class="eventCard-item-title task">My tasks</p>
+								<p class="eventCard-item" ng-repeat="task in event.tasks" ng-if="$index < 3">
+									{{task.name}}
+								</p>
 
-  </div>
+								<p class="eventCard-item" ng-if="event.tasks.length > 3">
+									...
+								</p>
+							</div>
+						</div>
+						<div class="eventCard-bottom">
+							<div class="col-xs-10 col-xs-offset-1">
+								<a type="button" class="eventCard-btn-event btn btn-primary" ng-href="#/event/{{event.linkId}}">Go to Event</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div ng-show="loadEvents">
+					<img class="img-responsive center-block" src="images/Loading_icon.gif" alt="">
+				</div>
+				<div ng-show="events.length == 0" class="no-events">It seems like you do not have any events yet... why not creating a new one? :)</h2>
+				</div>
+			</div>
+			<div ng-show="loadEvents" >
+				<img class="img-responsive center-block" src="images/Loading_icon.gif" alt="">
+			</div>
+			<div ng-show="events.length == 0" class="no-events">It seems like you do not have any events yet... why not creating a new one? :)</h2>
+			</div>
+		</div>
 
-  <div class="overview-create">
-    <a href="#/newEvent" class="overview-new-event" ng-mouseenter="newEventExtend = true" ng-mouseleave="newEventExtend = false">
-      <span ng-show="newEventExtend" class="overview-new-event-text">New event </span><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-    </a>
-  </div>
+
+	</div>
+
+	<div class="overview-create">
+		<a href="#/newEvent" class="overview-new-event" ng-mouseenter="newEventExtend = true" ng-mouseleave="newEventExtend = false">
+			<span ng-show="newEventExtend" class="overview-new-event-text">New event </span><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		</a>
+	</div>
 
 </div>
 

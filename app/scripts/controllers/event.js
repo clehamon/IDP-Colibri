@@ -8,7 +8,7 @@
  * Controller of the eventifyApp
  */
 angular.module('eventifyApp')
-  .controller('EventCtrl', function ($scope, EventService, $routeParams, AuthService) {
+  .controller('EventCtrl', function ($scope, EventService, $routeParams, AuthService, $location) {
 
     $scope.linkID = $routeParams.linkID;
     $scope.editing = false;
@@ -123,6 +123,22 @@ angular.module('eventifyApp')
           console.log(data);
         });
       }
+    };
+
+    $scope.deleteEvent = function(ID){
+        if($scope.user){
+            EventService.deleteEvent.delete({
+              id: $scope.event.id
+            }, {},
+            function (data) {
+              console.log(data)
+              $location.path('/overview');
+
+            },
+            function (data) {
+              console.log(data);
+            });
+        }
     };
 
   });
