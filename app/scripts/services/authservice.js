@@ -11,6 +11,8 @@ angular.module('eventifyApp')
   .factory('AuthService', function ($auth, $location, $route, $cookies) {
 
     var currentUser = $cookies.getObject('user');
+    var currentEventId = null;
+    var currentEventLinkID = null;
     var lastError = '';
 
     // Public API here
@@ -42,6 +44,8 @@ angular.module('eventifyApp')
       },
       logout: function() {
             currentUser = null;
+            currentEventId = null;
+            currentEventLinkID = null;
             $cookies.remove('user');
             if ($location.$$path === '/') {
                 $route.reload();
@@ -60,6 +64,18 @@ angular.module('eventifyApp')
         $cookies.putObject('user',user);
 
         return currentUser; 
+      },
+      setEvent : function(eventID, linkID){
+        currentEventId = eventID;
+
+        currentEventLinkID = linkID;
+
+      },
+      getEventID : function(){
+        return currentEventId;
+      },
+      getEventLink : function(){
+        return currentEventLinkID;
       },
       currentUser: function() { 
         return currentUser; 
