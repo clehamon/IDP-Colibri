@@ -126,7 +126,7 @@
 
 .eventCard-attendees-list {
     background-color: white;
-    max-height: 205;
+    max-height: 205px;
     overflow: scroll;
     box-shadow: 1px 1px 1px 1px #DDD;
     width: 180px;
@@ -143,6 +143,7 @@
 
 .eventCard-attendee {
     padding: 0;
+    text-align: left;
 }
 
 .eventCard-attendee img {
