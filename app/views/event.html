@@ -62,7 +62,7 @@
         <tr ng-hide="showDeleteItemField(stuffIndex) " ng-class="{true: '', false: 'table-success'}[!stuff.owners.length] ">
           <td>
             <img ng-show="stuff.owner " class="img-circle thumb name thumb-img " ng-src="{{getUserByID(stuff.owner).avatar}} " default-SRC="images/yeoman.png " ng-click="removeUserFromItem(stuff.id) " />
-            <span class="glyphicon glyphicon-remove own-pic " ng-if="stuff.owner==u ser.id " ng-click="removeUserFromItem(stuff.id) "></span>
+            <span class="glyphicon glyphicon-remove own-pic " ng-if="stuff.owner==user.id " ng-click="removeUserFromItem(stuff.id) "></span>
             <img ng-show="!stuff.owner && isLogged " ng-click="addUserToItem(stuff.id) " class="table-left add-icon " src="../images/add_user.png " />
           </td>
           <td>{{stuff.name}}</td>
