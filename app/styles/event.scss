@@ -168,8 +168,8 @@ td {
   height: 200px;
 }
 .remo {
-  position: absolute;
-  top: 6px;
+  position: absolute !important;
+  top: 6px !important;
   left: 160px;
 }
 .spot {
