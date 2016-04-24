@@ -10,7 +10,14 @@
         <h3>Date: {{event.date}} Time: {{event.time}} Duration: {{event.duration}}min</h3>
         <h4 id="nakki">{{event.description}}</h4>
         <a ng-if="eventAdmin" class="btn btn-primary" ng-href="#/editevent/{{event.linkId}}">Edit</a>
-        <a ng-if="eventAdmin" class="btn btn-danger" ng-href="#/editevent/{{event.linkId}}">Delete</a>
+        <a ng-if="eventAdmin" ng-show="showDelete" class="btn btn-success">
+            <span class="glyphicon glyphicon-trash"></span>
+        </a>
+        <a ng-if="eventAdmin" ng-show="showDelete" ng-click="showDelete=false" class="btn btn-danger" >
+            <span class="glyphicon glyphicon-remove"></span>
+        </a>
+        <a ng-if="eventAdmin" ng-click="showDelete=true" ng-init="showDelete=false" class="btn btn-danger">Delete</a>
+
         <a ng-if="!isLogged || !isAttending()" class="btn btn-success" ng-click="addUserToEvent()">Join party!</a>
     </div>
     <div class="col-lg-3 map-cont">
