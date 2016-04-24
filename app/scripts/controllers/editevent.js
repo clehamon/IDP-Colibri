@@ -36,7 +36,6 @@ angular.module('eventifyApp')
         spotifyPlaylist: $scope.event.spotifyPlaylist,
         admin: $scope.adminID
       }, function (data) {
-        console.log(data);
         $location.path('/event/' + $scope.event.linkId);
 
       }, function (data) {

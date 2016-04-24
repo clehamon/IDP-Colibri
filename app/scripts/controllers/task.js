@@ -37,7 +37,6 @@ angular.module('eventifyApp')
           name: $scope.newTask
         },
         function (data) {
-          console.log(data);
           $scope.event.tasks.push({
             completed: 0,
             id: data.id,
@@ -65,7 +64,6 @@ angular.module('eventifyApp')
             }
           }
           $scope.deleteTaskIndex = -1;
-          console.log(data);
         },
         function (data) {
           console.log(data);
@@ -86,12 +84,10 @@ angular.module('eventifyApp')
     };
 
     $scope.addUserToTask = function (taskID) {
-      console.log(taskID);
       TaskService.AddTaskOwner.save({}, {
         task: taskID,
         owner: AuthService.currentUser().id
       }, function (data) {
-        console.log(data);
         for (var i = 0; i < $scope.event.tasks.length; i++) {
           if ($scope.event.tasks[i].id === taskID) {
             $scope.event.tasks[i].owners.push(AuthService.currentUser());
@@ -104,7 +100,6 @@ angular.module('eventifyApp')
     };
 
     $scope.removeUserFromTask = function (taskID) {
-      console.log(taskID + ', owner:' + AuthService.currentUser().id);
       TaskService.RemoveTaskOwner.delete({
           taskId: taskID,
           ownerId: AuthService.currentUser().id
@@ -115,7 +110,6 @@ angular.module('eventifyApp')
             if ($scope.event.tasks[i].id === taskID) {
               for (var j = 0; j < $scope.event.tasks[i].owners.length; j++) {
                 if ($scope.event.tasks[i].owners[j].id === AuthService.currentUser().id) {
-                  console.log($scope.event.tasks[i].owners[j].id);
                   $scope.event.tasks[i].owners.splice(j--, 1);
                 }
               }

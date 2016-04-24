@@ -22,7 +22,6 @@ angular.module('eventifyApp')
           event: $scope.event.id,
         },
         function (data) {
-          console.log(data);
           $scope.event.stuffs.push({
             event: $scope.event.id,
             id: data.id,
@@ -39,7 +38,6 @@ angular.module('eventifyApp')
     };
 
     $scope.removeItem = function (ID) {
-      console.log(ID);
       StuffService.removeStuff.delete({
           id: ID
         }, {},
@@ -50,7 +48,6 @@ angular.module('eventifyApp')
             }
           }
           $scope.deleteItemIndex = -1;
-          console.log(data);
         },
         function (data) {
           console.log(data);

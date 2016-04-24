@@ -31,7 +31,6 @@ angular.module('eventifyApp')
       } else {
         $scope.popClicked = index;
       }
-      console.log($scope.popClicked);
     };
 
     //this method initializes the data for the view
@@ -39,7 +38,7 @@ angular.module('eventifyApp')
       EventService.Event.get({
         eventId: $scope.linkID
       }, function (data) {
-        console.log(data);
+
         $scope.event = data;
 
         if ($scope.isLogged) {
@@ -66,7 +65,6 @@ angular.module('eventifyApp')
         $scope.id = data.id;
         $scope.Spotify = data.spotifyPlaylist;
 
-        console.log(data.spotifyPlaylist);
 
         $scope.checkPlaylist = function () {
           if (data.spotifyPlaylist) {
@@ -96,7 +94,6 @@ angular.module('eventifyApp')
         EventService.setEventData(data);
 
       }, function (data) {
-        console.log(data);
         $scope.showError();
       });
     };
@@ -117,10 +114,8 @@ angular.module('eventifyApp')
           event: $scope.event.id,
           user: $scope.user.id
         }, function (data) {
-          console.log(data);
           $scope.event.attendee.push($scope.user);
         }, function (data) {
-          console.log(data);
           $scope.showError();
         });
       } else {
@@ -137,11 +132,9 @@ angular.module('eventifyApp')
             id: $scope.event.id
           }, {},
           function (data) {
-            console.log(data)
             $location.path('/overview');
           },
           function (data) {
-            console.log(data);
             $scope.showError();
           });
       }
