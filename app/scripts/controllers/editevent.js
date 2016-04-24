@@ -11,7 +11,6 @@ angular.module('eventifyApp')
   .controller('EditeventCtrl', function ($scope, EventService, $location, $filter) {
     angular.element(document).ready(function () {
       $scope.event = EventService.getEventData();
-      console.log($scope.event);
 
       $scope.imageStyle = {
         background: 'linear-gradient( rgba(0, 0, 0,0.5), rgba(0, 0, 0,0.5) ), url(' + $scope.event.coverPicture + ') no-repeat center center',
@@ -22,9 +21,6 @@ angular.module('eventifyApp')
 
 
     $scope.processForm = function () {
-      console.log($('#time-inp').val());
-
-      //var times = $('#time-inp').val().split(':');
 
       EventService.updateEvent.update({}, {
         id: $scope.event.id,
