@@ -121,11 +121,7 @@ angular.module('eventifyApp')
           console.log(data);
         });
       } else {
-        var redirectEvent = {
-          id : $scope.event.id,
-          linkID: $scope.event.linkId
-        }
-        AuthService.setEvent(redirectEvent);
+        AuthService.redirectEvent($scope.event.id, $scope.event.linkId);
 
         $rootScope.$emit('changeView', {});
 
